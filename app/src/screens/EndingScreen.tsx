@@ -1,7 +1,7 @@
 /** エンディング。結末CG＋セリフを表示し、読み終わると周回解放の告知を出してタイトルへ。 */
 
 import { useState } from "react";
-import { ENDING_CG } from "../data/endings";
+import { endingCg } from "../data/endings";
 import { useGameStore } from "../store/gameStore";
 import { useSaveStore } from "../store/saveStore";
 import type { LoopId } from "../types/game";
@@ -25,7 +25,7 @@ export function EndingScreen() {
     );
   }
 
-  const cg = ENDING_CG[ending.id];
+  const cg = endingCg(ending.id, loop);
   const line = ending.lines[Math.min(index, ending.lines.length - 1)]!;
   const finished = index >= ending.lines.length;
   const nextLoop = (loop + 1) as LoopId;

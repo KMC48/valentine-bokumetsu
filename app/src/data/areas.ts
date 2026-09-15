@@ -27,6 +27,8 @@ export type AreaDef = {
   /** 主人公のセリフや現在地表示に使う短い説明。 */
   hint: string;
   background: string;
+  /** 背景がすでに夕方の絵か。放課後に色を被せるかの判定に使う。 */
+  duskArt?: boolean;
   /** 背景の縦の見せ方（床が見える位置）。 */
   focusY: number;
   floor: FloorShape;
@@ -113,6 +115,7 @@ const AREA_LIST: AreaDef[] = [
     label: "体育館裏",
     hint: "告白の定番だ。ここが本丸になる。",
     background: ASSETS.bgSchoolAfter.src,
+    duskArt: true,
     focusY: 58,
     floor: { ...OUTDOOR_FLOOR, farHalf: 17, nearHalf: 58 },
   },
@@ -121,6 +124,7 @@ const AREA_LIST: AreaDef[] = [
     label: "屋上前",
     hint: "鍵を借りた奴がいる。その時点で怪しい。",
     background: ASSETS.bgRooftop.src,
+    duskArt: true,
     focusY: 62,
     floor: INDOOR_FLOOR,
   },
@@ -129,6 +133,7 @@ const AREA_LIST: AreaDef[] = [
     label: "部室棟",
     hint: "部活の名を借りて集まっている。人数が多すぎる。",
     background: ASSETS.placeClubrooms.src,
+    duskArt: true,
     focusY: 60,
     floor: { ...OUTDOOR_FLOOR, farHalf: 15, nearHalf: 56 },
   },
@@ -138,6 +143,7 @@ const AREA_LIST: AreaDef[] = [
     label: "校門",
     hint: "下校の流れに紛れて持ち出す気だ。",
     background: ASSETS.placeGateAfter.src,
+    duskArt: true,
     focusY: 66,
     floor: OUTDOOR_FLOOR,
   },
@@ -188,6 +194,7 @@ const AREA_LIST: AreaDef[] = [
     label: "体育館裏",
     hint: "学校が変わっても、告白の場所は変わらない。",
     background: ASSETS.loop2GymBack.src,
+    duskArt: true,
     focusY: 58,
     floor: { ...OUTDOOR_FLOOR, farHalf: 17, nearHalf: 58 },
   },
@@ -196,6 +203,7 @@ const AREA_LIST: AreaDef[] = [
     label: "屋上前",
     hint: "鍵の管理が厳しい学校ほど、鍵を持つ奴が怪しい。",
     background: ASSETS.loop2Rooftop.src,
+    duskArt: true,
     focusY: 62,
     floor: INDOOR_FLOOR,
   },
@@ -246,6 +254,7 @@ const AREA_LIST: AreaDef[] = [
     label: "体育館裏",
     hint: "見張りが立っている。それ自体が答えだ。",
     background: ASSETS.loop3GymBack.src,
+    duskArt: true,
     focusY: 58,
     floor: { ...OUTDOOR_FLOOR, farHalf: 17, nearHalf: 58 },
   },
@@ -254,6 +263,7 @@ const AREA_LIST: AreaDef[] = [
     label: "屋上前",
     hint: "三日前から鍵の当番を代わっている奴がいる。",
     background: ASSETS.loop3Rooftop.src,
+    duskArt: true,
     focusY: 62,
     floor: INDOOR_FLOOR,
   },
@@ -293,15 +303,12 @@ const STAGE_AREAS: Record<LoopId, Record<StageId, AreaId[]>> = {
 /**
  * 放課後に夕方の色を被せるか。
  *
- * 1周目の放課後の背景（体育館裏・屋上前・部室棟・校門）は夕焼けの絵だが、
- * 2・3周目の放課後は **昼間の青空の絵しか無い**。
- * そのまま出すと、朝・昼・放課後がすべて同じ明るさになり、
- * 時間が進んでいることが画面から読み取れなくなる。
- *
- * 夕方の絵が納品されたら、ここを false にして差し替える。
+ * 放課後の場所の多くは夕焼けの絵が揃っている（duskArt）。
+ * 揃っていないのは、朝と放課後で同じ絵を使い回している中庭だけ。
+ * そのまま出すと朝と放課後が見分けられないので、色で時間を示す。
  */
-export function needsDuskTint(loop: LoopId, stage: StageId): boolean {
-  return stage === "afterSchool" && loop !== 1;
+export function needsDuskTint(stage: StageId, area: AreaDef): boolean {
+  return stage === "afterSchool" && !area.duskArt;
 }
 
 /** 定義されている場所IDの一覧。掲示物などの紐付け先の検算に使う。 */

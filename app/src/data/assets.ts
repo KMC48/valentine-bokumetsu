@@ -81,6 +81,17 @@ export const ASSETS = {
   endingB: { src: "assets/endings/ending_b.webp", status: "ready", kind: "ending" },
   endingC: { src: "assets/endings/ending_c.webp", status: "ready", kind: "ending" },
   endingSpecial: { src: "assets/endings/ending_special.webp", status: "ready", kind: "ending" },
+  // 学校別のエンディングCG。2・3周目も5種類ずつ揃っている。
+  loop2EndingS: { src: "assets/endings/loop2_ending_s.webp", status: "ready", kind: "ending" },
+  loop2EndingA: { src: "assets/endings/loop2_ending_a.webp", status: "ready", kind: "ending" },
+  loop2EndingB: { src: "assets/endings/loop2_ending_b.webp", status: "ready", kind: "ending" },
+  loop2EndingC: { src: "assets/endings/loop2_ending_c.webp", status: "ready", kind: "ending" },
+  loop2EndingSpecial: { src: "assets/endings/loop2_ending_special.webp", status: "ready", kind: "ending" },
+  loop3EndingS: { src: "assets/endings/loop3_ending_s.webp", status: "ready", kind: "ending" },
+  loop3EndingA: { src: "assets/endings/loop3_ending_a.webp", status: "ready", kind: "ending" },
+  loop3EndingB: { src: "assets/endings/loop3_ending_b.webp", status: "ready", kind: "ending" },
+  loop3EndingC: { src: "assets/endings/loop3_ending_c.webp", status: "ready", kind: "ending" },
+  loop3EndingSpecial: { src: "assets/endings/loop3_ending_special.webp", status: "ready", kind: "ending" },
 
   // ---------- 人物：全身（ステージ配置用。実体ぴったりにトリミング済み） ----------
   player: { src: "assets/characters/player.webp", status: "ready", kind: "character" },
@@ -154,6 +165,18 @@ export const ASSETS = {
   mobGirl1: { src: "assets/characters/mob/mob_girl_1.webp", status: "ready", kind: "character" },
   mobGirl2: { src: "assets/characters/mob/mob_girl_2.webp", status: "ready", kind: "character" },
   mobGirl3: { src: "assets/characters/mob/mob_girl_3.webp", status: "ready", kind: "character" },
+  // 立ち止まっている／座っている／談笑しているモブ（0915追加）。
+  // 既存の6人は「鞄を持って歩き去る後ろ姿」しか無く、室内には置けなかった。
+  mobSit1: { src: "assets/characters/mob/mob_sit_1.webp", status: "ready", kind: "character" },
+  mobSit2: { src: "assets/characters/mob/mob_sit_2.webp", status: "ready", kind: "character" },
+  mobSit3: { src: "assets/characters/mob/mob_sit_3.webp", status: "ready", kind: "character" },
+  mobBlackboard: { src: "assets/characters/mob/mob_blackboard.webp", status: "ready", kind: "character" },
+  mobTalkA1: { src: "assets/characters/mob/mob_talk_a1.webp", status: "ready", kind: "character" },
+  mobTalkA2: { src: "assets/characters/mob/mob_talk_a2.webp", status: "ready", kind: "character" },
+  mobTalkB1: { src: "assets/characters/mob/mob_talk_b1.webp", status: "ready", kind: "character" },
+  mobTalkB2: { src: "assets/characters/mob/mob_talk_b2.webp", status: "ready", kind: "character" },
+  mobStand1: { src: "assets/characters/mob/mob_stand_1.webp", status: "ready", kind: "character" },
+  mobStand2: { src: "assets/characters/mob/mob_stand_2.webp", status: "ready", kind: "character" },
 
   // ---------- 校内掲示物（壁に重ねる） ----------
   signNoSweets: { src: "assets/signage/sign_no_sweets.webp", status: "ready", kind: "item" },

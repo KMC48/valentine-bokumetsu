@@ -9,7 +9,8 @@ import { describe, expect, it } from "vitest";
 
 import { MOB_AREA_IDS } from "../components/MobCrowd";
 import { SIGNAGE_AREA_IDS } from "../components/Signage";
-import { AREA_IDS, needsDuskTint } from "../data/areas";
+import { AREA_IDS, getArea, needsDuskTint } from "../data/areas";
+import { endingCg } from "../data/endings";
 
 describe("掲示物の配置", () => {
   it("すべて実在する場所IDに紐付いている", () => {
@@ -35,16 +36,25 @@ describe("掲示物の配置", () => {
 });
 
 describe("放課後の時間帯", () => {
-  it("2・3周目だけ夕方の色を被せる（昼間の絵しか無いため）", () => {
-    expect(needsDuskTint(1, "afterSchool")).toBe(false);
-    expect(needsDuskTint(2, "afterSchool")).toBe(true);
-    expect(needsDuskTint(3, "afterSchool")).toBe(true);
+  it("夕方の絵があるエリアには色を被せない", () => {
+    for (const id of ["gymBack", "rooftop", "clubrooms", "gateAfter", "l2GymBack", "l2Rooftop"]) {
+      expect(needsDuskTint("afterSchool", getArea(id))).toBe(false);
+    }
   });
 
-  it("朝と昼には被せない", () => {
-    for (const loop of [1, 2, 3] as const) {
-      expect(needsDuskTint(loop, "morning")).toBe(false);
-      expect(needsDuskTint(loop, "lunch")).toBe(false);
+  it("朝と絵を共用している中庭には、放課後だけ色を被せる", () => {
+    for (const id of ["l2Courtyard", "l3Courtyard"]) {
+      expect(needsDuskTint("afterSchool", getArea(id))).toBe(true);
+      expect(needsDuskTint("morning", getArea(id))).toBe(false);
+    }
+  });
+});
+
+describe("エンディングCG", () => {
+  it("3校とも、その学校の制服のCGが出る", () => {
+    for (const id of ["ending-s", "ending-a", "ending-b", "ending-c", "ending-special"]) {
+      const srcs = [1, 2, 3].map((l) => endingCg(id, l).src);
+      expect(new Set(srcs).size).toBe(3);
     }
   });
 });

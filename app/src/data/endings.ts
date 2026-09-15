@@ -3,6 +3,31 @@
 import { ASSETS } from "./assets";
 import type { EndingDef } from "../types/game";
 
+/**
+ * 学校別のエンディングCG。
+ *
+ * エンディングは1周ごとに流れるので、その学校の制服のCGが要る。
+ * 見つからない場合だけ1周目の絵で代用する。
+ */
+const BY_LOOP: Record<string, string> = {
+  "2:ending-s": ASSETS.loop2EndingS.src,
+  "2:ending-a": ASSETS.loop2EndingA.src,
+  "2:ending-b": ASSETS.loop2EndingB.src,
+  "2:ending-c": ASSETS.loop2EndingC.src,
+  "2:ending-special": ASSETS.loop2EndingSpecial.src,
+  "3:ending-s": ASSETS.loop3EndingS.src,
+  "3:ending-a": ASSETS.loop3EndingA.src,
+  "3:ending-b": ASSETS.loop3EndingB.src,
+  "3:ending-c": ASSETS.loop3EndingC.src,
+  "3:ending-special": ASSETS.loop3EndingSpecial.src,
+};
+
+/** その周回・そのエンディングで使うCG。 */
+export function endingCg(id: string, loop: number): { src: string | null; fit: "cover" | "contain" } {
+  const base = ENDING_CG[id] ?? { src: null, fit: "cover" as const };
+  return { ...base, src: BY_LOOP[`${loop}:${id}`] ?? base.src };
+}
+
 /** エンディングID → 結末CG。特殊エンドのみ手が切れないよう contain 表示にする。 */
 export const ENDING_CG: Record<string, { src: string | null; fit: "cover" | "contain" }> = {
   "ending-s": { src: ASSETS.endingS.status === "ready" ? ASSETS.endingS.src : null, fit: "cover" },

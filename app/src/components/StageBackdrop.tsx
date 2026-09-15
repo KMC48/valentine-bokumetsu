@@ -2,19 +2,18 @@
 
 import { needsDuskTint, type AreaDef } from "../data/areas";
 import { STAGES } from "../data/stages";
-import type { LoopId, StageId } from "../types/game";
+import type { StageId } from "../types/game";
 import { Signage } from "./Signage";
 import { TeacherSprite } from "./Sprites";
 
 type Props = {
-  loop: LoopId;
   stage: StageId;
   area: AreaDef;
 };
 
-export function StageBackdrop({ loop, stage, area }: Props) {
+export function StageBackdrop({ stage, area }: Props) {
   const def = STAGES[stage];
-  const dusk = needsDuskTint(loop, stage);
+  const dusk = needsDuskTint(stage, area);
 
   return (
     <div className={`backdrop backdrop--${def.palette}`}>

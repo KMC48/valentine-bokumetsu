@@ -125,7 +125,7 @@ export function StageScreen() {
       )}
 
       <div className="gamearea">
-        <StageBackdrop loop={loop} stage={stage} area={currentArea} />
+        <StageBackdrop stage={stage} area={currentArea} />
 
         <MobCrowd areaId={area} />
 
