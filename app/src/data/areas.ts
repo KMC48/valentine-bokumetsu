@@ -290,6 +290,20 @@ const STAGE_AREAS: Record<LoopId, Record<StageId, AreaId[]>> = {
   },
 };
 
+/**
+ * 放課後に夕方の色を被せるか。
+ *
+ * 1周目の放課後の背景（体育館裏・屋上前・部室棟・校門）は夕焼けの絵だが、
+ * 2・3周目の放課後は **昼間の青空の絵しか無い**。
+ * そのまま出すと、朝・昼・放課後がすべて同じ明るさになり、
+ * 時間が進んでいることが画面から読み取れなくなる。
+ *
+ * 夕方の絵が納品されたら、ここを false にして差し替える。
+ */
+export function needsDuskTint(loop: LoopId, stage: StageId): boolean {
+  return stage === "afterSchool" && loop !== 1;
+}
+
 /** 定義されている場所IDの一覧。掲示物などの紐付け先の検算に使う。 */
 export const AREA_IDS: string[] = AREA_LIST.map((a) => a.id);
 

@@ -1,18 +1,20 @@
 /** ステージ背景。周回×時間帯の実写背景があればそれを、無ければCSSの仮背景を使う。 */
 
-import type { AreaDef } from "../data/areas";
+import { needsDuskTint, type AreaDef } from "../data/areas";
 import { STAGES } from "../data/stages";
-import type { StageId } from "../types/game";
+import type { LoopId, StageId } from "../types/game";
 import { Signage } from "./Signage";
 import { TeacherSprite } from "./Sprites";
 
 type Props = {
+  loop: LoopId;
   stage: StageId;
   area: AreaDef;
 };
 
-export function StageBackdrop({ stage, area }: Props) {
+export function StageBackdrop({ loop, stage, area }: Props) {
   const def = STAGES[stage];
+  const dusk = needsDuskTint(loop, stage);
 
   return (
     <div className={`backdrop backdrop--${def.palette}`}>
@@ -24,6 +26,8 @@ export function StageBackdrop({ stage, area }: Props) {
             alt=""
             style={{ objectPosition: `center ${area.focusY}%` }}
           />
+          {/* 昼間の絵しか無い放課後に、時間帯を色で示す。 */}
+          {dusk && <div className="backdrop__dusk" />}
           <Signage areaId={area.id} />
         </>
       ) : (

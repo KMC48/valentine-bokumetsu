@@ -21,6 +21,9 @@ scripts/__pycache__/
 scripts/_*.txt
 scripts/_*.json
 
+# 確認用スクショ（39MB。手元で見るためのもの）
+確認用スクショ/
+
 # OS
 Thumbs.db
 desktop.ini

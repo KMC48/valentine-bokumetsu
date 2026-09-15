@@ -42,7 +42,8 @@ const CLASSROOM_SIGNS: SignPlacement[] = [
 /** 場所ごとの掲示物の配置。 */
 const PLACEMENTS: Record<string, SignPlacement[]> = {
   entrance: [
-    { src: ASSETS.signNoSweets.src, left: 3, top: 6, width: 17, rotate: -2 },
+    // 横断幕と高さが重なると読みにくいので、ポスターは下駄箱の壁面まで下げる。
+    { src: ASSETS.signNoSweets.src, left: 2, top: 17, width: 11, rotate: -2 },
     { src: ASSETS.bannerLoop1.src, left: 22, top: 2, width: 58, rotate: 0, opacity: 1 },
   ],
   // 室名札（2-1）は廊下側に掛かるものなので、教室の中には出さない。

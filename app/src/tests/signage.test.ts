@@ -8,7 +8,7 @@
 import { describe, expect, it } from "vitest";
 
 import { SIGNAGE_AREA_IDS } from "../components/Signage";
-import { AREA_IDS } from "../data/areas";
+import { AREA_IDS, needsDuskTint } from "../data/areas";
 
 describe("掲示物の配置", () => {
   it("すべて実在する場所IDに紐付いている", () => {
@@ -19,6 +19,21 @@ describe("掲示物の配置", () => {
   it("3校すべての校門に横断幕が出る", () => {
     for (const id of ["gate", "gateAfter", "l2Gate", "l3Gate"]) {
       expect(SIGNAGE_AREA_IDS).toContain(id);
+    }
+  });
+});
+
+describe("放課後の時間帯", () => {
+  it("2・3周目だけ夕方の色を被せる（昼間の絵しか無いため）", () => {
+    expect(needsDuskTint(1, "afterSchool")).toBe(false);
+    expect(needsDuskTint(2, "afterSchool")).toBe(true);
+    expect(needsDuskTint(3, "afterSchool")).toBe(true);
+  });
+
+  it("朝と昼には被せない", () => {
+    for (const loop of [1, 2, 3] as const) {
+      expect(needsDuskTint(loop, "morning")).toBe(false);
+      expect(needsDuskTint(loop, "lunch")).toBe(false);
     }
   });
 });

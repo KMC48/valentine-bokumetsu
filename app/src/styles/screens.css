@@ -53,10 +53,16 @@
 }
 
 .title-screen__main {
-  font-size: 1.9em;
+  /* 2行になったぶん、1行あたりを大きくできる。 */
+  font-size: 2.5em;
   font-weight: 900;
+  line-height: 1.08;
   letter-spacing: 0.04em;
   text-shadow: 0 3px 0 #000, 0 0 24px rgba(255, 45, 106, 0.6);
+}
+
+.title-screen__line {
+  display: block;
 }
 
 .title-screen__main em {
@@ -64,11 +70,24 @@
   font-style: normal;
 }
 
+/*
+ * タグライン。
+ *
+ * 背景が人物入りのCGなので、影を濃くするだけでは文字の下の柄が透けて読みにくい。
+ * 文字のうしろに暗い帯を敷いて、地の明暗によらず一定の読みやすさを確保する。
+ */
 .title-screen__tagline {
-  font-size: 0.78em;
-  color: #dfe6f5;
-  letter-spacing: 0.14em;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  font-size: 0.95em;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.18em;
+  /* 帯の見た目。letter-spacing で右に余白が出るので、右padding を1文字ぶん足す。 */
+  padding: 0.4em 1.1em 0.4em 1.2em;
+  border-radius: 999px;
+  background: rgba(6, 9, 18, 0.72);
+  border: 1px solid rgba(255, 45, 106, 0.45);
+  backdrop-filter: blur(3px);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
 }
 
 .title-screen__menu {

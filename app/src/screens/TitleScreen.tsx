@@ -24,7 +24,11 @@ export function TitleScreen() {
 
       <div className="title-screen__logo">
         <h1 className="title-screen__main">
-          バレンタイン<em>撲滅</em>委員会
+          {/* 2行に割る。span で分けておかないと、画面幅しだいで折れ位置が変わる。 */}
+          <span className="title-screen__line">バレンタイン</span>
+          <span className="title-screen__line">
+            <em>撲滅</em>委員会
+          </span>
         </h1>
         <p className="title-screen__tagline">甘い世界を、終わらせろ。</p>
       </div>
