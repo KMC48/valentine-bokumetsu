@@ -26,7 +26,7 @@ type Props = {
  * ここに載せないことで、紺制服の振り向きに化けるのを防いでいる
  * （制服が変わってしまい、別人に見えるため）。
  */
-const TURN_VARIANT: Record<string, string> = {
+export const TURN_VARIANT: Record<string, string> = {
   [ASSETS.girl001.src]: ASSETS.girl001Turn.src,
   [ASSETS.girl002.src]: ASSETS.girl002Turn.src,
   [ASSETS.girl003.src]: ASSETS.girl003Turn.src,
@@ -37,6 +37,18 @@ const TURN_VARIANT: Record<string, string> = {
   [ASSETS.girl008.src]: ASSETS.girl008Turn.src,
   [ASSETS.girl009.src]: ASSETS.girl009Turn.src,
   [ASSETS.girl010.src]: ASSETS.girl010Turn.src,
+  // 学校別制服の振り向き（0916追加）。以前は差分が無く、
+  // 紺の制服に化けるのを防ぐためあえて登録していなかった。
+  [ASSETS.loop2Girl01.src]: ASSETS.loop2Girl01Turn.src,
+  [ASSETS.loop2Girl02.src]: ASSETS.loop2Girl02Turn.src,
+  [ASSETS.loop2Girl03.src]: ASSETS.loop2Girl03Turn.src,
+  [ASSETS.loop2Girl04.src]: ASSETS.loop2Girl04Turn.src,
+  [ASSETS.loop2Girl05.src]: ASSETS.loop2Girl05Turn.src,
+  [ASSETS.loop3Girl01.src]: ASSETS.loop3Girl01Turn.src,
+  [ASSETS.loop3Girl02.src]: ASSETS.loop3Girl02Turn.src,
+  [ASSETS.loop3Girl03.src]: ASSETS.loop3Girl03Turn.src,
+  [ASSETS.loop3Girl04.src]: ASSETS.loop3Girl04Turn.src,
+  [ASSETS.loop3Girl05.src]: ASSETS.loop3Girl05Turn.src,
 };
 
 export function StudentTarget({ student, loop, view, selected, debug, onSelect }: Props) {

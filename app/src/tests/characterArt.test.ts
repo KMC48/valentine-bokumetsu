@@ -6,14 +6,16 @@
  */
 
 import { describe, expect, it } from "vitest";
+import { TURN_VARIANT } from "../components/StudentTarget";
+import { ASSETS } from "../data/assets";
 import { STUDENTS } from "../data/students";
 import type { LoopId } from "../types/game";
 
 /** 周回ごとに使ってよい立ち絵の接頭辞。 */
 const ALLOWED_PREFIX: Record<LoopId, RegExp> = {
   1: /^assets\/characters\/girl_0(0[1-9]|10)\.webp$/,
-  2: /^assets\/characters\/loop2_girl_0[1-5]\.webp$/,
-  3: /^assets\/characters\/loop3_girl_0[1-5]\.webp$/,
+  2: /^assets\/characters\/loop2_girl_(0[1-9]|10)\.webp$/,
+  3: /^assets\/characters\/loop3_girl_(0[1-9]|10)\.webp$/,
 };
 
 /** チョコが手に丸見えの絵。無実の生徒に使うと結果と矛盾する。 */
@@ -66,5 +68,55 @@ describe("立ち絵の割り当て", () => {
       const dup = images.filter((img, i) => images.indexOf(img) !== i);
       expect(dup, `${place} で重複`).toHaveLength(0);
     }
+  });
+});
+
+describe("学校別の差分がそろっているか", () => {
+  it("3校とも10種類の立ち絵があり、すべて振り向き差分を持つ", () => {
+    const sets = [
+      Array.from({ length: 10 }, (_, i) => `assets/characters/girl_${String(i + 1).padStart(3, "0")}.webp`),
+      Array.from({ length: 10 }, (_, i) => `assets/characters/loop2_girl_${String(i + 1).padStart(2, "0")}.webp`),
+      Array.from({ length: 10 }, (_, i) => `assets/characters/loop3_girl_${String(i + 1).padStart(2, "0")}.webp`),
+    ];
+    const known = new Set(Object.values(ASSETS).map((a: { src: string }) => a.src));
+    for (const set of sets) {
+      for (const src of set) expect(known.has(src)).toBe(true);
+    }
+  });
+
+  it("「鞄も持っていない」生徒には、鞄を持った絵を使わない", () => {
+    // ヒントが手ぶらだと明言している生徒は、手ぶらであること自体が手がかり。
+    // 鞄を持った絵を当てると、観察メモと画面が食い違う。
+    const EMPTY_HANDED = /girl_0?0?[89]\.webp$/;
+    for (const s of STUDENTS) {
+      const hints = s.hints.join("");
+      // 「渡したあと手ぶらになった」のように、今は持っている生徒もいる。
+      // 見えている持ち物が無い生徒だけが対象。
+      const nothingVisible = (s.visibleItem ?? "none") === "none";
+      const saysEmpty =
+        nothingVisible &&
+        (hints.includes("一度も持たない") || (hints.includes("手ぶら") && !hints.includes("鞄")));
+      if (saysEmpty && s.image) {
+        expect(s.image, `${s.id}: ${hints}`).toMatch(EMPTY_HANDED);
+      }
+    }
+  });
+
+});
+
+describe("振り向き差分", () => {
+  it("振り向いた絵は、必ず同じ学校の制服になる", () => {
+    // 対応表を取り違えると、2周目の生徒が紺の制服に化ける。
+    for (const [normal, turn] of Object.entries(TURN_VARIANT)) {
+      const school = normal.match(/loop[23]/)?.[0] ?? "loop1";
+      expect(turn.match(/loop[23]/)?.[0] ?? "loop1", normal).toBe(school);
+    }
+  });
+
+  it("振り向かないのは、差分が未納の 2・3周目の girl_06〜10 だけ", () => {
+    // ここが増えたら、素材の取りこぼしか割り当てミス。
+    const missing = STUDENTS.filter((s) => !TURN_VARIANT[s.image!]).map((s) => s.image!);
+    const allowed = /^assets\/characters\/loop[23]_girl_(0[6-9]|10)\.webp$/;
+    for (const src of missing) expect(src).toMatch(allowed);
   });
 });

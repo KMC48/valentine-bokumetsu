@@ -8,16 +8,17 @@
 
 import { ASSETS } from "../data/assets";
 import { atmosphericFade, depthHeight } from "../game/perspective";
+import type { LoopId } from "../types/game";
 
-/** 歩き去る後ろ姿（屋外・廊下の通行人）。 */
-const WALKING = [
-  ASSETS.mobBoy1.src,
-  ASSETS.mobGirl1.src,
-  ASSETS.mobBoy2.src,
-  ASSETS.mobGirl2.src,
-  ASSETS.mobBoy3.src,
-  ASSETS.mobGirl3.src,
-];
+/**
+ * 歩き去る後ろ姿（屋外・廊下の通行人）。
+ * 学校が変われば制服も変わるので、周回ごとに持つ。
+ */
+const WALKING: Record<LoopId, string[]> = {
+  1: [ASSETS.mobBoy1.src, ASSETS.mobGirl1.src, ASSETS.mobBoy2.src, ASSETS.mobGirl2.src, ASSETS.mobBoy3.src, ASSETS.mobGirl3.src],
+  2: [ASSETS.loop2MobBoy1.src, ASSETS.loop2MobGirl1.src, ASSETS.loop2MobBoy2.src, ASSETS.loop2MobGirl2.src, ASSETS.loop2MobBoy3.src, ASSETS.loop2MobGirl3.src],
+  3: [ASSETS.loop3MobBoy1.src, ASSETS.loop3MobGirl1.src, ASSETS.loop3MobBoy2.src, ASSETS.loop3MobGirl2.src, ASSETS.loop3MobBoy3.src, ASSETS.loop3MobGirl3.src],
+};
 
 /**
  * モブの立ち位置。
@@ -110,11 +111,12 @@ export const MOB_AREA_IDS = Object.keys(SLOTS_BY_AREA);
 function mobIndexFor(areaId: string, slot: number): number {
   let hash = 0;
   for (const ch of areaId) hash = (hash * 31 + ch.charCodeAt(0)) % 9973;
-  return (hash + slot * 3) % WALKING.length;
+  return (hash + slot * 3) % 6;
 }
 
-export function MobCrowd({ areaId }: { areaId: string }) {
+export function MobCrowd({ areaId, loop }: { areaId: string; loop: LoopId }) {
   const slots = SLOTS_BY_AREA[areaId] ?? [];
+  const walking = WALKING[loop];
   if (slots.length === 0) return null;
 
   return (
@@ -123,7 +125,7 @@ export function MobCrowd({ areaId }: { areaId: string }) {
         <img
           key={i}
           className="mob"
-          src={slot.src ?? WALKING[mobIndexFor(areaId, i)]}
+          src={slot.src ?? walking[mobIndexFor(areaId, i)]}
           alt=""
           style={{
             left: `${slot.x}%`,

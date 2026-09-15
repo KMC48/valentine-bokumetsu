@@ -14,9 +14,9 @@
 
 3. 同じ持ち物でも複数の絵を順番に使い、同じ顔が固まらないようにする。
 
-【素材の制約】
-新規の girl_006〜010（弁当箱・部活バッグ・スマホ・手ぶら・ポーチ）は
-1周目の紺制服しかない。2・3周目ではその学校の5種類で代用する。
+【素材の状況】
+0916追加で、10種類すべてが3校ぶん揃った。
+代用（FALLBACK）は使っていない。
 """
 import re
 from collections import Counter, defaultdict
@@ -31,21 +31,16 @@ ROLE_FILES = {
     "hiding":    ("girl_003", "loop2_girl_03", "loop3_girl_03"),
     "books":     ("girl_004", "loop2_girl_04", "loop3_girl_04"),
     "satchel":   ("girl_005", "loop2_girl_05", "loop3_girl_05"),
-    "lunchbox":  ("girl_006", None, None),
-    "sportsBag": ("girl_007", None, None),
-    "phone":     ("girl_008", None, None),
-    "emptyHands":("girl_009", None, None),
-    "pouch":     ("girl_010", None, None),
+    "lunchbox":  ("girl_006", "loop2_girl_06", "loop3_girl_06"),
+    "sportsBag": ("girl_007", "loop2_girl_07", "loop3_girl_07"),
+    "phone":     ("girl_008", "loop2_girl_08", "loop3_girl_08"),
+    "emptyHands":("girl_009", "loop2_girl_09", "loop3_girl_09"),
+    "pouch":     ("girl_010", "loop2_girl_10", "loop3_girl_10"),
 }
 
-#: 2・3周目に無い役割の代役。
-FALLBACK = {
-    "lunchbox": "books",       # どちらも布に包んだ物を抱えている
-    "sportsBag": "satchel",    # 鞄を持っている
-    "pouch": "hiding",         # 小さな物を手元に隠している
-    "phone": "satchel",
-    "emptyHands": "satchel",
-}
+#: 2・3周目に無い役割の代役。0916追加で全役割が3校ぶん揃ったため、現在は空。
+#: 新しい持ち物を増やして絵が間に合わないときは、ここに退避先を書く。
+FALLBACK: dict[str, str] = {}
 
 #: 持ち物 → 使ってよい役割（順番に回して顔を散らす）。
 ITEM_ROLES = {
@@ -156,7 +151,7 @@ def repl(m: re.Match) -> str:
     b = m.group(1)
     i = counter["i"]
     counter["i"] += 1
-    return re.sub(r'image: "[^"]*",', f'image: "/assets/characters/{assigned[i]}.png",', b, count=1)
+    return re.sub(r'image: "[^"]*",', f'image: "assets/characters/{assigned[i]}.webp",', b, count=1)
 
 
 text = block_re.sub(repl, text)

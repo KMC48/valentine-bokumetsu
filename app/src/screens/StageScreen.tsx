@@ -127,7 +127,7 @@ export function StageScreen() {
       <div className="gamearea">
         <StageBackdrop stage={stage} area={currentArea} />
 
-        <MobCrowd areaId={area} />
+        <MobCrowd areaId={area} loop={loop} />
 
         {desks.map((d) => (
           <DeskTarget key={d.id} desk={d} debug={debug} onSelect={store.selectDesk} />

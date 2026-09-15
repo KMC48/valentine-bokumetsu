@@ -157,6 +157,28 @@ export const ASSETS = {
   loop3Girl03: { src: "assets/characters/loop3_girl_03.webp", status: "ready", kind: "character" },
   loop3Girl04: { src: "assets/characters/loop3_girl_04.webp", status: "ready", kind: "character" },
   loop3Girl05: { src: "assets/characters/loop3_girl_05.webp", status: "ready", kind: "character" },
+  // 学校別制服の残り（0916追加）。これで3校とも10種類そろった。
+  loop2Girl06: { src: "assets/characters/loop2_girl_06.webp", status: "ready", kind: "character" },
+  loop2Girl07: { src: "assets/characters/loop2_girl_07.webp", status: "ready", kind: "character" },
+  loop2Girl08: { src: "assets/characters/loop2_girl_08.webp", status: "ready", kind: "character" },
+  loop2Girl09: { src: "assets/characters/loop2_girl_09.webp", status: "ready", kind: "character" },
+  loop2Girl10: { src: "assets/characters/loop2_girl_10.webp", status: "ready", kind: "character" },
+  loop3Girl06: { src: "assets/characters/loop3_girl_06.webp", status: "ready", kind: "character" },
+  loop3Girl07: { src: "assets/characters/loop3_girl_07.webp", status: "ready", kind: "character" },
+  loop3Girl08: { src: "assets/characters/loop3_girl_08.webp", status: "ready", kind: "character" },
+  loop3Girl09: { src: "assets/characters/loop3_girl_09.webp", status: "ready", kind: "character" },
+  loop3Girl10: { src: "assets/characters/loop3_girl_10.webp", status: "ready", kind: "character" },
+  // 学校別制服の振り向き差分（0916追加）。
+  loop2Girl01Turn: { src: "assets/characters/loop2_girl_01_turn.webp", status: "ready", kind: "character" },
+  loop2Girl02Turn: { src: "assets/characters/loop2_girl_02_turn.webp", status: "ready", kind: "character" },
+  loop2Girl03Turn: { src: "assets/characters/loop2_girl_03_turn.webp", status: "ready", kind: "character" },
+  loop2Girl04Turn: { src: "assets/characters/loop2_girl_04_turn.webp", status: "ready", kind: "character" },
+  loop2Girl05Turn: { src: "assets/characters/loop2_girl_05_turn.webp", status: "ready", kind: "character" },
+  loop3Girl01Turn: { src: "assets/characters/loop3_girl_01_turn.webp", status: "ready", kind: "character" },
+  loop3Girl02Turn: { src: "assets/characters/loop3_girl_02_turn.webp", status: "ready", kind: "character" },
+  loop3Girl03Turn: { src: "assets/characters/loop3_girl_03_turn.webp", status: "ready", kind: "character" },
+  loop3Girl04Turn: { src: "assets/characters/loop3_girl_04_turn.webp", status: "ready", kind: "character" },
+  loop3Girl05Turn: { src: "assets/characters/loop3_girl_05_turn.webp", status: "ready", kind: "character" },
 
   // ---------- モブ生徒（奥を歩く背景の人。タップ対象にしない） ----------
   mobBoy1: { src: "assets/characters/mob/mob_boy_1.webp", status: "ready", kind: "character" },
@@ -165,6 +187,19 @@ export const ASSETS = {
   mobGirl1: { src: "assets/characters/mob/mob_girl_1.webp", status: "ready", kind: "character" },
   mobGirl2: { src: "assets/characters/mob/mob_girl_2.webp", status: "ready", kind: "character" },
   mobGirl3: { src: "assets/characters/mob/mob_girl_3.webp", status: "ready", kind: "character" },
+  // 歩き去るモブの学校別制服（0916追加）。
+  loop2MobBoy1: { src: "assets/characters/mob/loop2_mob_boy_1.webp", status: "ready", kind: "character" },
+  loop2MobBoy2: { src: "assets/characters/mob/loop2_mob_boy_2.webp", status: "ready", kind: "character" },
+  loop2MobBoy3: { src: "assets/characters/mob/loop2_mob_boy_3.webp", status: "ready", kind: "character" },
+  loop2MobGirl1: { src: "assets/characters/mob/loop2_mob_girl_1.webp", status: "ready", kind: "character" },
+  loop2MobGirl2: { src: "assets/characters/mob/loop2_mob_girl_2.webp", status: "ready", kind: "character" },
+  loop2MobGirl3: { src: "assets/characters/mob/loop2_mob_girl_3.webp", status: "ready", kind: "character" },
+  loop3MobBoy1: { src: "assets/characters/mob/loop3_mob_boy_1.webp", status: "ready", kind: "character" },
+  loop3MobBoy2: { src: "assets/characters/mob/loop3_mob_boy_2.webp", status: "ready", kind: "character" },
+  loop3MobBoy3: { src: "assets/characters/mob/loop3_mob_boy_3.webp", status: "ready", kind: "character" },
+  loop3MobGirl1: { src: "assets/characters/mob/loop3_mob_girl_1.webp", status: "ready", kind: "character" },
+  loop3MobGirl2: { src: "assets/characters/mob/loop3_mob_girl_2.webp", status: "ready", kind: "character" },
+  loop3MobGirl3: { src: "assets/characters/mob/loop3_mob_girl_3.webp", status: "ready", kind: "character" },
   // 立ち止まっている／座っている／談笑しているモブ（0915追加）。
   // 既存の6人は「鞄を持って歩き去る後ろ姿」しか無く、室内には置けなかった。
   mobSit1: { src: "assets/characters/mob/mob_sit_1.webp", status: "ready", kind: "character" },

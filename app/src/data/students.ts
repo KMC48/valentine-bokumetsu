@@ -342,7 +342,7 @@ const LOOP2: Student[] = [
   {
     id: "l2-m-03",
     name: "諏訪部 ちさと",
-    image: "assets/characters/loop2_girl_04.webp",
+    image: "assets/characters/loop2_girl_06.webp",
     chocolateType: "friend",
     loop: 2,
     stage: "morning",
@@ -363,7 +363,7 @@ const LOOP2: Student[] = [
   {
     id: "l2-m-04",
     name: "三雲 ほのか",
-    image: "assets/characters/loop2_girl_05.webp",
+    image: "assets/characters/loop2_girl_09.webp",
     chocolateType: "honmei",
     loop: 2,
     stage: "morning",
@@ -384,7 +384,7 @@ const LOOP2: Student[] = [
   {
     id: "l2-m-05",
     name: "御堂 せいら",
-    image: "assets/characters/loop2_girl_03.webp",
+    image: "assets/characters/loop2_girl_10.webp",
     chocolateType: "none",
     loop: 2,
     stage: "morning",
@@ -450,7 +450,7 @@ const LOOP2: Student[] = [
   {
     id: "l2-l-03",
     name: "常磐 ゆうひ",
-    image: "assets/characters/loop2_girl_05.webp",
+    image: "assets/characters/loop2_girl_08.webp",
     chocolateType: "friend",
     loop: 2,
     stage: "lunch",
@@ -471,7 +471,7 @@ const LOOP2: Student[] = [
   {
     id: "l2-l-04",
     name: "斎賀 るな",
-    image: "assets/characters/loop2_girl_04.webp",
+    image: "assets/characters/loop2_girl_06.webp",
     chocolateType: "honmei",
     loop: 2,
     stage: "lunch",
@@ -515,7 +515,7 @@ const LOOP2: Student[] = [
   {
     id: "l2-a-01",
     name: "鷹宮 いおり",
-    image: "assets/characters/loop2_girl_05.webp",
+    image: "assets/characters/loop2_girl_07.webp",
     chocolateType: "friend",
     loop: 2,
     stage: "afterSchool",
@@ -579,7 +579,7 @@ const LOOP2: Student[] = [
   {
     id: "l2-a-04",
     name: "白峰 さえ",
-    image: "assets/characters/loop2_girl_05.webp",
+    image: "assets/characters/loop2_girl_09.webp",
     chocolateType: "honmei",
     loop: 2,
     stage: "afterSchool",
@@ -600,7 +600,7 @@ const LOOP2: Student[] = [
   {
     id: "l2-a-05",
     name: "藤宮 れい",
-    image: "assets/characters/loop2_girl_04.webp",
+    image: "assets/characters/loop2_girl_06.webp",
     chocolateType: "honmei_special",
     loop: 2,
     stage: "afterSchool",
@@ -711,7 +711,7 @@ const LOOP3: Student[] = [
   {
     id: "l3-m-05",
     name: "神楽坂 いち",
-    image: "assets/characters/loop3_girl_03.webp",
+    image: "assets/characters/loop3_girl_10.webp",
     chocolateType: "none",
     loop: 3,
     stage: "morning",
@@ -755,7 +755,7 @@ const LOOP3: Student[] = [
   {
     id: "l3-l-02",
     name: "月島 ふゆ",
-    image: "assets/characters/loop3_girl_04.webp",
+    image: "assets/characters/loop3_girl_06.webp",
     chocolateType: "none",
     loop: 3,
     stage: "lunch",
@@ -884,7 +884,7 @@ const LOOP3: Student[] = [
   {
     id: "l3-a-03",
     name: "紫藤 みお",
-    image: "assets/characters/loop3_girl_03.webp",
+    image: "assets/characters/loop3_girl_10.webp",
     chocolateType: "none",
     loop: 3,
     stage: "afterSchool",
