@@ -1,0 +1,41 @@
+[
+  {
+    "filename": "01_valentine_pop",
+    "bpm": 128,
+    "bars": 32,
+    "beats_per_bar": 4,
+    "sample_rate": 44100,
+    "loop_start_sample": 0,
+    "loop_end_sample_exclusive": 2646000,
+    "duration_seconds": 60.0,
+    "peak_dbfs": -1.3,
+    "rms_dbfs": -14.55,
+    "seam_step": 0.0003735460340976715
+  },
+  {
+    "filename": "02_after_school_youth",
+    "bpm": 112,
+    "bars": 32,
+    "beats_per_bar": 4,
+    "sample_rate": 44100,
+    "loop_start_sample": 0,
+    "loop_end_sample_exclusive": 3024000,
+    "duration_seconds": 68.57142857142857,
+    "peak_dbfs": -1.3,
+    "rms_dbfs": -13.57,
+    "seam_step": 0.0041304342448711395
+  },
+  {
+    "filename": "03_twisted_school_rules",
+    "bpm": 96,
+    "bars": 32,
+    "beats_per_bar": 4,
+    "sample_rate": 44100,
+    "loop_start_sample": 0,
+    "loop_end_sample_exclusive": 3528000,
+    "duration_seconds": 80.0,
+    "peak_dbfs": -1.3,
+    "rms_dbfs": -15.29,
+    "seam_step": 0.001244897022843361
+  }
+]

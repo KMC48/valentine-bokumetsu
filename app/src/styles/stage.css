@@ -1,0 +1,846 @@
+/* ステージ画面：HUD・背景・生徒・机・通報ボタン・下部UI */
+
+.stage {
+  position: absolute;
+  inset: 0;
+  /* 子要素の数（エリアバーの有無）に左右されないよう、grid ではなく flex にする。
+     ゲームエリアだけが伸び縮みし、他は中身なりの高さになる。 */
+  display: flex;
+  flex-direction: column;
+  background: var(--navy-900);
+}
+
+/* ---------- タイトルバー ---------- */
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em 0.6em;
+  background: linear-gradient(180deg, #0c1424, #070d18);
+  border-bottom: 1px solid rgba(126, 182, 255, 0.2);
+}
+
+.titlebar__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+  min-width: 0;
+}
+
+.titlebar__name {
+  font-weight: 900;
+  font-size: 1.15em;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  text-shadow: 0 2px 0 #000;
+}
+
+.titlebar__name em {
+  color: var(--pink);
+  font-style: normal;
+}
+
+.titlebar__sub {
+  font-size: 0.62em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.titlebar__spacer {
+  flex: 1;
+}
+
+.menu-btn {
+  display: grid;
+  place-items: center;
+  gap: 2px;
+  width: 3em;
+  padding: 0.3em 0;
+  font-size: 0.65em;
+  font-weight: 800;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #1d2e4a, #111c2f);
+  border: 1px solid var(--panel-edge);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.menu-btn span {
+  display: block;
+  width: 1.6em;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+}
+
+/* ---------- HUD ---------- */
+
+.hud {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.4em;
+  padding: 0.45em 0.6em;
+  background: linear-gradient(180deg, rgba(9, 15, 28, 0.95), rgba(6, 10, 20, 0.95));
+  border-bottom: 1px solid rgba(126, 182, 255, 0.16);
+}
+
+.hud__box {
+  padding: 0.35em 0.6em;
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(23, 37, 60, 0.9), rgba(10, 17, 30, 0.9));
+  border: 1px solid var(--panel-edge);
+}
+
+.hud__label {
+  font-size: 0.6em;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.hud__score {
+  font-size: 1.5em;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1.05;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.6);
+}
+
+.hud__score small {
+  font-size: 0.5em;
+  margin-left: 0.15em;
+}
+
+.hud__combo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4em;
+  font-size: 0.72em;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+.hud__combo b {
+  font-size: 1.5em;
+  color: var(--text);
+}
+
+.hud__combo .mult {
+  color: var(--pink-soft);
+}
+
+.hud__mission {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hud__mission-text {
+  font-size: 0.72em;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.hud__mission-count {
+  color: var(--gold);
+  font-weight: 900;
+}
+
+.hud__timer {
+  font-size: 1.3em;
+  font-weight: 900;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+}
+
+.hud__timer.is-warning {
+  color: var(--danger);
+  animation: pulse 800ms infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* ---------- ゲームエリア ---------- */
+
+.gamearea {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  /* 生徒・机・通報ボタンの z-index をこの中に閉じ込め、
+     モーダルより手前に出ないようにする。 */
+  isolation: isolate;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+}
+
+.backdrop__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  pointer-events: none;
+}
+
+/* 2・3周目の放課後は背景を共用しているため、暖色オーバーレイで時間経過を示す。
+   観察に必要な色（所持品の判別）を邪魔しない程度に薄くする。 */
+.backdrop__dusk {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 130, 60, 0.16), rgba(120, 40, 70, 0.28));
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* 素材が無い間の仮背景（廊下のパース）。 */
+.backdrop--morning {
+  background: linear-gradient(180deg, #cfe4ff 0%, #a8c6e8 42%, #6d8098 72%, #4a586b 100%);
+}
+.backdrop--lunch {
+  background: linear-gradient(180deg, #ffeccc 0%, #ffd9a3 40%, #b9987a 74%, #6d5947 100%);
+}
+.backdrop--after {
+  background: linear-gradient(180deg, #ffb27a 0%, #e2766e 38%, #7b4a6b 72%, #37263f 100%);
+}
+
+.backdrop__floor {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 46%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.42));
+}
+
+.backdrop__vanish {
+  position: absolute;
+  left: 50%;
+  top: 26%;
+  width: 26%;
+  height: 34%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.55), transparent 70%);
+  filter: blur(6px);
+}
+
+.backdrop__line {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.backdrop__notice {
+  position: absolute;
+  left: 3%;
+  top: 8%;
+  width: 22%;
+  padding: 0.5em 0.3em;
+  background: #f7f3e8;
+  color: #b3161b;
+  font-weight: 900;
+  font-size: 0.62em;
+  line-height: 1.25;
+  text-align: center;
+  transform: rotate(-2deg);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+
+.backdrop__banner {
+  position: absolute;
+  left: 26%;
+  top: 6%;
+  width: 46%;
+  padding: 0.35em;
+  background: rgba(255, 255, 255, 0.88);
+  color: #24304a;
+  font-weight: 800;
+  font-size: 0.6em;
+  line-height: 1.3;
+  text-align: center;
+  border-radius: 2px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.28);
+}
+
+/* ---------- 生徒ターゲット ---------- */
+
+/*
+ * 立ち絵は実体ぴったりにトリミング済みなので、
+ * 「箱の底＝足元」「箱の横中央＝キャラの中心」として扱える。
+ * 大きさは高さ基準（奥行きで変える）、幅は画像のアスペクト比任せ。
+ */
+.target {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  width: auto;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  /* 影は弱め。強いドロップシャドウはシールを貼ったように見えてしまう。 */
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.35));
+  transition: transform 120ms ease;
+}
+
+/* 足元の接地影（楕円）。床に立っている感じを出す。 */
+.target__ground {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 62%;
+  height: 6%;
+  transform: translate(-50%, 40%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+}
+
+.target__img,
+.target__sprite {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+.target:active {
+  transform: translate(-50%, -100%) scale(0.97);
+}
+
+.target__mark {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background: var(--pink);
+  color: #fff;
+  font-weight: 900;
+  font-size: 0.9em;
+  border: 2px solid #fff;
+  box-shadow: 0 0 12px rgba(255, 45, 106, 0.8);
+  animation: bob 1.1s ease-in-out infinite;
+}
+
+@keyframes bob {
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/*
+ * 名前ラベルは「頭の上」に置く。
+ * 足元に置くと、手前に立つ主人公の後ろ姿に隠れて読めなくなるため。
+ */
+.target__label {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  justify-items: center;
+  gap: 0.15em;
+  margin-bottom: 0.25em;
+  pointer-events: none;
+}
+
+.target__nameline {
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.target__name {
+  padding: 0.1em 0.45em;
+  font-size: 0.55em;
+  font-weight: 700;
+  border-radius: 999px;
+  background: rgba(6, 10, 20, 0.78);
+  border: 1px solid rgba(126, 182, 255, 0.3);
+  white-space: nowrap;
+}
+
+.target__debug {
+  font-size: 0.5em;
+  font-weight: 800;
+  color: #ffe08a;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0 0.3em;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+/* 選択中の照準（参考画像のロックオン）。顔のあたりに重ねる。 */
+.reticle {
+  position: absolute;
+  left: 50%;
+  top: 14%;
+  width: 3.4em;
+  height: 3.4em;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  border: 2px solid var(--pink);
+  box-shadow: 0 0 18px rgba(255, 45, 106, 0.8), inset 0 0 18px rgba(255, 45, 106, 0.4);
+  animation: reticle-in 220ms ease-out;
+}
+
+.reticle::before,
+.reticle::after {
+  content: "";
+  position: absolute;
+  background: var(--pink);
+}
+
+.reticle::before {
+  left: 50%;
+  top: -10%;
+  width: 2px;
+  height: 22%;
+  transform: translateX(-50%);
+  box-shadow: 0 118% 0 var(--pink);
+}
+
+.reticle::after {
+  top: 50%;
+  left: -10%;
+  height: 2px;
+  width: 22%;
+  transform: translateY(-50%);
+  box-shadow: 118% 0 0 var(--pink);
+}
+
+@keyframes reticle-in {
+  from {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* ---------- 通報ボタン ---------- */
+
+.report-btn {
+  position: absolute;
+  z-index: 130;
+  right: 4%;
+  bottom: 4%;
+  width: 27%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 210, 225, 0.85);
+  background: radial-gradient(circle at 35% 30%, #ff6b95, #e50046 60%, #a80034 100%);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  gap: 0;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(255, 45, 106, 0.55), 0 6px 14px rgba(0, 0, 0, 0.5);
+  animation: report-glow 1.8s ease-in-out infinite;
+}
+
+.report-btn:disabled {
+  filter: grayscale(0.55) brightness(0.85);
+  opacity: 0.9;
+  animation: none;
+  cursor: not-allowed;
+}
+
+.report-btn__jp {
+  font-size: 1.4em;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+  line-height: 1;
+}
+
+.report-btn__en {
+  font-size: 0.55em;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  opacity: 0.9;
+}
+
+@keyframes report-glow {
+  50% {
+    box-shadow: 0 0 34px rgba(255, 45, 106, 0.9), 0 6px 14px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* ---------- 主人公セリフ ---------- */
+
+.speech {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5em;
+  padding: 0.5em 0.6em;
+  background: linear-gradient(180deg, rgba(9, 15, 28, 0.96), rgba(6, 10, 20, 0.96));
+  border-top: 1px solid rgba(126, 182, 255, 0.18);
+  align-items: center;
+}
+
+.speech__face {
+  width: 3.4em;
+  height: 3.4em;
+  border-radius: 8px;
+  border: 1px solid var(--panel-edge);
+  overflow: hidden;
+  background: #16233a;
+  flex: none;
+}
+
+.speech__face-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.speech__body {
+  min-width: 0;
+}
+
+.speech__name {
+  display: inline-block;
+  padding: 0.05em 0.6em;
+  font-size: 0.62em;
+  font-weight: 800;
+  background: #2d4a8a;
+  border: 1px solid rgba(126, 182, 255, 0.5);
+  border-radius: 3px;
+}
+
+.speech__text {
+  margin-top: 0.25em;
+  font-size: 0.72em;
+  line-height: 1.4;
+}
+
+/* ---------- 下部ナビ ---------- */
+
+.bottomnav {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background: linear-gradient(180deg, #0b1220, #060a14);
+  border-top: 1px solid rgba(126, 182, 255, 0.2);
+}
+
+.bottomnav button {
+  appearance: none;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.6em;
+  font-weight: 700;
+  padding: 0.55em 0 0.6em;
+  display: grid;
+  justify-items: center;
+  gap: 0.25em;
+  cursor: pointer;
+}
+
+.bottomnav button.is-active {
+  color: var(--text);
+}
+
+.bottomnav .icon {
+  font-size: 1.5em;
+  line-height: 1;
+}
+
+/* ---------- デバッグ ---------- */
+
+.debug-panel {
+  position: absolute;
+  left: 2%;
+  bottom: 4%;
+  z-index: 40;
+  padding: 0.4em 0.5em;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.78);
+  border: 1px solid #ffe08a;
+  font-size: 0.55em;
+  display: grid;
+  gap: 0.3em;
+  max-width: 46%;
+}
+
+.debug-panel b {
+  color: #ffe08a;
+}
+
+.debug-panel .row {
+  display: flex;
+  gap: 0.3em;
+  flex-wrap: wrap;
+}
+
+.debug-panel button {
+  font: inherit;
+  padding: 0.2em 0.45em;
+  border-radius: 5px;
+  border: 1px solid #ffe08a;
+  background: #20180a;
+  color: #ffe08a;
+  cursor: pointer;
+}
+
+/* ミッション達成バナー（残り時間を待たずに次へ） */
+.mission-clear {
+  position: absolute;
+  z-index: 140;
+  left: 50%;
+  bottom: 4%;
+  transform: translateX(-50%);
+  padding: 0.6em 1.2em;
+  font: inherit;
+  font-size: 0.8em;
+  font-weight: 900;
+  color: #2a1a00;
+  border-radius: 999px;
+  border: 2px solid #fff3cf;
+  background: linear-gradient(180deg, var(--gold), var(--gold-deep));
+  box-shadow: 0 0 22px rgba(255, 209, 102, 0.6);
+  cursor: pointer;
+  animation: bob 1.4s ease-in-out infinite;
+  white-space: nowrap;
+}
+
+/* ---------- 机（調べられるスポット） ---------- */
+
+/*
+ * 机は「床に立つ人」ではなく背景に描かれた備品なので、
+ * 生徒のような床の台形マッピングは通さず、見た目の位置に直接置く。
+ * 専用の机画像が用意できるまでは、枠＋虫眼鏡の仮マーカーで示す。
+ */
+/*
+ * 机は生徒ターゲットと同じ構造にする。
+ * display:grid にすると、画像の height:100% がグリッドトラック基準で解決されてしまい、
+ * 画像が実寸（940x1202px）のまま描画されて画面を埋め尽くす。
+ */
+.desk {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  width: auto;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45));
+  transition: transform 120ms ease;
+}
+
+.desk__img {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+/* 背景に描かれた机を「調べられる」と示す枠。箱の大きさもこれが決める。 */
+.desk__frame {
+  display: block;
+  height: 100%;
+  aspect-ratio: 1.25;
+  border: 2px dashed rgba(255, 209, 102, 0.9);
+  border-radius: 10px;
+  background: rgba(255, 209, 102, 0.14);
+  box-shadow: 0 0 16px rgba(255, 209, 102, 0.35);
+  animation: desk-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes desk-pulse {
+  50% {
+    background: rgba(255, 209, 102, 0.26);
+  }
+}
+
+/* 「調べられる」と示す虫眼鏡。机の上に重ねる。 */
+.desk__icon {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  width: 46%;
+  display: grid;
+  place-items: center;
+  font-size: 1.2em;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.7));
+  animation: bob 1.8s ease-in-out infinite;
+}
+
+.desk__icon img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.desk__label {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.2em;
+  padding: 0.1em 0.5em;
+  font-size: 0.55em;
+  font-weight: 800;
+  white-space: nowrap;
+  border-radius: 999px;
+  color: #2a1a00;
+  background: linear-gradient(180deg, var(--gold), var(--gold-deep));
+  border: 1px solid rgba(255, 240, 200, 0.8);
+  pointer-events: none;
+}
+
+.desk__debug {
+  position: absolute;
+  top: calc(100% + 1.6em);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.5em;
+  font-weight: 800;
+  color: #ffe08a;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0 0.3em;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.desk:active {
+  transform: translate(-50%, -100%) scale(0.96);
+}
+
+/* ---------- 場所切り替えバー ---------- */
+
+.areabar {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.35em 0.6em;
+  background: linear-gradient(180deg, rgba(12, 20, 36, 0.96), rgba(7, 12, 22, 0.96));
+  border-bottom: 1px solid rgba(126, 182, 255, 0.16);
+}
+
+.areabar__label {
+  flex: 0 0 auto;
+  font-size: 0.58em;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+.areabar__cost {
+  display: block;
+  color: var(--pink-soft);
+}
+
+.areabar__list {
+  display: flex;
+  gap: 0.35em;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.areabar__chip {
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0.4em 0.5em;
+  font: inherit;
+  font-size: 0.62em;
+  font-weight: 800;
+  white-space: nowrap;
+  border-radius: 8px;
+  border: 1px solid var(--panel-edge);
+  background: linear-gradient(180deg, #1d2e4a, #111c2f);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.areabar__chip.is-here {
+  background: linear-gradient(180deg, #ff4d7e, #d5003f);
+  border-color: rgba(255, 190, 210, 0.7);
+  opacity: 1;
+  cursor: default;
+}
+
+.areabar__chip:disabled:not(.is-here) {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.areabar__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.areabar__count {
+  margin-left: auto;
+  padding: 0 0.4em;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  font-weight: 900;
+}
+
+.areabar__count.is-empty {
+  opacity: 0.45;
+}
+
+/* ---------- 校内掲示物 ---------- */
+
+.signage {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+}
+
+/* ---------- モブ生徒（背景の賑わい） ---------- */
+
+.mob {
+  position: absolute;
+  width: auto;
+  pointer-events: none;
+  /* 大きさ・霞み具合は奥行きからJS側で計算する（MobCrowd.tsx）。 */
+}
+
+/* ---------- 肩越しの主人公（前景） ---------- */
+
+.player-foreground {
+  position: absolute;
+  z-index: 150;
+  left: -7%;
+  bottom: -9%;
+  width: 47%;
+  pointer-events: none;
+  filter: drop-shadow(0 -4px 18px rgba(0, 0, 0, 0.5));
+}
+
+/* 通報ボタンのメガホン */
+.report-btn__icon {
+  width: 46%;
+  height: auto;
+  margin-bottom: -0.1em;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
+  pointer-events: none;
+}
+
+/* HUDのミッション行に出す現在地（学校・時間帯）。
+   以前は画面左下に置いていたが、手前に立つ主人公の後ろ姿に完全に隠れていた。 */
+.hud__place {
+  margin-left: 0.6em;
+  letter-spacing: 0;
+  color: var(--cyan);
+  font-weight: 800;
+}

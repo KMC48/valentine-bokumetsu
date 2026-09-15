@@ -1,0 +1,532 @@
+/* タイトル / 周回選択 / ストーリー / 結果 / エンディング / 設定 */
+
+/* ---------- タイトル ---------- */
+
+.title-screen {
+  /* .screen が position:absolute; inset:0; を持つのでここでは上書きしない。 */
+  justify-content: space-between;
+  padding: 2em 1.2em 1.6em;
+  background: #05070f;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* 完成CG（人物込み）をそのまま背景として使用。追加の立ち絵は重ねない。 */
+.title-screen__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.title-screen__bg--fallback {
+  background: radial-gradient(circle at 50% 25%, #2a1730 0%, #0b1020 55%, #05070f 100%);
+}
+
+/* CG上に文字を置くための上下スクリム。人物の顔にはかからない範囲に留める。 */
+.title-screen__scrim-top {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 1;
+  height: 34%;
+  background: linear-gradient(180deg, rgba(4, 6, 12, 0.88), rgba(4, 6, 12, 0));
+}
+
+.title-screen__scrim-bottom {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  height: 46%;
+  background: linear-gradient(0deg, rgba(4, 6, 12, 0.92), rgba(4, 6, 12, 0));
+}
+
+.title-screen__logo {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 0.3em;
+  justify-items: center;
+  margin-top: 0.6em;
+}
+
+.title-screen__main {
+  font-size: 1.9em;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-shadow: 0 3px 0 #000, 0 0 24px rgba(255, 45, 106, 0.6);
+}
+
+.title-screen__main em {
+  color: var(--pink);
+  font-style: normal;
+}
+
+.title-screen__tagline {
+  font-size: 0.78em;
+  color: #dfe6f5;
+  letter-spacing: 0.14em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.title-screen__menu {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 0.6em;
+  margin-bottom: 0.5em;
+}
+
+.title-screen__footer {
+  font-size: 0.6em;
+  color: var(--muted);
+}
+
+/* ---------- 周回選択 ---------- */
+
+.loop-screen {
+  padding: 1.2em 1em;
+  gap: 0.8em;
+  overflow-y: auto;
+}
+
+.screen-heading {
+  font-size: 1.1em;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  border-left: 4px solid var(--pink);
+  padding-left: 0.5em;
+}
+
+.loop-card {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+  min-height: 8em;
+}
+
+.loop-card__thumb {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.loop-card--locked .loop-card__thumb {
+  filter: grayscale(0.7) brightness(0.4);
+}
+
+.loop-card__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(100deg, rgba(6, 10, 20, 0.92) 45%, rgba(6, 10, 20, 0.55) 100%);
+}
+
+.loop-card__body {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 0.35em;
+  padding: 0.85em;
+}
+
+.loop-card__top {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.loop-card__no {
+  font-size: 0.65em;
+  font-weight: 800;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+
+.loop-card__diff {
+  margin-left: auto;
+  font-size: 0.62em;
+  font-weight: 900;
+  padding: 0.15em 0.6em;
+  border-radius: 999px;
+  background: rgba(255, 45, 106, 0.18);
+  border: 1px solid rgba(255, 122, 162, 0.6);
+  color: var(--pink-soft);
+}
+
+.loop-card__school {
+  font-size: 1.05em;
+  font-weight: 900;
+}
+
+.loop-card__theme {
+  font-size: 0.72em;
+  color: var(--muted);
+}
+
+.loop-card__best {
+  font-size: 0.68em;
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.loop-card--locked {
+  opacity: 0.45;
+}
+
+/* ---------- ストーリー ---------- */
+
+.story-screen {
+  /* .screen が position:absolute; inset:0; を持つのでここでは上書きしない。 */
+  cursor: pointer;
+  background: #05070f;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.story-screen__bg-img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+/* 上部を少し暗くしてタイトル文字を読みやすくする。 */
+.story-screen__scrim {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 1;
+  height: 22%;
+  background: linear-gradient(180deg, rgba(4, 6, 12, 0.75), rgba(4, 6, 12, 0));
+}
+
+.story-screen__title {
+  position: absolute;
+  z-index: 2;
+  top: 1.2em;
+  left: 1.2em;
+  right: 1.2em;
+  font-size: 0.8em;
+  font-weight: 800;
+  color: #dfe6f5;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid rgba(126, 182, 255, 0.35);
+  padding-bottom: 0.4em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/*
+ * ノベルゲーム風のバストアップ表示。
+ * 会話欄のすぐ上に、胸から上が大きく入るように置く（全身は使わない）。
+ *
+ * 高さ基準で大きさを決め、幅は画像のアスペクト比任せ。
+ * 画面幅より広くなったぶんは左右が切れるが、ノベルゲームでは普通の見せ方。
+ * （.story-screen 側で overflow:hidden している）
+ */
+.story-screen__character {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: 8.6em;
+  transform: translateX(-50%);
+  height: 69%;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 12px 26px rgba(0, 0, 0, 0.65));
+  animation: bust-in 260ms ease-out;
+}
+
+@keyframes bust-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+.story-screen__box {
+  position: relative;
+  z-index: 2;
+  margin: 0 0.7em 0.9em;
+  padding: 0.9em 0.9em 1em;
+  min-height: 8.5em;
+  background: linear-gradient(180deg, rgba(10, 18, 32, 0.94), rgba(6, 10, 20, 0.97));
+  border: 1px solid var(--panel-edge);
+  border-radius: 12px;
+}
+
+.story-screen__speaker {
+  display: inline-block;
+  position: absolute;
+  top: -0.9em;
+  left: 0.8em;
+  padding: 0.15em 0.8em;
+  font-size: 0.7em;
+  font-weight: 800;
+  background: linear-gradient(180deg, #3a5fae, #22366a);
+  border: 1px solid rgba(126, 182, 255, 0.6);
+  border-radius: 4px;
+}
+
+.story-screen__text {
+  font-size: 0.86em;
+  line-height: 1.65;
+  min-height: 4.5em;
+}
+
+.story-screen__next {
+  position: absolute;
+  right: 0.8em;
+  bottom: 0.5em;
+  font-size: 0.66em;
+  font-weight: 800;
+  color: var(--gold);
+  animation: bob 1.2s ease-in-out infinite;
+}
+
+.story-screen__skip {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 5;
+  font-size: 0.62em;
+  padding: 0.35em 0.8em;
+}
+
+.story-screen__progress {
+  position: absolute;
+  left: 0.9em;
+  bottom: 0.5em;
+  font-size: 0.6em;
+  color: var(--muted);
+}
+
+/* ---------- 結果画面 ---------- */
+
+.result-screen {
+  padding: 1.2em 1em 1em;
+  gap: 0.7em;
+  overflow-y: auto;
+  background: linear-gradient(180deg, #14203a, #05070f);
+}
+
+.result-screen__stage {
+  font-size: 0.75em;
+  color: var(--muted);
+  letter-spacing: 0.16em;
+  font-weight: 800;
+}
+
+.result-screen__total {
+  display: grid;
+  justify-items: center;
+  padding: 0.8em;
+}
+
+.result-screen__total-label {
+  font-size: 0.65em;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.result-screen__total-value {
+  font-size: 2.6em;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1.1;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.rank-badge {
+  display: grid;
+  place-items: center;
+  width: 3.2em;
+  height: 3.2em;
+  border-radius: 50%;
+  font-size: 1.5em;
+  font-weight: 900;
+  color: #2a1a00;
+  background: radial-gradient(circle at 35% 30%, #fff0bf, var(--gold) 55%, var(--gold-deep));
+  box-shadow: 0 0 22px rgba(255, 209, 102, 0.55);
+}
+
+.rank-badge--low {
+  background: radial-gradient(circle at 35% 30%, #d6e2f5, #8fa5c4 60%, #5d708c);
+  color: #17202f;
+  box-shadow: none;
+}
+
+.stat-list {
+  display: grid;
+  gap: 1px;
+  background: rgba(126, 182, 255, 0.18);
+  border: 1px solid var(--panel-edge);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 0.8em;
+  background: rgba(13, 21, 36, 0.95);
+  font-size: 0.78em;
+}
+
+.stat-row b {
+  font-size: 1.15em;
+  font-weight: 900;
+}
+
+.stat-row--highlight b {
+  color: var(--pink-soft);
+}
+
+.result-screen__actions {
+  display: grid;
+  gap: 0.5em;
+  margin-top: auto;
+  padding-top: 0.6em;
+}
+
+.gauge {
+  height: 0.7em;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.gauge__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--pink), var(--gold));
+  transition: width 600ms ease-out;
+}
+
+/* ---------- エンディング ---------- */
+
+.ending-screen {
+  /* .screen が position:absolute; inset:0; を持つのでここでは上書きしない。 */
+  background: #04060d;
+  overflow: hidden;
+}
+
+/* 結末CG。cover が基本だが、特殊エンドは手とチョコが切れないよう contain。 */
+.ending-screen__cg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ending-screen__cg--cover {
+  object-fit: cover;
+  object-position: center 28%;
+}
+
+.ending-screen__cg--contain {
+  object-fit: contain;
+  background: #0a0e1a;
+}
+
+.ending-screen__cg--fallback {
+  background: radial-gradient(circle at 50% 30%, #2b1430 0%, #080c18 60%, #04060d 100%);
+}
+
+.ending-screen__scrim {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  height: 62%;
+  background: linear-gradient(0deg, rgba(4, 6, 13, 0.94), rgba(4, 6, 13, 0));
+}
+
+.ending-screen__title {
+  position: absolute;
+  z-index: 2;
+  top: 2.2em;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 1.35em;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 0 22px rgba(255, 209, 102, 0.45);
+}
+
+.ending-screen__kicker {
+  position: absolute;
+  z-index: 2;
+  top: 1.1em;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.68em;
+  letter-spacing: 0.3em;
+  color: #dfe6f5;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.ending-screen__unlock {
+  margin: 0 0.7em 0.6em;
+  padding: 0.6em;
+  text-align: center;
+  font-size: 0.72em;
+  font-weight: 800;
+  color: var(--gold);
+  border-radius: 10px;
+  background: rgba(255, 209, 102, 0.12);
+  border: 1px solid rgba(255, 209, 102, 0.5);
+}
+
+/* ---------- 設定 ---------- */
+
+.settings-screen {
+  padding: 1.2em 1em;
+  gap: 0.9em;
+}
+
+.settings-row {
+  display: grid;
+  gap: 0.35em;
+  padding: 0.8em;
+}
+
+.settings-row label {
+  font-size: 0.78em;
+  font-weight: 800;
+}
+
+.settings-row input[type="range"] {
+  width: 100%;
+  accent-color: var(--pink);
+}
+
+.settings-note {
+  font-size: 0.66em;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.settings-muted {
+  margin-left: 0.5em;
+  font-size: 0.85em;
+  color: var(--danger);
+  font-weight: 800;
+}

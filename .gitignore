@@ -1,0 +1,27 @@
+# 依存パッケージとビルド成果物
+node_modules/
+app/dist/
+app/node_modules/
+
+# 納品された生の素材（OneDriveに原本がある。リポジトリには入れない）。
+# 画像素材/ は制作指示書のMDだけ残す。
+画像素材/*
+!画像素材/*.md
+サウンド素材/
+追加素材0914-b/
+app/public/assets/source/
+app/public/assets/reference/
+
+# WAVのBGM（合計37MB）。配信はMP3を使う。
+# ローカルで音質を優先したいときだけ手元に置く。
+app/public/assets/bgm/*.wav
+
+# 加工スクリプトの中間ファイル
+scripts/__pycache__/
+scripts/_*.txt
+scripts/_*.json
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store

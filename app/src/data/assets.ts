@@ -1,0 +1,200 @@
+/**
+ * 画像素材の一元管理。
+ *
+ * `status` が "ready" 以外のものは、利用側で仮表示（SVG/CSS）へフォールバックする。
+ * 実体パスは `assets/...`（`public/assets/...` の中身）。
+ *
+ * 素材の来歴：
+ * - backgrounds / title / endings：生成AI一枚絵をそのまま使用（人物込みの完成CG）。
+ * - characters：生成AI原稿（市松模様が焼き込まれたRGB画像）から、
+ *   scripts/remove_checker_bg.py で実際のアルファチャンネルへ変換したもの。
+ *   明暗どちらの背景でも輪郭のにじみがないことを目視確認済み（2026-09-14）。
+ * - items：小物シートを6分割し、同スクリプトで透過したもの。
+ */
+
+export type AssetStatus = "ready" | "needs-alpha" | "needs-review" | "missing";
+export type AssetKind = "background" | "title" | "ending" | "character" | "item";
+
+export type GameAsset = {
+  src: string;
+  status: AssetStatus;
+  kind: AssetKind;
+};
+
+/**
+ * パスの先頭にスラッシュを付けないこと。
+ *
+ * GitHub Pages では `https://<user>.github.io/<リポジトリ名>/` というサブパスで配信される。
+ * "/assets/..." と書くとドメイン直下を指してしまい、すべての画像が404になる。
+ * このアプリはURLのパスを使わない（?stage= などのクエリのみ）ので、
+ * 相対パスなら開発サーバーでも公開先でも同じように解決できる。
+ */
+export const ASSETS = {
+  // ---------- 背景 ----------
+  bgSchoolMorning: { src: "assets/backgrounds/school_morning.png", status: "ready", kind: "background" },
+  bgSchoolLunch: { src: "assets/backgrounds/school_lunch.png", status: "ready", kind: "background" },
+  bgSchoolAfter: { src: "assets/backgrounds/school_after.png", status: "ready", kind: "background" },
+  bgSchoolLoop2: { src: "assets/backgrounds/school_loop2.png", status: "ready", kind: "background" },
+  bgSchoolLoop3: { src: "assets/backgrounds/school_loop3.png", status: "ready", kind: "background" },
+  bgRooftop: { src: "assets/backgrounds/school_rooftop.png", status: "ready", kind: "background" },
+  // 2・3周目の時間帯差分（0914追加）。これで暖色フィルターの代用が不要になった。
+  bgSchoolLoop2Lunch: { src: "assets/backgrounds/school_loop2_lunch.png", status: "ready", kind: "background" },
+  bgSchoolLoop2After: { src: "assets/backgrounds/school_loop2_after.png", status: "ready", kind: "background" },
+  bgSchoolLoop3Lunch: { src: "assets/backgrounds/school_loop3_lunch.png", status: "ready", kind: "background" },
+  bgSchoolLoop3After: { src: "assets/backgrounds/school_loop3_after.png", status: "ready", kind: "background" },
+  // 場所切り替え用（0914追加）。いずれも1周目の公立校。
+  placeGate: { src: "assets/backgrounds/place_gate.png", status: "ready", kind: "background" },
+  placeCourtyard: { src: "assets/backgrounds/place_courtyard.png", status: "ready", kind: "background" },
+  placeStairs: { src: "assets/backgrounds/place_stairs.png", status: "ready", kind: "background" },
+  placeShop: { src: "assets/backgrounds/place_shop.png", status: "ready", kind: "background" },
+  // 1周目の追加（0914-b）
+  placeClubrooms: { src: "assets/backgrounds/place_clubrooms.png", status: "ready", kind: "background" },
+  placeGateAfter: { src: "assets/backgrounds/place_gate_after.png", status: "ready", kind: "background" },
+  placeCourtyardAfter: { src: "assets/backgrounds/place_courtyard_after.png", status: "ready", kind: "background" },
+  // 2周目の場所（0914-b）。これで2周目も場所切り替えができる。
+  loop2Gate: { src: "assets/backgrounds/loop2_gate.png", status: "ready", kind: "background" },
+  loop2Courtyard: { src: "assets/backgrounds/loop2_courtyard.png", status: "ready", kind: "background" },
+  loop2Classroom: { src: "assets/backgrounds/loop2_classroom.png", status: "ready", kind: "background" },
+  loop2Shop: { src: "assets/backgrounds/loop2_shop.png", status: "ready", kind: "background" },
+  loop2Stairs: { src: "assets/backgrounds/loop2_stairs.png", status: "ready", kind: "background" },
+  loop2GymBack: { src: "assets/backgrounds/loop2_gym_back.png", status: "ready", kind: "background" },
+  loop2Rooftop: { src: "assets/backgrounds/loop2_rooftop.png", status: "ready", kind: "background" },
+  // 3周目の場所（0914-b）
+  loop3Gate: { src: "assets/backgrounds/loop3_gate.png", status: "ready", kind: "background" },
+  loop3Courtyard: { src: "assets/backgrounds/loop3_courtyard.png", status: "ready", kind: "background" },
+  loop3Classroom: { src: "assets/backgrounds/loop3_classroom.png", status: "ready", kind: "background" },
+  loop3Shop: { src: "assets/backgrounds/loop3_shop.png", status: "ready", kind: "background" },
+  loop3Stairs: { src: "assets/backgrounds/loop3_stairs.png", status: "ready", kind: "background" },
+  loop3GymBack: { src: "assets/backgrounds/loop3_gym_back.png", status: "ready", kind: "background" },
+  // 教室の背景（差し替え）。通路の左右に机が並び、手前の机が画面の角で切れる構図。
+  classroomLoop1: { src: "assets/backgrounds/classroom_loop1.png", status: "ready", kind: "background" },
+  classroomLoop2: { src: "assets/backgrounds/classroom_loop2.png", status: "ready", kind: "background" },
+  classroomLoop3: { src: "assets/backgrounds/classroom_loop3.png", status: "ready", kind: "background" },
+  loop3Rooftop: { src: "assets/backgrounds/loop3_rooftop.png", status: "ready", kind: "background" },
+
+  // ---------- タイトル ----------
+  titleBackground: { src: "assets/backgrounds/title_background.png", status: "ready", kind: "title" },
+
+  // ---------- エンディング ----------
+  endingS: { src: "assets/endings/ending_s.png", status: "ready", kind: "ending" },
+  endingA: { src: "assets/endings/ending_a.png", status: "ready", kind: "ending" },
+  endingB: { src: "assets/endings/ending_b.png", status: "ready", kind: "ending" },
+  endingC: { src: "assets/endings/ending_c.png", status: "ready", kind: "ending" },
+  endingSpecial: { src: "assets/endings/ending_special.png", status: "ready", kind: "ending" },
+
+  // ---------- 人物：全身（ステージ配置用。実体ぴったりにトリミング済み） ----------
+  player: { src: "assets/characters/player.png", status: "ready", kind: "character" },
+  teacher: { src: "assets/characters/teacher.png", status: "ready", kind: "character" },
+  boy001: { src: "assets/characters/boy_001.png", status: "ready", kind: "character" },
+  girl001: { src: "assets/characters/girl_001.png", status: "ready", kind: "character" },
+  girl002: { src: "assets/characters/girl_002.png", status: "ready", kind: "character" },
+  girl003: { src: "assets/characters/girl_003.png", status: "ready", kind: "character" },
+  girl004: { src: "assets/characters/girl_004.png", status: "ready", kind: "character" },
+  girl005: { src: "assets/characters/girl_005.png", status: "ready", kind: "character" },
+
+  // ---------- 人物：バストアップ（ストーリー画面のノベルゲーム表示用） ----------
+  bustPlayer: { src: "assets/characters/bust_player.png", status: "ready", kind: "character" },
+  loop2BustPlayer: { src: "assets/characters/loop2_bust_player.png", status: "ready", kind: "character" },
+  loop3BustPlayer: { src: "assets/characters/loop3_bust_player.png", status: "ready", kind: "character" },
+  bustTeacher: { src: "assets/characters/bust_teacher.png", status: "ready", kind: "character" },
+  bustBoy001: { src: "assets/characters/bust_boy_001.png", status: "ready", kind: "character" },
+  bustGirl001: { src: "assets/characters/bust_girl_001.png", status: "ready", kind: "character" },
+  bustGirl002: { src: "assets/characters/bust_girl_002.png", status: "ready", kind: "character" },
+  bustGirl003: { src: "assets/characters/bust_girl_003.png", status: "ready", kind: "character" },
+  bustGirl004: { src: "assets/characters/bust_girl_004.png", status: "ready", kind: "character" },
+  bustGirl005: { src: "assets/characters/bust_girl_005.png", status: "ready", kind: "character" },
+
+  // ---------- 人物：肩越しの主人公（ステージ手前の前景） ----------
+  playerBack: { src: "assets/characters/player_back.png", status: "ready", kind: "character" },
+  loop2PlayerBack: { src: "assets/characters/loop2_player_back.png", status: "ready", kind: "character" },
+  loop3PlayerBack: { src: "assets/characters/loop3_player_back.png", status: "ready", kind: "character" },
+
+  // ---------- 主人公の顔アイコン（画面下のセリフ欄） ----------
+  // 学校が変わっても使い回せるよう、制服がほとんど写らない顔のアップになっている。
+  faceNormal: { src: "assets/ui/player_face_normal.png", status: "ready", kind: "item" },
+  faceFocus: { src: "assets/ui/player_face_focus.png", status: "ready", kind: "item" },
+  faceConfident: { src: "assets/ui/player_face_confident.png", status: "ready", kind: "item" },
+  faceHurry: { src: "assets/ui/player_face_hurry.png", status: "ready", kind: "item" },
+
+  // ---------- 人物：振り向き差分（選択中に切り替える） ----------
+  girl001Turn: { src: "assets/characters/girl_001_turn.png", status: "ready", kind: "character" },
+  girl002Turn: { src: "assets/characters/girl_002_turn.png", status: "ready", kind: "character" },
+  girl003Turn: { src: "assets/characters/girl_003_turn.png", status: "ready", kind: "character" },
+  girl004Turn: { src: "assets/characters/girl_004_turn.png", status: "ready", kind: "character" },
+  girl005Turn: { src: "assets/characters/girl_005_turn.png", status: "ready", kind: "character" },
+
+  // ---------- 新規5人（1周目の紺制服。振り向き差分あり） ----------
+  girl006: { src: "assets/characters/girl_006.png", status: "ready", kind: "character" },
+  girl006Turn: { src: "assets/characters/girl_006_turn.png", status: "ready", kind: "character" },
+  girl007: { src: "assets/characters/girl_007.png", status: "ready", kind: "character" },
+  girl007Turn: { src: "assets/characters/girl_007_turn.png", status: "ready", kind: "character" },
+  girl008: { src: "assets/characters/girl_008.png", status: "ready", kind: "character" },
+  girl008Turn: { src: "assets/characters/girl_008_turn.png", status: "ready", kind: "character" },
+  girl009: { src: "assets/characters/girl_009.png", status: "ready", kind: "character" },
+  girl009Turn: { src: "assets/characters/girl_009_turn.png", status: "ready", kind: "character" },
+  girl010: { src: "assets/characters/girl_010.png", status: "ready", kind: "character" },
+  girl010Turn: { src: "assets/characters/girl_010_turn.png", status: "ready", kind: "character" },
+
+  // ---------- 学校別の制服差分（振り向き差分は無い） ----------
+  loop2Girl01: { src: "assets/characters/loop2_girl_01.png", status: "ready", kind: "character" },
+  loop2Girl02: { src: "assets/characters/loop2_girl_02.png", status: "ready", kind: "character" },
+  loop2Girl03: { src: "assets/characters/loop2_girl_03.png", status: "ready", kind: "character" },
+  loop2Girl04: { src: "assets/characters/loop2_girl_04.png", status: "ready", kind: "character" },
+  loop2Girl05: { src: "assets/characters/loop2_girl_05.png", status: "ready", kind: "character" },
+  loop3Girl01: { src: "assets/characters/loop3_girl_01.png", status: "ready", kind: "character" },
+  loop3Girl02: { src: "assets/characters/loop3_girl_02.png", status: "ready", kind: "character" },
+  loop3Girl03: { src: "assets/characters/loop3_girl_03.png", status: "ready", kind: "character" },
+  loop3Girl04: { src: "assets/characters/loop3_girl_04.png", status: "ready", kind: "character" },
+  loop3Girl05: { src: "assets/characters/loop3_girl_05.png", status: "ready", kind: "character" },
+
+  // ---------- モブ生徒（奥を歩く背景の人。タップ対象にしない） ----------
+  mobBoy1: { src: "assets/characters/mob/mob_boy_1.png", status: "ready", kind: "character" },
+  mobBoy2: { src: "assets/characters/mob/mob_boy_2.png", status: "ready", kind: "character" },
+  mobBoy3: { src: "assets/characters/mob/mob_boy_3.png", status: "ready", kind: "character" },
+  mobGirl1: { src: "assets/characters/mob/mob_girl_1.png", status: "ready", kind: "character" },
+  mobGirl2: { src: "assets/characters/mob/mob_girl_2.png", status: "ready", kind: "character" },
+  mobGirl3: { src: "assets/characters/mob/mob_girl_3.png", status: "ready", kind: "character" },
+
+  // ---------- 校内掲示物（壁に重ねる） ----------
+  signNoSweets: { src: "assets/signage/sign_no_sweets.png", status: "ready", kind: "item" },
+  // 校舎に掛かる横断幕。たるみとロープ付きで、学校ごとに布と書体が違う。
+  bannerLoop1: { src: "assets/signage/banner_loop1.png", status: "ready", kind: "item" },
+  bannerLoop2: { src: "assets/signage/banner_loop2.png", status: "ready", kind: "item" },
+  bannerLoop3: { src: "assets/signage/banner_loop3.png", status: "ready", kind: "item" },
+  signClassroomPlate: { src: "assets/signage/sign_classroom_plate.png", status: "ready", kind: "item" },
+
+  // ---------- UIアイコン ----------
+  iconMegaphone: { src: "assets/ui/icon_megaphone.png", status: "ready", kind: "item" },
+  iconBinoculars: { src: "assets/ui/icon_binoculars.png", status: "ready", kind: "item" },
+  iconHandbook: { src: "assets/ui/icon_handbook.png", status: "ready", kind: "item" },
+  iconClipboard: { src: "assets/ui/icon_clipboard.png", status: "ready", kind: "item" },
+  navHome: { src: "assets/ui/nav_home.png", status: "ready", kind: "item" },
+  navStory: { src: "assets/ui/nav_story.png", status: "ready", kind: "item" },
+  navEncyclopedia: { src: "assets/ui/nav_encyclopedia.png", status: "ready", kind: "item" },
+  navMission: { src: "assets/ui/nav_mission.png", status: "ready", kind: "item" },
+  navShop: { src: "assets/ui/nav_shop.png", status: "ready", kind: "item" },
+
+  // ---------- 小物（通報結果演出） ----------
+  itemChocolateFriend: { src: "assets/items/chocolate_friend.png", status: "ready", kind: "item" },
+  itemChocolateHonmei: { src: "assets/items/chocolate_honmei.png", status: "ready", kind: "item" },
+  itemChocolateSpecial: { src: "assets/items/chocolate_special.png", status: "ready", kind: "item" },
+  itemBagPink: { src: "assets/items/bag_pink.png", status: "ready", kind: "item" },
+  itemLunchbox: { src: "assets/items/lunchbox.png", status: "ready", kind: "item" },
+  itemHandbook: { src: "assets/items/student_handbook.png", status: "ready", kind: "item" },
+  // 机チェック用（0914-b）
+  deskSingle: { src: "assets/items/desk_single.png", status: "ready", kind: "item" },
+  deskInsideEmpty: { src: "assets/items/desk_inside_empty.png", status: "ready", kind: "item" },
+  iconSearch: { src: "assets/ui/icon_search.png", status: "ready", kind: "item" },
+  // 双眼鏡アイテム用（双眼鏡素材）
+  binocularViewFrame: { src: "assets/ui/binocular_view_frame.png", status: "ready", kind: "item" },
+  itemButtonFrame: { src: "assets/ui/item_button_frame.png", status: "ready", kind: "item" },
+  iconBinocularsEmpty: { src: "assets/ui/icon_binoculars_empty.png", status: "ready", kind: "item" },
+} as const satisfies Record<string, GameAsset>;
+
+export type AssetId = keyof typeof ASSETS;
+
+/** status !== 'ready' の場合は呼び出し側で仮表示に切り替えること。 */
+export function assetSrc(id: AssetId): string | null {
+  const a = ASSETS[id];
+  return a.status === "ready" ? a.src : null;
+}
