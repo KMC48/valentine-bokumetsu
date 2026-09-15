@@ -11,16 +11,16 @@ import type { LoopId } from "../types/game";
 
 /** 周回ごとに使ってよい立ち絵の接頭辞。 */
 const ALLOWED_PREFIX: Record<LoopId, RegExp> = {
-  1: /^assets\/characters\/girl_0(0[1-9]|10)\.png$/,
-  2: /^assets\/characters\/loop2_girl_0[1-5]\.png$/,
-  3: /^assets\/characters\/loop3_girl_0[1-5]\.png$/,
+  1: /^assets\/characters\/girl_0(0[1-9]|10)\.webp$/,
+  2: /^assets\/characters\/loop2_girl_0[1-5]\.webp$/,
+  3: /^assets\/characters\/loop3_girl_0[1-5]\.webp$/,
 };
 
 /** チョコが手に丸見えの絵。無実の生徒に使うと結果と矛盾する。 */
 const OPEN_CHOCOLATE = [
-  "assets/characters/girl_002.png",
-  "assets/characters/loop2_girl_02.png",
-  "assets/characters/loop3_girl_02.png",
+  "assets/characters/girl_002.webp",
+  "assets/characters/loop2_girl_02.webp",
+  "assets/characters/loop3_girl_02.webp",
 ];
 
 describe("立ち絵の割り当て", () => {

@@ -7,6 +7,7 @@
  */
 import { describe, expect, it } from "vitest";
 
+import { MOB_AREA_IDS } from "../components/MobCrowd";
 import { SIGNAGE_AREA_IDS } from "../components/Signage";
 import { AREA_IDS, needsDuskTint } from "../data/areas";
 
@@ -14,6 +15,16 @@ describe("掲示物の配置", () => {
   it("すべて実在する場所IDに紐付いている", () => {
     const unknown = SIGNAGE_AREA_IDS.filter((id) => !AREA_IDS.includes(id));
     expect(unknown).toEqual([]);
+  });
+
+  it("モブの配置も実在する場所IDに紐付いている", () => {
+    expect(MOB_AREA_IDS.filter((id) => !AREA_IDS.includes(id))).toEqual([]);
+  });
+
+  it("3校すべての校門にモブが出る（以前は1周目だけだった）", () => {
+    for (const id of ["gate", "l2Gate", "l3Gate"]) {
+      expect(MOB_AREA_IDS).toContain(id);
+    }
   });
 
   it("3校すべての校門に横断幕が出る", () => {

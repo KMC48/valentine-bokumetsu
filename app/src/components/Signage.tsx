@@ -30,22 +30,21 @@ const src = (a: { src: string; status: string }) => (a.status === "ready" ? a.sr
  * 実際の場所IDは `l2Gate` / `l3Gate` なので一度も表示されていなかった。
  */
 function gateBanner(src: string): SignPlacement[] {
-  // ロープが画面外へ抜けるよう、横幅は画面いっぱいまで広げる。
-  return [{ src, left: 6, top: 0.5, width: 88, rotate: 0, opacity: 1 }];
+  // 画面いっぱいに広げると「門に渡した幕」に見えてしまう。
+  // 校舎の壁面に貼られた掲示物として、奥の校舎の上部に小さく置く。
+  return [{ src, left: 34, top: 2, width: 32, rotate: 0, opacity: 0.95 }];
 }
 
 /** 教室の黒板に貼る禁止ポスター。3校とも黒板の写り方が同じなので共有する。 */
 const CLASSROOM_SIGNS: SignPlacement[] = [
-  { src: ASSETS.signNoSweets.src, left: 27, top: 1, width: 6.3, rotate: 0 },
+  // 高さは幅の約1.6倍になる。黒板は縦0〜12%なので、幅5%（縦8%）までに抑える。
+  { src: ASSETS.signNoSweets.src, left: 28, top: 2, width: 5, rotate: 0 },
 ];
 
 /** 場所ごとの掲示物の配置。 */
 const PLACEMENTS: Record<string, SignPlacement[]> = {
-  entrance: [
-    // 横断幕と高さが重なると読みにくいので、ポスターは下駄箱の壁面まで下げる。
-    { src: ASSETS.signNoSweets.src, left: 2, top: 17, width: 11, rotate: -2 },
-    { src: ASSETS.bannerLoop1.src, left: 22, top: 2, width: 58, rotate: 0, opacity: 1 },
-  ],
+  // 昇降口は横断幕だけ。禁止ポスターは教室の黒板にだけ貼る。
+  entrance: [{ src: ASSETS.bannerLoop1.src, left: 30, top: 3, width: 40, rotate: 0, opacity: 0.95 }],
   // 室名札（2-1）は廊下側に掛かるものなので、教室の中には出さない。
   // 禁止ポスターは奥の黒板に貼る。
   // 新しい教室背景は真正面からの構図なので、傾けない。
@@ -59,8 +58,6 @@ const PLACEMENTS: Record<string, SignPlacement[]> = {
   gateAfter: gateBanner(ASSETS.bannerLoop1.src),
   l2Gate: gateBanner(ASSETS.bannerLoop2.src),
   l3Gate: gateBanner(ASSETS.bannerLoop3.src),
-  shop: [{ src: ASSETS.signNoSweets.src, left: 4, top: 7, width: 16, rotate: -2 }],
-  stairs: [{ src: ASSETS.signNoSweets.src, left: 75, top: 6, width: 16, rotate: 2 }],
 };
 
 /** 掲示物を登録している場所ID。実在する場所かどうかをテストで突き合わせる。 */

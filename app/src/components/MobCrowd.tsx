@@ -25,42 +25,67 @@ const MOBS = [
  */
 type MobSlot = { x: number; y: number; flip?: boolean };
 
+/**
+ * モブの立ち位置。
+ *
+ * 【yの決め方】
+ * 生徒は y=64〜78 に立つ。モブを y=40 台に置くと、床の上では
+ * すぐ後ろに見えるのに **身長が生徒の半分**になり、合成に見える。
+ * 「生徒より少し奥」に見える範囲として y=54〜60 に収めている。
+ *
+ * 【場所IDについて】
+ * 以前は loop2 / loop3 という存在しないIDで登録していたため、
+ * 2・3周目にはモブが一人も出ていなかった。IDは areas.ts と同じものを使う。
+ */
+const OUTDOOR3: MobSlot[] = [
+  { x: 40, y: 58 },
+  { x: 57, y: 55, flip: true },
+  { x: 48, y: 53 },
+];
+const OUTDOOR2: MobSlot[] = [
+  { x: 41, y: 57 },
+  { x: 59, y: 54, flip: true },
+];
+const INDOOR2: MobSlot[] = [
+  { x: 43, y: 57 },
+  { x: 58, y: 54, flip: true },
+];
+const INDOOR1: MobSlot[] = [{ x: 56, y: 56 }];
+
+// 教室は当面モブを出さない。
+// いまある絵は「鞄を持って下校する後ろ姿」しか無く、授業の合間の教室には合わない。
+// 室内で立っている／座っているモブが納品されたら戻す。
 const SLOTS_BY_AREA: Record<string, MobSlot[]> = {
-  gate: [
-    { x: 40, y: 44 },
-    { x: 56, y: 42, flip: true },
-    { x: 48, y: 40 },
-  ],
-  entrance: [
-    { x: 44, y: 43 },
-    { x: 55, y: 41, flip: true },
-  ],
-  courtyard: [
-    { x: 38, y: 43 },
-    { x: 60, y: 41 },
-  ],
-  classroom: [{ x: 66, y: 42 }],
-  shop: [
-    { x: 42, y: 44 },
-    { x: 58, y: 42, flip: true },
-    { x: 50, y: 40 },
-  ],
-  stairs: [{ x: 55, y: 42 }],
-  gymBack: [{ x: 58, y: 42 }],
+  gate: OUTDOOR3,
+  gateAfter: OUTDOOR2,
+  entrance: INDOOR2,
+  courtyard: OUTDOOR2,
+  shop: OUTDOOR3,
+  stairs: INDOOR1,
+  gymBack: INDOOR1,
+  clubrooms: OUTDOOR2,
   rooftop: [],
-  loop2: [
-    { x: 44, y: 43 },
-    { x: 57, y: 41, flip: true },
-  ],
-  loop2Lunch: [{ x: 50, y: 42 }],
-  loop2After: [{ x: 46, y: 42 }],
-  loop3: [
-    { x: 42, y: 43 },
-    { x: 58, y: 41, flip: true },
-  ],
-  loop3Lunch: [{ x: 52, y: 42 }],
-  loop3After: [{ x: 47, y: 42 }],
+  classroom: [],
+
+  l2Gate: OUTDOOR3,
+  l2Courtyard: OUTDOOR2,
+  l2Shop: OUTDOOR3,
+  l2Stairs: INDOOR1,
+  l2GymBack: INDOOR1,
+  l2Rooftop: [],
+  l2Classroom: [],
+
+  l3Gate: OUTDOOR3,
+  l3Courtyard: OUTDOOR2,
+  l3Shop: OUTDOOR3,
+  l3Stairs: INDOOR1,
+  l3GymBack: INDOOR1,
+  l3Rooftop: [],
+  l3Classroom: [],
 };
+
+/** モブを登録している場所ID。実在する場所かをテストで突き合わせる。 */
+export const MOB_AREA_IDS = Object.keys(SLOTS_BY_AREA);
 
 /** 場所IDから決まる並び（毎回同じになるよう、文字列から決定的に選ぶ）。 */
 function mobIndexFor(areaId: string, slot: number): number {
