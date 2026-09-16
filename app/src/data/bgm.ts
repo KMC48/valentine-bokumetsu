@@ -20,8 +20,8 @@ export type BgmId = "pop" | "youth" | "dark";
  * バッファ全体をループさせれば隙間は生じない。
  * ただしWAVは合計37MBあり、GitHub Pagesで配信するには重い。
  * Web公開版はMP3を使う（ループの継ぎ目にごく短い隙間が出ることがある）。
- * ローカルで音質を優先したい場合はここを "wav" に戻し、
- * public/assets/bgm/*.wav を置けばよい（.gitignore で除外している）。
+ * WAVの原本は app/素材作業用/bgm_wav/ にある。
+ * 音質を優先したい場合はここを "wav" に戻し、原本を public/assets/bgm/ へ戻す。
  */
 export const BGM_FORMAT: "wav" | "mp3" = "mp3";
 

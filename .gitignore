@@ -9,12 +9,18 @@ app/node_modules/
 !画像素材/*.md
 サウンド素材/
 追加素材0914-b/
-app/public/assets/source/
-app/public/assets/reference/
+# 素材の作業用ファイルとWAVの原本。
+# public/ の外に置いてある（public/ に置くとビルド成果物に入ってしまう）。
+app/素材作業用/
 
-# WAVのBGM（合計37MB）。配信はMP3を使う。
-# ローカルで音質を優先したいときだけ手元に置く。
-app/public/assets/bgm/*.wav
+# Android（署名情報とビルド成果物）
+app/android/keystore.properties
+app/android/local.properties
+app/android/*.jks
+app/android/.gradle/
+app/android/build/
+app/android/app/build/
+app/android/capacitor-cordova-android-plugins/
 
 # 加工スクリプトの中間ファイル
 scripts/__pycache__/

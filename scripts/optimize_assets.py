@@ -24,10 +24,10 @@ from PIL import Image
 
 ROOT = Path("app/public/assets")
 
-#: 変換しないもの。
-#: - source / reference … 作業用。ゲームからは読まない
-#: - bgm … 音声
-SKIP_DIRS = {"source", "reference", "bgm"}
+#: 変換しないもの（bgm は音声）。
+#: 作業用ファイルは public/ の外（app/素材作業用/）に置いてある。
+#: public/ に置くと、そのままビルド成果物へ入ってしまう。
+SKIP_DIRS = {"bgm"}
 
 #: 品質。88 は原本と見分けがつかず、容量は1〜2割になる。
 QUALITY = 88

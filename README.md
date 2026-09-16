@@ -43,6 +43,23 @@ npm run build      # 本番ビルド
 
 ---
 
+## Android版（Google Play）
+
+Webの中身をそのまま包んだアプリを作れます（Capacitor）。通信なしで遊べます。
+
+```bash
+cd app
+npm run android:release   # AABができる
+```
+
+手順と注意は [app/android/README.md](app/android/README.md)、
+ストアに入れる文章と画像は [ストア掲載用/](ストア掲載用/) にまとめてあります。
+
+**セリフを直したら、アプリ側は再ビルドと再アップロードが要ります**
+（ブラウザ版は push すれば数分で反映されます）。
+
+---
+
 ## 構成
 
 | 場所 | 中身 |
