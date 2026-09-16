@@ -86,6 +86,29 @@ android.overridePathCheck=true
 
 ---
 
+## ビルドが止まったとき
+
+### 「Cannot snapshot ... not a regular file」
+
+このプロジェクトは OneDrive の中にあります。
+同期の都合で、`android/app/src/main/assets/public/` に残った古いファイルが
+実体を持たない状態になり、Gradle が読めなくなることがあります。
+
+同期先を作り直せば直ります。
+
+```bash
+rm -rf android/app/src/main/assets/public
+npx cap sync android
+```
+
+### 「'gradlew.bat' は認識されていません」
+
+この環境の cmd は、実行ファイルを現在のディレクトリから探しません。
+`npm run android:release` では `.\gradlew.bat` と書いて回避しています。
+手で叩くときも `.\gradlew.bat` または Git Bash で `./gradlew` としてください。
+
+---
+
 ## 動作確認
 
 ### 実機で試す
