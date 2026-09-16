@@ -179,6 +179,16 @@ export const ASSETS = {
   loop3Girl03Turn: { src: "assets/characters/loop3_girl_03_turn.webp", status: "ready", kind: "character" },
   loop3Girl04Turn: { src: "assets/characters/loop3_girl_04_turn.webp", status: "ready", kind: "character" },
   loop3Girl05Turn: { src: "assets/characters/loop3_girl_05_turn.webp", status: "ready", kind: "character" },
+  loop2Girl06Turn: { src: "assets/characters/loop2_girl_06_turn.webp", status: "ready", kind: "character" },
+  loop2Girl07Turn: { src: "assets/characters/loop2_girl_07_turn.webp", status: "ready", kind: "character" },
+  loop2Girl08Turn: { src: "assets/characters/loop2_girl_08_turn.webp", status: "ready", kind: "character" },
+  loop2Girl09Turn: { src: "assets/characters/loop2_girl_09_turn.webp", status: "ready", kind: "character" },
+  loop2Girl10Turn: { src: "assets/characters/loop2_girl_10_turn.webp", status: "ready", kind: "character" },
+  loop3Girl06Turn: { src: "assets/characters/loop3_girl_06_turn.webp", status: "ready", kind: "character" },
+  loop3Girl07Turn: { src: "assets/characters/loop3_girl_07_turn.webp", status: "ready", kind: "character" },
+  loop3Girl08Turn: { src: "assets/characters/loop3_girl_08_turn.webp", status: "ready", kind: "character" },
+  loop3Girl09Turn: { src: "assets/characters/loop3_girl_09_turn.webp", status: "ready", kind: "character" },
+  loop3Girl10Turn: { src: "assets/characters/loop3_girl_10_turn.webp", status: "ready", kind: "character" },
 
   // ---------- モブ生徒（奥を歩く背景の人。タップ対象にしない） ----------
   mobBoy1: { src: "assets/characters/mob/mob_boy_1.webp", status: "ready", kind: "character" },

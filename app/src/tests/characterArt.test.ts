@@ -113,10 +113,10 @@ describe("振り向き差分", () => {
     }
   });
 
-  it("振り向かないのは、差分が未納の 2・3周目の girl_06〜10 だけ", () => {
-    // ここが増えたら、素材の取りこぼしか割り当てミス。
-    const missing = STUDENTS.filter((s) => !TURN_VARIANT[s.image!]).map((s) => s.image!);
-    const allowed = /^assets\/characters\/loop[23]_girl_(0[6-9]|10)\.webp$/;
-    for (const src of missing) expect(src).toMatch(allowed);
+  it("45人全員が、選択されたときに振り向く絵を持っている", () => {
+    // 差分が無いと、選んでも反応が無く「タップできたのか」が分からない。
+    for (const s of STUDENTS) {
+      expect(TURN_VARIANT[s.image!], `${s.id}: ${s.image}`).toBeDefined();
+    }
   });
 });

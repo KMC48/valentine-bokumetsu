@@ -49,6 +49,16 @@ export const TURN_VARIANT: Record<string, string> = {
   [ASSETS.loop3Girl03.src]: ASSETS.loop3Girl03Turn.src,
   [ASSETS.loop3Girl04.src]: ASSETS.loop3Girl04Turn.src,
   [ASSETS.loop3Girl05.src]: ASSETS.loop3Girl05Turn.src,
+  [ASSETS.loop2Girl06.src]: ASSETS.loop2Girl06Turn.src,
+  [ASSETS.loop2Girl07.src]: ASSETS.loop2Girl07Turn.src,
+  [ASSETS.loop2Girl08.src]: ASSETS.loop2Girl08Turn.src,
+  [ASSETS.loop2Girl09.src]: ASSETS.loop2Girl09Turn.src,
+  [ASSETS.loop2Girl10.src]: ASSETS.loop2Girl10Turn.src,
+  [ASSETS.loop3Girl06.src]: ASSETS.loop3Girl06Turn.src,
+  [ASSETS.loop3Girl07.src]: ASSETS.loop3Girl07Turn.src,
+  [ASSETS.loop3Girl08.src]: ASSETS.loop3Girl08Turn.src,
+  [ASSETS.loop3Girl09.src]: ASSETS.loop3Girl09Turn.src,
+  [ASSETS.loop3Girl10.src]: ASSETS.loop3Girl10Turn.src,
 };
 
 export function StudentTarget({ student, loop, view, selected, debug, onSelect }: Props) {
