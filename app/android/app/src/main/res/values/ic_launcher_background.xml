@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ic_launcher_background">#FFFFFF</color>
+    <!-- 適応アイコンの下地。絵の空の色を取っている。 -->
+    <color name="ic_launcher_background">#79B8F6</color>
 </resources>
