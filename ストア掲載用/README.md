@@ -137,8 +137,7 @@ Play Console に入力・添付するものをまとめています。
 データを一切集めていなくても、Play Console は**URLの入力を求めます。**
 GitHub Pages に1枚置くのが手軽です。
 
-例：`https://kmc48.github.io/valentine-bokumetsu/privacy.html`
-→ このファイルはまだ作っていません。必要になったらお申し付けください。
+**https://kmc48.github.io/valentine-bokumetsu/privacy.html**（作成済み。Google Play・App Store の両方にこのURLを入力します）
 
 ---
 
@@ -148,5 +147,5 @@ GitHub Pages に1枚置くのが手軽です。
 |---|---|
 | アプリアイコン | ✅ 専用に描いたものを採用済み（候補2：校舎＋空）。差し替えは `scripts/build_app_icon.py` の `CHOSEN` を変えて流し直すだけ |
 | 実機での動作確認 | **未実施**。エミュレータが用意できていません。`npm run android:debug` で作ったAPKを実機で確認してください |
-| プライバシーポリシー | 未作成 |
+| プライバシーポリシー | ✅ 公開済み（上記URL） |
 | 開発者アカウント | Google Play Console の登録（$25・買い切り）が別途必要です |
