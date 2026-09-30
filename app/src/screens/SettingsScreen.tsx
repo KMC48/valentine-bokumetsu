@@ -32,31 +32,24 @@ export function SettingsScreen() {
         />
       </div>
 
-      <div className="panel settings-row">
-        <label htmlFor="se">SE音量：{Math.round(settings.seVolume * 100)}%</label>
-        <input
-          id="se"
-          type="range"
-          min={0}
-          max={100}
-          value={Math.round(settings.seVolume * 100)}
-          onChange={(e) => setVolume("se", Number(e.target.value) / 100)}
-        />
-      </div>
+      {/* 効果音はまだ1つも無いので、SEの音量は出さない（動かしても何も変わらないため）。 */}
 
-      <div className="panel settings-row">
-        <label htmlFor="debug">
-          <input
-            id="debug"
-            type="checkbox"
-            checked={debug}
-            onChange={(e) => setDebug(e.target.checked)}
-            style={{ marginRight: "0.5em" }}
-          />
-          デバッグモード（生徒IDとチョコ種別を表示／タイマー無制限）
-        </label>
-        <p className="settings-note">URLに ?debug=true を付けても有効になる。</p>
-      </div>
+      {/* 正解が見えてしまうので、ストア版・公開版では出さない（開発サーバーでだけ表示）。 */}
+      {import.meta.env.DEV && (
+        <div className="panel settings-row">
+          <label htmlFor="debug">
+            <input
+              id="debug"
+              type="checkbox"
+              checked={debug}
+              onChange={(e) => setDebug(e.target.checked)}
+              style={{ marginRight: "0.5em" }}
+            />
+            デバッグモード（生徒IDとチョコ種別を表示／タイマー無制限）
+          </label>
+          <p className="settings-note">URLに ?debug=true を付けても有効になる。</p>
+        </div>
+      )}
 
       <div className="panel settings-row">
         <label>セーブデータ</label>

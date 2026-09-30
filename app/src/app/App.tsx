@@ -37,7 +37,11 @@ export function App() {
 
   // ?debug=true でデバッグモード。
   // ?loop=2&stage=lunch でステージへ直行。?loop=2&story=opening でストーリーへ直行。
+  //
+  // どれも開発サーバーでだけ効く。公開版で効くと、URLを書き換えるだけで
+  // 正解が見えたり、解放していない周回に入れたりしてしまう。
   useEffect(() => {
+    if (!import.meta.env.DEV) return;
     const params = new URLSearchParams(window.location.search);
     if (params.get("debug") === "true") {
       setDebug(true);

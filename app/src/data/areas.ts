@@ -168,7 +168,7 @@ const AREA_LIST: AreaDef[] = [
   {
     id: "l2Classroom",
     label: "教室",
-    hint: "机の中は、この学校でも死角のままだ。",
+    hint: "昼休みの教室。誰が誰の席に寄っていくかを見ろ。",
     background: ASSETS.classroomLoop2.src,
     focusY: 15,
     floor: CLASSROOM_AISLE,
