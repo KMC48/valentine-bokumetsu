@@ -30,6 +30,10 @@ export type GameAsset = {
  * 相対パスなら開発サーバーでも公開先でも同じように解決できる。
  */
 export const ASSETS = {
+  // 白鷺台学園・生徒会長。一ノ瀬ひかる専用（汎用生徒への流用不可）。
+  ichinose: { src: "assets/characters/ichinose.webp", status: "ready", kind: "character" },
+  ichinoseTurn: { src: "assets/characters/ichinose_turn.webp", status: "ready", kind: "character" },
+  bustIchinose: { src: "assets/characters/bust_ichinose.webp", status: "ready", kind: "character" },
   // ---------- 背景 ----------
   bgSchoolMorning: { src: "assets/backgrounds/school_morning.webp", status: "ready", kind: "background" },
   bgSchoolLunch: { src: "assets/backgrounds/school_lunch.webp", status: "ready", kind: "background" },

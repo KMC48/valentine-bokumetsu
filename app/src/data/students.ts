@@ -819,7 +819,7 @@ const LOOP3: Student[] = [
   {
     id: "l3-l-05",
     name: "一ノ瀬 ひかる",
-    image: "assets/characters/loop3_girl_01.webp",
+    image: "assets/characters/ichinose.webp",
     chocolateType: "none",
     loop: 3,
     stage: "lunch",

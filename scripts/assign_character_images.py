@@ -23,6 +23,10 @@ from collections import Counter, defaultdict
 
 PATH = "app/src/data/students.ts"
 
+# 名前付きキャラクターは専用画像に固定する。
+# 下の汎用割当カウンタは従来通り進め、後続の生徒の画像を変更しない。
+DEDICATED_IMAGES = {"l3-l-05": "ichinose"}
+
 #: 役割 → 周回ごとのファイル名。None は「その周回には無い」。
 ROLE_FILES = {
     #             1周目        2周目             3周目
@@ -142,7 +146,7 @@ for b in blocks:
                 f"  {sid}: 鞄を持たない設定だが、{loop}周目に該当する制服差分が無いため"
                 f" {file} で代用"
             )
-    assigned.append(file)
+    assigned.append(DEDICATED_IMAGES.get(sid, file))
 
 counter = {"i": 0}
 

@@ -46,6 +46,7 @@ SCENES: list[tuple[str, str]] = [
     ("ending_", "03_エンディングCG"),
     ("mob_", "07_モブ生徒"),
     ("girl_", "06_女子生徒の立ち絵"),
+    ("ichinose", "06_女子生徒の立ち絵"),
     ("player", "05_主人公・教師・男子生徒"),
     ("teacher", "05_主人公・教師・男子生徒"),
     ("boy_", "05_主人公・教師・男子生徒"),
@@ -146,9 +147,9 @@ def main() -> None:
 
     used = sum(1 for _, n in moves if "使用" == n.parts[1])
     print(f"使用 {used}枚 / 未使用 {len(moves) - used}枚")
-    for d in sorted((SRC / "使用").iterdir()):
+    for d in sorted((SRC / "使用").glob("*/")):
         print(f"  使用/{d.name:40s} {len(list(d.iterdir()))}枚")
-    for d in sorted((SRC / "未使用").iterdir()):
+    for d in sorted((SRC / "未使用").glob("*/")):
         print(f"  未使用/{d.name:40s} {len(list(d.iterdir()))}枚")
 
 

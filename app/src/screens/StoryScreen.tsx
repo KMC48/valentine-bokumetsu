@@ -19,7 +19,10 @@ function stageForSlot(slot: StoryScene["slot"]): StageId {
  * 話者名 → バストアップ立ち絵（ノベルゲーム風）。
  * ここに無い話者（ナレーションや脇役）は立ち絵なしで進行する。
  */
-function characterFor(speaker: string, loop: LoopId): string | null {
+export function characterFor(speaker: string, loop: LoopId): string | null {
+  if (loop === 3 && speaker === "生徒会長・一ノ瀬") {
+    return ASSETS.bustIchinose.status === "ready" ? ASSETS.bustIchinose.src : null;
+  }
   if (speaker === "俺") return ASSETS.bustPlayer.status === "ready" ? playerBustSrc(loop) : null;
   if (speaker.startsWith("生徒指導")) {
     return ASSETS.bustTeacher.status === "ready" ? ASSETS.bustTeacher.src : null;

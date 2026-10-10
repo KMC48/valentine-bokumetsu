@@ -34,6 +34,11 @@ describe("立ち絵の割り当て", () => {
 
   it("学校ごとの制服を使っている（他校の制服が混ざらない）", () => {
     for (const s of STUDENTS) {
+      if (s.id === "l3-l-05") {
+        expect(s.loop).toBe(3);
+        expect(s.image).toBe(ASSETS.ichinose.src);
+        continue;
+      }
       expect(s.image ?? "", `${s.id}（${s.loop}周目）`).toMatch(ALLOWED_PREFIX[s.loop]);
     }
   });

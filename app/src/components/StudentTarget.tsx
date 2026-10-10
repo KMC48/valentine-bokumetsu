@@ -22,11 +22,10 @@ type Props = {
  * 選択中に見せる「振り向き」差分。
  * 通常の立ち絵と同じ人物・同じ足元アンカー・同じ身長なので、切り替えても大きさが飛ばない。
  *
- * 学校別の制服差分（loop2_girl_* / loop3_girl_*）には振り向きが無い。
- * ここに載せないことで、紺制服の振り向きに化けるのを防いでいる
- * （制服が変わってしまい、別人に見えるため）。
+ * 学校別の制服差分と、一ノ瀬ひかるの専用差分を同じ人物同士で対応させる。
  */
 export const TURN_VARIANT: Record<string, string> = {
+  [ASSETS.ichinose.src]: ASSETS.ichinoseTurn.src,
   [ASSETS.girl001.src]: ASSETS.girl001Turn.src,
   [ASSETS.girl002.src]: ASSETS.girl002Turn.src,
   [ASSETS.girl003.src]: ASSETS.girl003Turn.src,
