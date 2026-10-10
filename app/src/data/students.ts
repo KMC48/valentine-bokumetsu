@@ -824,7 +824,8 @@ const LOOP3: Student[] = [
     loop: 3,
     stage: "lunch",
     area: "l3Stairs",
-    position: { x: 17, y: 77 },
+    // 画面左端だと、手がかりの紙袋が手前の主人公の頭に隠れてしまう。
+    position: { x: 42, y: 74 },
     suspicionLevel: 56,
     visibleItem: "paper_bag",
     hints: [
