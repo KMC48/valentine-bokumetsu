@@ -114,8 +114,8 @@ npx cap open ios
 ### General → Identity
 
 - **Display Name**：`バレンタイン撲滅委員会`
-- **Version**：`1.0.1`（Android版と合わせています）
-- **Build**：`2`（アップロードのたびに +1。ここを上げ忘れると弾かれます）
+- **Version**：`1.0.4`（Android版と合わせています）
+- **Build**：`1`（初回は1。以降アップロードのたびに +1。ここを上げ忘れると弾かれます）
 
 ### General → Deployment Info
 
