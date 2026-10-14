@@ -1,134 +1,158 @@
 # Android版（Google Play 用）
 
-Webで動いているゲームを、そのまま中身ごとアプリに包んだものです（Capacitor）。
-**通信なしで遊べます。**
+Web版と同じ `app/src/` と `app/public/` をproductionビルドし、CapacitorでAndroidに同梱します。
+Webの更新だけではインストール済みAndroidアプリは更新されません。変更後は再ビルド・再提出が必要です。
 
-| | |
+| 設定 | 現行値 |
 |---|---|
 | パッケージ名 | `com.kmc48.valentinebokumetsu` |
-| 対応Android | 7.0 以上（minSdk 24） |
+| 対応Android | 7.0以上（minSdk 24） |
+| compileSdk / targetSdk | 36 / 36 |
+| versionCode / versionName | **5 / 1.0.4**（`app/android/app/build.gradle`が正本） |
 | 画面 | 縦持ち固定 |
-| AABの大きさ | 約25MB |
 
----
+## 必要な環境
 
-## セリフや素材を直したあとの手順
+- Node.js 22以上、npm（依存関係は`npm ci`でlockfileどおりにインストール）
+- JDK **21**。`java -version`と`JAVA_HOME`を確認
+- Android SDK Platform 36、Build Tools 35.0.0、SDKライセンスへの同意
+- Python 3（標準ライブラリだけでAAB内部を検証）。Windowsは`python`、macOS/Linuxは`python3`で起動可能にする
+- Git
 
-**中身をアプリに同梱しているので、文言を1文字変えただけでも再ビルドが要ります。**
-
-### 1. バージョンを上げる
-
-`app/build.gradle` の2行を編集します。**ここを上げ忘れるとPlayが受け付けません。**
-
-```gradle
-versionCode 1        // 半角数字。アップロードのたびに必ず +1
-versionName "1.0"    // 利用者に見える表記。1.0.1 など好きに
-```
-
-### 2. ビルド
-
-プロジェクト直下（`app/`）で1行です。
-
-```bash
-npm run android:release
-```
-
-中で `vite build` → `cap sync` → `gradlew bundleRelease` を順に流しています。
-
-### 3. できあがり
-
-```
-app/android/app/build/outputs/bundle/release/app-release.aab
-```
-
-これを Play Console の「製品版」→「新しいリリースを作成」からアップロードします。
-
----
-
-## 署名について
-
-`keystore.properties` と `upload-keystore.jks` が署名情報です。
-**どちらもGitに入れていません**（`.gitignore` で除外済み）。
-
-- **この2つのファイルは必ず別の場所にも控えを取ってください。**
-- 失うと、同じ鍵でのアプリ更新ができなくなります。
-- ただし Play App Signing を使っていれば、アップロード鍵はGoogleに申請して再発行できます。
-
-新しい端末で作業するときは、この2ファイルを `app/android/` に置けばそのままビルドできます。
-
----
-
-## 初回だけ必要な設定
-
-### local.properties
-
-Android SDK の場所を書いたファイルです。端末ごとに違うのでGitに入れていません。
+Gradle 8.14.3とAndroid Gradle Plugin 8.13.0はプロジェクトの設定を使用します。
+初回はGradle・Maven依存関係を取得できるネットワークが必要です。
+SDKは`ANDROID_HOME`、またはGit管理外の`app/android/local.properties`で指定します。
 
 ```properties
 sdk.dir=C:\\Users\\<ユーザー名>\\AppData\\Local\\Android\\Sdk
 ```
 
-※ バックスラッシュは2つ重ねます。
+以降、特記しないコマンドはリポジトリの **`app/` ディレクトリ**で実行します。
+Windows・macOS・Linuxとも同じnpmコマンドを使えます。
 
-### プロジェクトのパスについて
+## 公開用・署名済みAABを作る
 
-このプロジェクトはパスに日本語（`バレンタイン撲滅委員会`）を含みます。
-Android のビルドツールはこれを警告して止めるので、
-`gradle.properties` に次の1行を入れて明示的に許可しています。
+### 1. ソースとバージョンを確認
 
-```properties
-android.overridePathCheck=true
+```bash
+git switch main
+git pull --ff-only
+git rev-parse HEAD
+npm ci
 ```
 
-いまのところ問題なくビルドできていますが、
-将来ビルドツールを上げたときに不可解なエラーが出たら、
-**まずプロジェクトを英数字だけのパスに移して試してください。**
+`app/android/app/build.gradle`（`app/`からは`android/app/build.gradle`）の現行値は以下です。
 
----
+```gradle
+versionCode 5
+versionName "1.0.4"
+```
+
+**次に使うversionCodeは、Play Consoleに過去アップロードした最大値より大きくします。**
+5が未使用なら現在の5を使えます。5が使用済みなら6以上に上げてください。
+ローカルで検証し直すだけなら毎回上げる必要はありません。versionNameは利用者向けの表記です。
+
+### 2. ローカルの署名設定を用意
+
+既存のアップロード鍵と`keystore.properties`を **`app/android/`** に置きます。
+新しい鍵への置き換えは行わず、Play Consoleに登録した鍵を使ってください。
+`storeFile`は`app/android/`からの相対パス、または絶対パスです。
+
+```properties
+storeFile=upload-keystore.jks
+storePassword=<ローカルのパスワード>
+keyAlias=<既存の鍵のエイリアス>
+keyPassword=<ローカルのパスワード>
+```
+
+これらは`.gitignore`の対象です。**鍵・パスワード・署名設定はGitHubにもGitHub Secretsにも登録しません。**
+安全な別の場所にもバックアップしてください。ログや画面共有にもパスワードを載せないでください。
+
+### 3. ビルド・検証
+
+```bash
+npm run android:release
+```
+
+次を順番に実行し、1つでも失敗したら停止します。
+
+1. 署名設定の存在確認
+2. 既存テストと素材の実体検査
+3. 型チェックとproductionビルド（`npm run build`）
+4. 現行ストーリー・エンディング全台詞、一ノ瀬の専用画像参照を生成JSで検証
+5. `cap sync android`
+6. `public → dist → Android`のファイル一覧・SHA-256照合
+7. `:app:bundleRelease`とAAB内部の全Webファイル・Capacitor設定照合
+8. 署名エントリーの存在確認と`jarsigner -verify`
+
+出力先：
+
+- AAB：`app/android/app/build/outputs/bundle/release/app-release.aab`
+- 検証記録：`app/android/build/content-verification.json`（ソースcommit、Gradleの版数、各ファイルのハッシュ、AABハッシュ）
+
+検証記録の版数はGradleから読んだ値です。AABのコンパイル済みManifestの版数を独立に読み取る検証は行いません。
+`jarsigner`は署名の整合性を調べますが、Play Consoleに登録されたアップロード鍵との一致までは確認しません。
+登録証明書との照合と、Play Consoleに表示されるパッケージ名・版数の確認は提出時に行ってください。
+
+## 鍵を使わずに検証する／CI
+
+```bash
+npm ci
+npm run test:packaging
+npm run android:unsigned
+```
+
+公開用と同じビルド・同梱検証を実行し、Gradleに`-PunsignedRelease=true`を渡します。
+このモードではローカルに署名設定があっても読み込みません。**生成物は未署名なのでGoogle Playに提出できません。**
+公開用と未署名用のAAB出力先は同じです。提出するときは最後に`android:release`を成功させてください。
+直接Gradleでreleaseを作る場合も、鍵がなければ明示的な`-PunsignedRelease=true`指定が必要です。
+
+`.github/workflows/android.yml`はmainへのpush・PR・手動実行で次を自動確認します。
+型チェック、テスト、全台詞検証、Capacitor同期、未署名release AAB生成、AAB内部照合。
+成功時は未署名AABと検証記録を7日間のActions成果物として保存します。署名鍵は使いません。
+Web公開ワークフローとは独立したチェックです。
+
+## 部分的に検証する
+
+```bash
+npm run android:prepare     # SDK不要：テスト・型・Webビルド・同梱コピーまで
+npm run verify:web         # 直前に生成したdistの台詞・一ノ瀬参照を確認
+npm run test:packaging     # 欠落・改変・古いファイル・署名モードの検知テスト
+npm run android:verify-aab # 現在のdist/同期結果と標準出力先のAABを照合
+```
+
+別のAABは`npm run android:verify-aab -- "絶対パス/対象.aab"`で指定できます。
+この照合だけではビルドをやり直しません。必ず意図したソースで`android:prepare`を先に成功させてください。
+
+## 端末で確認・Playへ提出
+
+```bash
+npm run android:debug
+npm run android:open
+```
+
+デバッグAPKは`app/android/app/build/outputs/apk/debug/app-debug.apk`です。
+署名済みAABはまずPlay Consoleの内部テストなどで、配信されるアプリを確認します。
+
+- オフライン起動、BGM・効果音、セーブ、画面遷移
+- 3周目・昼の一ノ瀬ひかるの通常画像と選択時の振り向き画像
+- 3周目・昼前ストーリーの一ノ瀬のバストアップと最新台詞
+- 3周分の背景・生徒・エンディング・ゲーム内素材
+- パッケージ名、versionCode / versionName、アップロード鍵証明書
+
+自動照合の成功だけでは、Android端末の描画・操作・音声再生やPlay審査通過を保証しません。
 
 ## ビルドが止まったとき
 
-### 「Cannot snapshot ... not a regular file」
+- Javaのバージョンエラー：JDK21と`JAVA_HOME`を確認します。
+- Gradle取得失敗：ネットワーク・プロキシとGradle/Mavenへの接続を確認します。
+- `Cannot snapshot ... not a regular file`：OneDrive等の同期を完了し、`npm run android:prepare`を再実行します。
+- 古いファイルの混入が報告された場合：生成先`android/app/src/main/assets/public/`を削除し、`npm run android:prepare`で作り直します。元の`public/`は削除しません。
+- WindowsでGradleを直接起動する場合は`.\gradlew.bat`、macOS/Linuxでは`sh ./gradlew`を使います。npmコマンドはOSを自動判別します。
+- 日本語パスの警告には`android.overridePathCheck=true`を設定済みです。問題が続く場合は英数字のパスに移してください。
 
-このプロジェクトは OneDrive の中にあります。
-同期の都合で、`android/app/src/main/assets/public/` に残った古いファイルが
-実体を持たない状態になり、Gradle が読めなくなることがあります。
+## Web版との対応
 
-同期先を作り直せば直ります。
-
-```bash
-rm -rf android/app/src/main/assets/public
-npx cap sync android
-```
-
-### 「'gradlew.bat' は認識されていません」
-
-この環境の cmd は、実行ファイルを現在のディレクトリから探しません。
-`npm run android:release` では `.\gradlew.bat` と書いて回避しています。
-手で叩くときも `.\gradlew.bat` または Git Bash で `./gradlew` としてください。
-
----
-
-## 動作確認
-
-### 実機で試す
-
-```bash
-npm run android:debug   # デバッグAPKを作る
-```
-
-できた `app/android/app/build/outputs/apk/debug/app-debug.apk` を端末に入れます。
-
-### Android Studio で開く
-
-```bash
-npx cap open android
-```
-
----
-
-## Webだけ直したいとき
-
-Play版とは別に、ブラウザ版は `main` へpushすれば
-数分で https://kmc48.github.io/valentine-bokumetsu/ に反映されます。
-Play版はそれとは独立しているので、**両方に反映したいときは push とアプリの再ビルドの両方**が要ります。
+mainへのpushはWeb版を更新します。Androidの既存配信版は変更されません。
+同じcommitを用いて再ビルドしたAABを提出して、両方の内容を揃えます。
+この検証はリポジトリから新たに作る成果物を対象にし、過去に手元で作ったAABや既存のPlay配信版は読み取っていません。

@@ -1,0 +1,57 @@
+name: Verify Android AAB (unsigned)
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: android-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  android-bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Install Android SDK
+        run: sdkmanager 'platforms;android-36' 'build-tools;35.0.0'
+      - run: npm ci
+      - name: Test packaging verifier failure cases
+        run: npm run test:packaging
+      # This runs tests, typecheck, production build, story checks, cap sync,
+      # byte comparisons, bundleRelease, and final AAB content verification.
+      # No release key or GitHub secret is used.
+      - name: Build and verify unsigned release AAB
+        run: npm run android:unsigned
+      - uses: actions/upload-artifact@v4
+        with:
+          name: android-unsigned-verification-${{ github.sha }}
+          if-no-files-found: error
+          retention-days: 7
+          path: |
+            app/android/app/build/outputs/bundle/release/app-release.aab
+            app/android/build/content-verification.json
