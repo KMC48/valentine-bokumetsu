@@ -35,10 +35,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - uses: android-actions/setup-android@v3
+      - name: Set up Android SDK (without obsolete tools package)
+        uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407 # v3
+        with:
+          # v3 defaults to "tools platform-tools"; Google no longer serves tools.
+          # Command-line tools (including sdkmanager) are installed by the action.
+          # Match compileSdk 36 and the build-tools used by Android Gradle Plugin 8.13.
+          packages: 'platform-tools platforms;android-36 build-tools;35.0.0'
+          log-accepted-android-sdk-licenses: false
       - uses: gradle/actions/setup-gradle@v4
-      - name: Install Android SDK
-        run: sdkmanager 'platforms;android-36' 'build-tools;35.0.0'
       - run: npm ci
       - name: Test packaging verifier failure cases
         run: npm run test:packaging
@@ -47,6 +52,24 @@ jobs:
       # No release key or GitHub secret is used.
       - name: Build and verify unsigned release AAB
         run: npm run android:unsigned
+      - name: Summarize verified unsigned AAB
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          report = json.loads(Path('android/build/content-verification.json').read_text())
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as summary:
+              summary.write('## Unsigned AAB verification\n\n')
+              summary.write('**Verification only: this AAB cannot be submitted to Google Play.**\n\n')
+              summary.write(f"- Source commit: `{report['sourceCommit']}`\n")
+              summary.write(f"- Web files verified: {report['distFiles']}\n")
+              summary.write(f"- Files verified inside the actual AAB: {report['aabFilesVerified']}\n")
+              summary.write(f"- JAR signature entries present: {report['signatureEntriesPresent']}\n")
+              summary.write(f"- AAB SHA-256: `{report['aabSHA256']}`\n")
+              summary.write('\nSigned release, upload certificate, Play versionCode, and device testing remain separate checks.\n')
+          PY
       - uses: actions/upload-artifact@v4
         with:
           name: android-unsigned-verification-${{ github.sha }}
