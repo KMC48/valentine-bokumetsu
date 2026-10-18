@@ -2,8 +2,27 @@
 // keystore.properties はリポジトリに入れない（各自の端末に置く）。
 def keystorePropsFile = rootProject.file("keystore.properties")
 def keystoreProps = new Properties()
-if (keystorePropsFile.exists()) {
+// CIは明示的に未署名にする。鍵が手元にあっても読み込まない。
+def unsignedRelease = project.hasProperty('unsignedRelease')
+def hasReleaseSigning = keystorePropsFile.exists() && !unsignedRelease
+if (hasReleaseSigning) {
     keystoreProps.load(new FileInputStream(keystorePropsFile))
+    ['storeFile', 'storePassword', 'keyAlias', 'keyPassword'].each { key ->
+        if (!keystoreProps.getProperty(key)?.trim()) {
+            throw new GradleException("keystore.properties is missing required field: " + key)
+        }
+    }
+    if (!rootProject.file(keystoreProps['storeFile']).isFile()) {
+        throw new GradleException("Release keystore file was not found (path omitted).")
+    }
+}
+// 直接Gradleを使う場合も、公開用と未署名検証用を取り違えない。
+gradle.taskGraph.whenReady { graph ->
+    if (!unsignedRelease && !hasReleaseSigning && graph.allTasks.any {
+        it.project == project && it.name in ['bundleRelease', 'assembleRelease']
+    }) {
+        throw new GradleException("Release signing is required. For CI verification only, pass -PunsignedRelease=true.")
+    }
 }
 
 apply plugin: 'com.android.application'
@@ -26,8 +45,7 @@ android {
     }
     signingConfigs {
         release {
-            // 署名情報が無い環境（CIなど）でも、デバッグビルドは通るようにする。
-            if (keystorePropsFile.exists()) {
+            if (hasReleaseSigning) {
                 storeFile rootProject.file(keystoreProps['storeFile'])
                 storePassword keystoreProps['storePassword']
                 keyAlias keystoreProps['keyAlias']
@@ -37,7 +55,7 @@ android {
     }
     buildTypes {
         release {
-            signingConfig keystorePropsFile.exists() ? signingConfigs.release : null
+            signingConfig hasReleaseSigning ? signingConfigs.release : null
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

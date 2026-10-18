@@ -11,8 +11,13 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "android:release": "vite build && cap sync android && cd android && .\\gradlew.bat bundleRelease",
-    "android:debug": "vite build && cap sync android && cd android && .\\gradlew.bat assembleDebug",
+    "android:prepare": "npm test && npm run build && npm run verify:web && cap sync android && node scripts/android-build.mjs verify",
+    "verify:web": "vitest run --config scripts/vitest.bundle.config.ts",
+    "test:packaging": "node scripts/android-build.mjs test",
+    "android:release": "node scripts/android-build.mjs release",
+    "android:unsigned": "node scripts/android-build.mjs unsigned",
+    "android:verify-aab": "node scripts/android-build.mjs aab",
+    "android:debug": "node scripts/android-build.mjs debug",
     "android:open": "cap open android"
   },
   "dependencies": {
