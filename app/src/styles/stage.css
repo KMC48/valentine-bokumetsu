@@ -510,7 +510,7 @@
 .speech__name {
   display: inline-block;
   padding: 0.05em 0.6em;
-  font-size: 0.62em;
+  font-size: calc(0.82em * var(--text-scale, 1));
   font-weight: 800;
   background: #2d4a8a;
   border: 1px solid rgba(126, 182, 255, 0.5);
@@ -519,8 +519,9 @@
 
 .speech__text {
   margin-top: 0.25em;
-  font-size: 0.72em;
-  line-height: 1.4;
+  /* 読みやすさ優先で約1.5倍にした。ステージの表示域を削りすぎない上限がこのあたり。 */
+  font-size: calc(1.05em * var(--text-scale, 1));
+  line-height: 1.45;
 }
 
 /* ---------- 下部ナビ ---------- */

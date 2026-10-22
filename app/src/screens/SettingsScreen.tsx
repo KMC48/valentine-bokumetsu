@@ -1,5 +1,6 @@
 /** 設定。音量はMVPでは値の保存のみ（BGM/SE は優先度B）。 */
 
+import { TEXT_SIZES } from "../game/textSize";
 import { useGameStore } from "../store/gameStore";
 import { useSaveStore } from "../store/saveStore";
 
@@ -9,6 +10,7 @@ export function SettingsScreen() {
   const setDebug = useGameStore((s) => s.setDebug);
   const settings = useSaveStore((s) => s.settings);
   const setVolume = useSaveStore((s) => s.setVolume);
+  const setTextSize = useSaveStore((s) => s.setTextSize);
   const resetSave = useSaveStore((s) => s.resetSave);
   const unlockedLoop = useSaveStore((s) => s.unlockedLoop);
   const endings = useSaveStore((s) => s.endings);
@@ -30,6 +32,24 @@ export function SettingsScreen() {
           value={Math.round(settings.bgmVolume * 100)}
           onChange={(e) => setVolume("bgm", Number(e.target.value) / 100)}
         />
+      </div>
+
+      <div className="panel settings-row">
+        <label id="text-size-label">セリフの文字の大きさ</label>
+        <div className="settings-choices" role="group" aria-labelledby="text-size-label">
+          {TEXT_SIZES.map((t) => (
+            <button
+              key={t.id}
+              type="button"
+              className="btn btn--ghost"
+              aria-pressed={settings.textSize === t.id}
+              onClick={() => setTextSize(t.id)}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+        <p className="settings-preview">——県立桜庭高等学校、校則第12条。菓子類の持ち込みを禁ずる。</p>
       </div>
 
       {/* 効果音はまだ1つも無いので、SEの音量は出さない（動かしても何も変わらないため）。 */}

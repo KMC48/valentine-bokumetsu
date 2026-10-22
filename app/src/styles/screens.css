@@ -279,8 +279,10 @@
   position: relative;
   z-index: 2;
   margin: 0 0.7em 0.9em;
-  padding: 0.9em 0.9em 1em;
-  min-height: 8.5em;
+  /* 下の余白は「ページ数」「▼NEXT」の行ぶん。本文と重ならないようにする。
+     その行も文字サイズ設定で大きくなるので、余白も同じ倍率で広げる。 */
+  padding: calc(1.1em * var(--text-scale, 1)) 0.9em calc(2.1em * var(--text-scale, 1));
+  min-height: 9.5em;
   background: linear-gradient(180deg, rgba(10, 18, 32, 0.94), rgba(6, 10, 20, 0.97));
   border: 1px solid var(--panel-edge);
   border-radius: 12px;
@@ -292,7 +294,7 @@
   top: -0.9em;
   left: 0.8em;
   padding: 0.15em 0.8em;
-  font-size: 0.7em;
+  font-size: calc(0.95em * var(--text-scale, 1));
   font-weight: 800;
   background: linear-gradient(180deg, #3a5fae, #22366a);
   border: 1px solid rgba(126, 182, 255, 0.6);
@@ -300,16 +302,18 @@
 }
 
 .story-screen__text {
-  font-size: 0.86em;
-  line-height: 1.65;
-  min-height: 4.5em;
+  /* 目の悪い人でも読めるよう、iPhone で約17pt（Apple の推奨本文サイズ）にする。
+     最長28文字のセリフが2行に収まる大きさ。 */
+  font-size: calc(1.25em * var(--text-scale, 1));
+  line-height: 1.6;
+  min-height: 3.2em;
 }
 
 .story-screen__next {
   position: absolute;
   right: 0.8em;
   bottom: 0.5em;
-  font-size: 0.66em;
+  font-size: calc(0.9em * var(--text-scale, 1));
   font-weight: 800;
   color: var(--gold);
   animation: bob 1.2s ease-in-out infinite;
@@ -328,7 +332,7 @@
   position: absolute;
   left: 0.9em;
   bottom: 0.5em;
-  font-size: 0.6em;
+  font-size: calc(0.8em * var(--text-scale, 1));
   color: var(--muted);
 }
 
@@ -541,6 +545,33 @@
   font-size: 0.66em;
   color: var(--muted);
   line-height: 1.5;
+}
+
+/* 文字の大きさの選択肢。押したものだけ色を付ける。 */
+.settings-choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4em;
+}
+
+.settings-choices .btn {
+  padding: 0.6em 0.4em;
+}
+
+.settings-choices .btn[aria-pressed="true"] {
+  background: linear-gradient(180deg, #ff4d7e, #d5003f);
+  border-color: rgba(255, 190, 210, 0.7);
+}
+
+/* 選んだ大きさの見本。実際のセリフ欄と同じ倍率で表示する。 */
+.settings-preview {
+  margin: 0.2em 0 0;
+  padding: 0.7em 0.8em;
+  background: linear-gradient(180deg, rgba(10, 18, 32, 0.94), rgba(6, 10, 20, 0.97));
+  border: 1px solid var(--panel-edge);
+  border-radius: 10px;
+  font-size: calc(1.25em * var(--text-scale, 1));
+  line-height: 1.6;
 }
 
 .settings-muted {

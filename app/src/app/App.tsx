@@ -1,6 +1,6 @@
 /** 画面ルーター。screen の値だけで表示を切り替える。 */
 
-import { useEffect } from "react";
+import { useEffect, type CSSProperties } from "react";
 import { EndingScreen } from "../screens/EndingScreen";
 import { FinalResultScreen } from "../screens/FinalResultScreen";
 import { LoopSelectScreen } from "../screens/LoopSelectScreen";
@@ -12,6 +12,7 @@ import { TitleScreen } from "../screens/TitleScreen";
 import { firstAreaFor } from "../data/areas";
 import { playBgm, setBgmVolume, unlockOnFirstGesture } from "../game/audioEngine";
 import { bgmForScreen } from "../game/bgmSelect";
+import { textScale } from "../game/textSize";
 import { useSaveStore } from "../store/saveStore";
 import { STAGES } from "../data/stages";
 import { useGameStore } from "../store/gameStore";
@@ -22,6 +23,7 @@ export function App() {
   const stage = useGameStore((s) => s.stage);
   const setDebug = useGameStore((s) => s.setDebug);
   const bgmVolume = useSaveStore((s) => s.settings.bgmVolume);
+  const textSize = useSaveStore((s) => s.settings.textSize);
 
   // ブラウザの自動再生制限があるので、最初の操作を拾って音を解禁する。
   useEffect(() => unlockOnFirstGesture(), []);
@@ -76,7 +78,8 @@ export function App() {
 
   return (
     <div className="app-root">
-      <div className="app-frame">
+      {/* セリフ欄の文字はこの倍率を掛けて大きさを決める（設定画面で変更）。 */}
+      <div className="app-frame" style={{ "--text-scale": textScale(textSize) } as CSSProperties}>
         {screen === "title" && <TitleScreen />}
         {screen === "loopSelect" && <LoopSelectScreen />}
         {screen === "settings" && <SettingsScreen />}

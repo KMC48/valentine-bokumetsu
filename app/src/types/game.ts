@@ -208,6 +208,9 @@ export type EndingDef = {
   lines: StoryLine[];
 };
 
+/** セリフ欄の文字の大きさ。倍率は game/textSize.ts で決める。 */
+export type TextSize = "standard" | "large" | "xlarge";
+
 /** localStorage に保存する内容。 */
 export type SaveData = {
   unlockedLoop: LoopId;
@@ -216,5 +219,6 @@ export type SaveData = {
   settings: {
     bgmVolume: number;
     seVolume: number;
+    textSize: TextSize;
   };
 };
