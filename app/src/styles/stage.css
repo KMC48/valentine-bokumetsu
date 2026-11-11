@@ -37,7 +37,8 @@
 }
 
 .titlebar__name em {
-  color: var(--pink);
+  color: var(--eradication-red);
+  -webkit-text-stroke: 0.25px rgba(255, 125, 110, 0.7);
   font-style: normal;
 }
 

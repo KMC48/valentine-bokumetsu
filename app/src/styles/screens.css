@@ -49,16 +49,19 @@
   display: grid;
   gap: 0.3em;
   justify-items: center;
-  margin-top: 0.6em;
+  /* ゲーム枠の幅で縮小し、狭い画面でもCG上部の余白に収める。 */
+  font-size: clamp(12px, 3.4cqw, 16px);
+  margin: 0;
 }
 
 .title-screen__main {
   /* 2行になったぶん、1行あたりを大きくできる。 */
+  margin: 0;
   font-size: 2.5em;
   font-weight: 900;
   line-height: 1.08;
   letter-spacing: 0.04em;
-  text-shadow: 0 3px 0 #000, 0 0 24px rgba(255, 45, 106, 0.6);
+  text-shadow: 0 3px 0 #000, 0 0 24px rgba(197, 27, 43, 0.5);
 }
 
 .title-screen__line {
@@ -66,7 +69,8 @@
 }
 
 .title-screen__main em {
-  color: var(--pink);
+  color: var(--eradication-red);
+  -webkit-text-stroke: 0.35px rgba(255, 125, 110, 0.7);
   font-style: normal;
 }
 
@@ -77,6 +81,7 @@
  * 文字のうしろに暗い帯を敷いて、地の明暗によらず一定の読みやすさを確保する。
  */
 .title-screen__tagline {
+  margin: 0;
   font-size: 0.95em;
   font-weight: 700;
   color: #fff;
