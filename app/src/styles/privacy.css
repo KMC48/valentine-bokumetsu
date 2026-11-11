@@ -1,0 +1,26 @@
+.privacy-screen {
+  background: #0c1222;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.privacy-screen__header {
+  flex: 0 0 auto;
+  padding: 0.65em max(0.75em, env(safe-area-inset-right, 0px)) 0.65em
+    max(0.75em, env(safe-area-inset-left, 0px));
+  border-bottom: 1px solid var(--panel-edge);
+}
+
+.privacy-screen__header .btn {
+  min-height: 44px;
+}
+
+.privacy-screen__document {
+  display: block;
+  width: 100%;
+  flex: 1 1 0;
+  min-height: 0;
+  border: 0;
+  background: #0c1222;
+  color-scheme: dark;
+}

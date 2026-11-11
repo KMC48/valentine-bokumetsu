@@ -18,6 +18,10 @@ const config: CapacitorConfig = {
   appId: "com.kmc48.valentinebokumetsu",
   appName: "バレンタイン撲滅委員会",
   webDir: "dist",
+  plugins: {
+    // ポリシー閲覧中だけ有効化し、他の画面のAndroid戻る動作を変えない。
+    App: { disableBackButtonHandler: true },
+  },
   android: {
     // 縦持ち専用のゲームなので、横向きには追従しない。
     // 実際の固定は AndroidManifest.xml の screenOrientation で行う。

@@ -22,21 +22,22 @@ export function DeskConfirmModal({ desk, timeRemaining, onSearch, onCancel }: Co
 
   return (
     <div className="modal-overlay modal-overlay--center" onClick={onCancel}>
-      <div className="modal desk-modal" onClick={(e) => e.stopPropagation()}>
+      <div className="modal desk-modal" role="dialog" aria-modal="true" aria-label="机を調べる" onClick={(e) => e.stopPropagation()}>
         <div className="modal__kicker">DESK SEARCH</div>
         <h3 className="desk-modal__title">{desk.label}</h3>
+        <div className="thought"><span className="thought__speaker">俺の推理</span><p>{desk.searchThought}</p></div>
         <p className="desk-modal__lead">
           机の中を調べる。人を疑うわけではないので<b>誤認のリスクは無い</b>が、
           <b className="desk-modal__cost">{DESK_SEARCH_SECONDS}秒</b>を消費する。
         </p>
         {notEnoughTime && (
-          <p className="desk-modal__warn">残り時間が足りない。調べ終わる前にチャイムが鳴る。</p>
+          <p className="desk-modal__warn">調べるには、あと{DESK_SEARCH_SECONDS - Math.floor(timeRemaining)}秒必要だ。</p>
         )}
         <div className="observe__actions">
           <button type="button" className="btn btn--ghost" onClick={onCancel}>
             やめる
           </button>
-          <button type="button" className="btn btn--primary" onClick={() => onSearch(desk.id)}>
+          <button type="button" className="btn btn--primary" disabled={notEnoughTime} onClick={() => onSearch(desk.id)}>
             調べる（-{DESK_SEARCH_SECONDS}秒）
           </button>
         </div>
@@ -56,7 +57,7 @@ export function DeskResultModal({ outcome, onClose }: ResultProps) {
 
   return (
     <div className="modal-overlay modal-overlay--center" onClick={onClose}>
-      <div className={`modal result-modal ${cls}`} onClick={(e) => e.stopPropagation()}>
+      <div className={`modal result-modal ${cls}`} role="dialog" aria-modal="true" aria-label="机の捜索結果" onClick={(e) => e.stopPropagation()}>
         <div className="result-modal__stamp">DESK SEARCH — {outcome.label}</div>
         <h2 className="result-modal__headline">{outcome.headline}</h2>
 
@@ -86,14 +87,12 @@ export function DeskResultModal({ outcome, onClose }: ResultProps) {
           </div>
         )}
 
-        <p className="result-modal__detail">{outcome.detail}</p>
-
-        {outcome.clue && <p className="desk-modal__clue">［手がかり］{outcome.clue}</p>}
+        <div className="thought"><span className="thought__speaker">俺</span><p>{outcome.detail}</p></div>
 
         <p className="desk-modal__time">捜索に {outcome.timeCost} 秒を消費した。</p>
 
         <button type="button" className="btn btn--gold" onClick={onClose} autoFocus>
-          捜索を続ける
+          {outcome.found ? "報告して巡回に戻る" : "巡回に戻る"}
         </button>
       </div>
     </div>

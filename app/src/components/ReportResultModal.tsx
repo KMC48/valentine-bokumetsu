@@ -4,10 +4,10 @@ import { ASSETS } from "../data/assets";
 import type { ReportOutcome } from "../types/game";
 
 const TEACHER_LINE: Record<ReportOutcome["chocolateType"], string> = {
-  friend: "生徒指導・鬼頭「……確かに校則違反だな。預かっておく」",
-  honmei: "生徒指導・鬼頭「本命か。こいつは……まあ、規則は規則だ」",
-  honmei_special: "生徒指導・鬼頭「渡す直前で押さえたのか。お前、恐ろしい奴だな」",
-  none: "生徒指導・鬼頭「何も出てないぞ。次から確証を持ってこい」",
+  friend: "「……確かに校則違反だな。預かっておく」",
+  honmei: "「本命か。こいつは……まあ、規則は規則だ」",
+  honmei_special: "「渡す直前で押さえたのか。お前、恐ろしい奴だな」",
+  none: "「何も出てないぞ。次から確証を持ってこい」",
 };
 
 /** チョコ種別 → 摘発品の画像。誤認（none）は小物なし（本人の無実の持ち物は observe 側で見せている）。 */
@@ -31,7 +31,7 @@ export function ReportResultModal({ outcome, onClose }: Props) {
 
   return (
     <div className="modal-overlay modal-overlay--center" onClick={onClose}>
-      <div className={`modal result-modal ${cls}`} onClick={(e) => e.stopPropagation()}>
+      <div className={`modal result-modal ${cls}`} role="dialog" aria-modal="true" aria-label="通報結果" onClick={(e) => e.stopPropagation()}>
         <div className="result-modal__stamp">REPORT RESULT</div>
         <h2 className="result-modal__headline">{outcome.headline}</h2>
 
@@ -61,8 +61,16 @@ export function ReportResultModal({ outcome, onClose }: Props) {
 
         <div className="result-modal__teacher-row">
           {teacherSrc && <img className="result-modal__teacher-face" src={teacherSrc} alt="" />}
-          <p className="result-modal__teacher">{TEACHER_LINE[outcome.chocolateType]}</p>
+          <div><span className="thought__speaker">生徒指導・鬼頭</span><p className="result-modal__teacher">{TEACHER_LINE[outcome.chocolateType]}</p></div>
         </div>
+
+        {outcome.observedThought && (
+          <details className="deduction-review">
+            <summary>通報前の推理を振り返る</summary>
+            <p>{outcome.observedThought}</p>
+            <p>{outcome.success ? "この行動や持ち物が、発見したチョコにつながっていたのか。" : "怪しさと校則違反は別だった。持ち物や行動の理由まで考えよう。"}</p>
+          </details>
+        )}
 
         <button type="button" className="btn btn--gold" onClick={onClose} autoFocus>
           次のターゲットへ

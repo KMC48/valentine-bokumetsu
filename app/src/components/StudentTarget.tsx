@@ -2,7 +2,6 @@
 
 import { ASSETS } from "../data/assets";
 import { floorX, type FloorShape } from "../data/loops";
-import { isSuspicionVisible } from "../game/difficulty";
 import { depthHeight } from "../game/perspective";
 import type { LoopId, Student } from "../types/game";
 import { GirlSprite } from "./Sprites";
@@ -60,10 +59,9 @@ export const TURN_VARIANT: Record<string, string> = {
   [ASSETS.loop3Girl10.src]: ASSETS.loop3Girl10Turn.src,
 };
 
-export function StudentTarget({ student, loop, view, selected, debug, onSelect }: Props) {
+export function StudentTarget({ student, view, selected, debug, onSelect }: Props) {
   const h = depthHeight(student.position.y);
   const x = floorX(view.floor, student.position.x, student.position.y);
-  const showMark = isSuspicionVisible(student, loop);
   // 狙われた生徒はこちらを振り向く。
   const image =
     selected && student.image && TURN_VARIANT[student.image]
@@ -102,7 +100,6 @@ export function StudentTarget({ student, loop, view, selected, debug, onSelect }
 
       <span className="target__label">
         <span className="target__nameline">
-          {showMark && <span className="target__mark">!</span>}
           <span className="target__name">{student.name}</span>
         </span>
         {debug && (

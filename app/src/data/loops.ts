@@ -8,8 +8,6 @@ export const LOOP_CONFIG: Record<LoopId, LoopConfig> = {
     schoolName: "県立 桜庭高等学校",
     theme: "探す",
     difficultyLabel: "NORMAL",
-    suspicionVisibility: 1.0,
-    fakeRate: 0.1,
     hintCount: 3,
   },
   2: {
@@ -17,8 +15,6 @@ export const LOOP_CONFIG: Record<LoopId, LoopConfig> = {
     schoolName: "私立 聖蘭学院",
     theme: "見破る",
     difficultyLabel: "HARD",
-    suspicionVisibility: 0.7,
-    fakeRate: 0.3,
     hintCount: 2,
   },
   3: {
@@ -26,8 +22,6 @@ export const LOOP_CONFIG: Record<LoopId, LoopConfig> = {
     schoolName: "白鷺台学園（超難関エリート校）",
     theme: "推理する",
     difficultyLabel: "VERY HARD",
-    suspicionVisibility: 0.4,
-    fakeRate: 0.5,
     hintCount: 1,
   },
 };

@@ -1,10 +1,17 @@
 /** 設定。音量はMVPでは値の保存のみ（BGM/SE は優先度B）。 */
 
+import { useEffect, useRef } from "react";
+import packageInfo from "../../package.json";
 import { TEXT_SIZES } from "../game/textSize";
+import { usePrivacyPolicy } from "../privacy/usePrivacyPolicy";
+import { PrivacyPolicyScreen } from "./PrivacyPolicyScreen";
 import { useGameStore } from "../store/gameStore";
 import { useSaveStore } from "../store/saveStore";
 
 export function SettingsScreen() {
+  const privacy = usePrivacyPolicy();
+  const privacyButton = useRef<HTMLButtonElement>(null);
+  const wasViewingPrivacy = useRef(false);
   const goTitle = useGameStore((s) => s.goTitle);
   const debug = useGameStore((s) => s.debug);
   const setDebug = useGameStore((s) => s.setDebug);
@@ -15,9 +22,17 @@ export function SettingsScreen() {
   const unlockedLoop = useSaveStore((s) => s.unlockedLoop);
   const endings = useSaveStore((s) => s.endings);
 
+  useEffect(() => {
+    if (!privacy.isOpen && wasViewingPrivacy.current) privacyButton.current?.focus();
+    wasViewingPrivacy.current = privacy.isOpen;
+  }, [privacy.isOpen]);
+
+  if (privacy.isOpen) return <PrivacyPolicyScreen onBack={privacy.close} />;
+
   return (
     <div className="screen settings-screen stack">
       <h2 className="screen-heading">設定</h2>
+      <p className="settings-note">ゲームバージョン {packageInfo.version}</p>
 
       <div className="panel settings-row">
         <label htmlFor="bgm">
@@ -35,7 +50,7 @@ export function SettingsScreen() {
       </div>
 
       <div className="panel settings-row">
-        <label id="text-size-label">セリフの文字の大きさ</label>
+        <label id="text-size-label">文章の大きさ（セリフ・推理・結果）</label>
         <div className="settings-choices" role="group" aria-labelledby="text-size-label">
           {TEXT_SIZES.map((t) => (
             <button
@@ -86,6 +101,10 @@ export function SettingsScreen() {
           セーブデータを消去
         </button>
       </div>
+
+      <button ref={privacyButton} type="button" className="btn btn--ghost" onClick={privacy.open}>
+        プライバシーポリシー
+      </button>
 
       <button type="button" className="btn" onClick={goTitle} style={{ marginTop: "auto" }}>
         タイトルへ戻る

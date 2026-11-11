@@ -1,7 +1,7 @@
 {
   "name": "valentine-annihilation-committee",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.2",
   "type": "module",
   "description": "バレンタイン撲滅委員会 - MVP",
   "scripts": {
@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@capacitor/android": "^8.5.2",
+    "@capacitor/app": "8.1.2",
     "@capacitor/core": "^8.5.2",
     "@capacitor/ios": "^8.5.2",
     "react": "^19.3.0",

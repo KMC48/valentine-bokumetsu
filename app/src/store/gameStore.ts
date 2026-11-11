@@ -4,14 +4,14 @@
  */
 
 import { create } from "zustand";
-import { AREA_MOVE_SECONDS, BINOCULAR_SECONDS, BINOCULAR_USES_PER_STAGE } from "../data/score";
+import { AREA_MOVE_SECONDS, BINOCULAR_SECONDS, BINOCULAR_USES_PER_STAGE, DESK_SEARCH_SECONDS } from "../data/score";
 import { STAGES, UNLIMITED_TIME } from "../data/stages";
 import { firstAreaFor } from "../data/areas";
 import { countDeskChocolates, getDesks } from "../data/desks";
 import { countChocolateHolders, getStudents } from "../data/students";
 import { judgeDeskSearch } from "../game/desk";
-import { hiddenHintCount } from "../game/difficulty";
-import { selectEnding } from "../game/ending";
+import { hiddenHintCount, visibleHints } from "../game/difficulty";
+import { selectEnding, specialEpilogue } from "../game/ending";
 import { annihilationRate, judgeReport } from "../game/report";
 import type {
   DeskOutcome,
@@ -28,6 +28,7 @@ import { useSaveStore } from "./saveStore";
 
 /** ストーリーのどのスロットを表示中か。 */
 type StorySlot = StoryScene["slot"];
+export type StagePauseReason = "menu" | "help" | "hidden";
 
 type GameState = {
   screen: ScreenId;
@@ -69,6 +70,8 @@ type GameState = {
 
   timeRemaining: number;
   timerFrozen: boolean;
+  pauseReasons: Partial<Record<StagePauseReason, boolean>>;
+  notice: string | null;
 
   selectedStudentId: string | null;
   /** 観察モーダルを開いているか（開いている間はタイマーが止まる）。 */
@@ -81,6 +84,7 @@ type GameState = {
   stageStartCaught: number;
 
   ending: EndingDef | null;
+  epilogue: EndingDef | null;
   debug: boolean;
 };
 
@@ -100,6 +104,7 @@ type GameActions = {
 
   tick: (delta: number) => void;
   toggleTimer: () => void;
+  setPaused: (reason: StagePauseReason, paused: boolean) => void;
 
   selectStudent: (id: string | null) => void;
   closeObservation: () => void;
@@ -136,6 +141,7 @@ type GameActions = {
   advanceAfterStage: () => void;
   /** 最終結果 → エンディング（解放処理もここ）。 */
   goEnding: () => void;
+  showEpilogue: () => void;
 
   /** 現在ステージの残りターゲット。 */
   currentStudents: () => Student[];
@@ -170,6 +176,9 @@ const INITIAL_RUN = {
   stageStartScore: 0,
   stageStartCaught: 0,
   ending: null,
+  epilogue: null,
+  notice: null,
+  pauseReasons: {} as Partial<Record<StagePauseReason, boolean>>,
 };
 
 function stageTime(stage: StageId, debug: boolean): number {
@@ -189,7 +198,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
   setDebug: (on) => set({ debug: on }),
 
-  goTitle: () => set({ screen: "title", ...INITIAL_RUN }),
+  goTitle: () => set({ screen: "title", timerFrozen: false, ...INITIAL_RUN }),
   goLoopSelect: () => set({ screen: "loopSelect" }),
   goSettings: () => set({ screen: "settings" }),
 
@@ -219,6 +228,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       lastOutcome: null,
       selectedDeskId: null,
       lastDeskOutcome: null,
+      notice: null,
       // 双眼鏡はステージごとに回復する。
       binocularUses: BINOCULAR_USES_PER_STAGE,
       binocularActive: false,
@@ -230,7 +240,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   tick: (delta) => {
     const { timerFrozen, timeRemaining, screen, lastOutcome, observing } = get();
     const { selectedDeskId, lastDeskOutcome } = get();
-    if (screen !== "stage" || timerFrozen) return;
+    if (screen !== "stage" || timerFrozen || Object.values(get().pauseReasons).some(Boolean)) return;
     // 観察中・結果表示中は時間を止める（じっくり推理させる）。
     if (lastOutcome || observing || selectedDeskId || lastDeskOutcome) return;
     if (get().binocularActive) return;
@@ -240,18 +250,20 @@ export const useGameStore = create<GameStore>((set, get) => ({
   },
 
   toggleTimer: () => set((s) => ({ timerFrozen: !s.timerFrozen })),
+  setPaused: (reason, paused) => set((s) => ({ pauseReasons: { ...s.pauseReasons, [reason]: paused } })),
 
-  selectStudent: (id) => set({ selectedStudentId: id, observing: id !== null }),
+  selectStudent: (id) => set({ selectedStudentId: id, observing: id !== null, notice: null }),
 
-  closeObservation: () => set({ observing: false }),
+  closeObservation: () => set({ observing: false, selectedStudentId: null }),
 
   reportStudent: (id) => {
     const state = get();
-    if (state.reportedIds.includes(id)) return;
+    if (state.reportedIds.includes(id) || state.passedIds.includes(id)) return;
     const student = getStudents(state.loop, state.stage).find((s) => s.id === id);
     if (!student) return;
 
     const outcome = judgeReport(student, state.combo);
+    outcome.observedThought = visibleHints(student, state.loop, state.revealedHints[id] ?? 0).join("");
     const success = outcome.success;
 
     set({
@@ -281,6 +293,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       selectedStudentId: null,
       observing: false,
       selectedDeskId: null,
+      notice: null,
     });
     if (next === 0) get().endStage();
   },
@@ -289,7 +302,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
   searchDesk: (id) => {
     const state = get();
-    if (state.searchedDeskIds.includes(id)) return;
+    if (state.searchedDeskIds.includes(id) || state.timeRemaining < DESK_SEARCH_SECONDS) return;
     const desk = getDesks(state.loop, state.stage).find((d) => d.id === id);
     if (!desk) return;
 
@@ -352,7 +365,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
   dismissDeskOutcome: () => {
     set({ lastDeskOutcome: null });
-    if (get().timeRemaining <= 0) get().endStage();
+    if (get().timeRemaining <= 0 || get().stageRemaining() === 0) get().endStage();
   },
 
   currentDesks: () => {
@@ -371,10 +384,14 @@ export const useGameStore = create<GameStore>((set, get) => ({
   },
 
   passStudent: (id) => {
+    const state = get();
+    const student = getStudents(state.loop, state.stage).find((s) => s.id === id);
+    if (!student || state.reportedIds.includes(id) || state.passedIds.includes(id)) return;
     set((s) => ({
-      passedIds: s.passedIds.includes(id) ? s.passedIds : [...s.passedIds, id],
+      passedIds: [...s.passedIds, id],
       selectedStudentId: null,
       observing: false,
+      notice: `${student.name}は見送ろう。今回は調査を終える。判断の振り返りは巡回のあとだ。`,
     }));
     // ステージ全体で対象が尽きたときだけ終了する。
     // （今いる場所が空になっただけでは終わらせない）
@@ -395,6 +412,8 @@ export const useGameStore = create<GameStore>((set, get) => ({
       lastOutcome: null,
       selectedDeskId: null,
       lastDeskOutcome: null,
+      notice: null,
+      binocularActive: false,
     }),
 
   advanceAfterStage: () => {
@@ -419,7 +438,14 @@ export const useGameStore = create<GameStore>((set, get) => ({
     // クリアで次の周回を解放。
     if (state.loop < 3) save.unlockLoop((state.loop + 1) as LoopId);
 
-    set({ screen: "ending", ending });
+    set({ screen: "ending", ending, epilogue: specialEpilogue(stats) });
+  },
+
+  showEpilogue: () => {
+    const epilogue = get().epilogue;
+    if (!epilogue) return;
+    useSaveStore.getState().recordEnding(epilogue.id);
+    set({ ending: epilogue, epilogue: null });
   },
 
   currentStudents: () => {
@@ -449,6 +475,10 @@ export const useGameStore = create<GameStore>((set, get) => ({
       maxCombo: s.maxCombo,
       correctReports: s.correctReports,
       falseReports: s.falseReports,
+      correctPasses: getStudents(s.loop, "morning").concat(getStudents(s.loop, "lunch"), getStudents(s.loop, "afterSchool"))
+        .filter((st) => s.passedIds.includes(st.id) && st.chocolateType === "none").length,
+      missedPasses: getStudents(s.loop, "morning").concat(getStudents(s.loop, "lunch"), getStudents(s.loop, "afterSchool"))
+        .filter((st) => s.passedIds.includes(st.id) && st.chocolateType !== "none").length,
       friendCount: s.friendCount,
       honmeiCount: s.honmeiCount,
       specialCount: s.specialCount,

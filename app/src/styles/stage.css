@@ -528,7 +528,7 @@
 
 .bottomnav {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   background: linear-gradient(180deg, #0b1220, #060a14);
   border-top: 1px solid rgba(126, 182, 255, 0.2);
 }
@@ -539,9 +539,10 @@
   background: none;
   color: var(--muted);
   font: inherit;
-  font-size: 0.6em;
+  font-size: 14px;
   font-weight: 700;
-  padding: 0.55em 0 0.6em;
+  min-height: 48px;
+  padding: 0.45em 0;
   display: grid;
   justify-items: center;
   gap: 0.25em;
@@ -844,4 +845,22 @@
   letter-spacing: 0;
   color: var(--cyan);
   font-weight: 800;
+}
+
+.stage-instruction {
+  position: absolute;
+  /* 主人公は左端から40%まで。枠ごと右へ逃がし、小画面では折り返す。 */
+  left: 45%; right: 3%; bottom: 2%; z-index: 120;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 0.25em;
+  padding: 0.45em;
+  border-radius: 8px;
+  background: rgba(5, 10, 22, 0.9);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+  pointer-events: none;
 }

@@ -28,19 +28,11 @@ const WALKING: Record<LoopId, string[]> = {
  * すぐ後ろに見えるのに **身長が生徒の半分**になり、合成に見える。
  * 「生徒より少し奥」に見える範囲として y=54〜60 に収めている。
  *
- * 【scale について】
- * 座っているモブは、机と椅子ごと1枚の絵になっている。
- * 頭のてっぺんは立っている人より低いので、同じ遠近計算のままでは大きすぎる。
- * 立っている人の身長に対する「座ったときの頭の高さ」の比を掛ける。
- *
  * 【場所IDについて】
  * 以前は loop2 / loop3 という存在しないIDで登録していたため、
  * 2・3周目にはモブが一人も出ていなかった。IDは areas.ts と同じものを使う。
  */
-type MobSlot = { x: number; y: number; flip?: boolean; src?: string; scale?: number };
-
-/** 座ったときの頭の高さ ÷ 立ったときの身長。 */
-const SEATED = 0.78;
+type MobSlot = { x: number; y: number; flip?: boolean; src?: string };
 
 const OUTDOOR3: MobSlot[] = [
   { x: 40, y: 58 },
@@ -50,6 +42,11 @@ const OUTDOOR3: MobSlot[] = [
 const OUTDOOR2: MobSlot[] = [
   { x: 41, y: 57 },
   { x: 59, y: 54, flip: true },
+];
+// 購買の観察対象は中央〜右側。拡大後も通行人が対象を覆わないよう左側へ分散する。
+const SHOP_QUEUE: MobSlot[] = [
+  { x: 17, y: 56 },
+  { x: 33, y: 53, flip: true },
 ];
 // 立ち話の2人。向かい合う向きになるよう、左右の並びを固定する。
 const TALKING: MobSlot[] = [
@@ -65,13 +62,10 @@ const INDOOR1: MobSlot[] = [{ x: 56, y: 56, src: ASSETS.mobStand2.src }];
 /**
  * 教室。
  *
- * 座っているモブは通路の左右の席に、黒板消しは黒板の前に置く。
- * x は床の台形を通さない画面上の位置なので、背景の机の列に直接合わせている。
+ * 机・椅子を含む着席素材は、背景の家具と二重になるため使わない。
+ * 黒板前の生徒だけを残す。観察対象は別レイヤーで中央通路に配置する。
  */
 const CLASSROOM: MobSlot[] = [
-  { x: 15, y: 47, src: ASSETS.mobSit1.src, scale: SEATED },
-  { x: 74, y: 42, src: ASSETS.mobSit2.src, scale: SEATED, flip: true },
-  { x: 28, y: 38, src: ASSETS.mobSit3.src, scale: SEATED },
   { x: 62, y: 33, src: ASSETS.mobBlackboard.src },
 ];
 
@@ -80,7 +74,7 @@ const SLOTS_BY_AREA: Record<string, MobSlot[]> = {
   gateAfter: OUTDOOR2,
   entrance: OUTDOOR2,
   courtyard: TALKING,
-  shop: OUTDOOR3,
+  shop: SHOP_QUEUE,
   stairs: INDOOR1,
   gymBack: STANDING2,
   clubrooms: TALKING,
@@ -89,7 +83,7 @@ const SLOTS_BY_AREA: Record<string, MobSlot[]> = {
 
   l2Gate: OUTDOOR3,
   l2Courtyard: TALKING,
-  l2Shop: OUTDOOR3,
+  l2Shop: SHOP_QUEUE,
   l2Stairs: INDOOR1,
   l2GymBack: STANDING2,
   l2Rooftop: [],
@@ -97,7 +91,7 @@ const SLOTS_BY_AREA: Record<string, MobSlot[]> = {
 
   l3Gate: OUTDOOR3,
   l3Courtyard: TALKING,
-  l3Shop: OUTDOOR3,
+  l3Shop: SHOP_QUEUE,
   l3Stairs: INDOOR1,
   l3GymBack: STANDING2,
   l3Rooftop: [],
@@ -130,7 +124,7 @@ export function MobCrowd({ areaId, loop }: { areaId: string; loop: LoopId }) {
           style={{
             left: `${slot.x}%`,
             top: `${slot.y}%`,
-            height: `${depthHeight(slot.y) * (slot.scale ?? 1)}%`,
+            height: `${depthHeight(slot.y)}%`,
             transform: `translate(-50%, -100%)${slot.flip ? " scaleX(-1)" : ""}`,
             zIndex: Math.round(slot.y),
             // 奥ほどわずかに霞ませて背景になじませる（空気遠近）。

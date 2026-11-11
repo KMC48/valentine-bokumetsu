@@ -51,7 +51,7 @@ export function ObservationModal({
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
+      <div className="modal" role="dialog" aria-modal="true" aria-label={`${student.name}を観察`} onClick={(e) => e.stopPropagation()}>
         <div className="modal__header">
           {/* 「いま見定めている」という主人公の表情。
               観察中はモーダルが画面下のセリフ欄を覆ってしまうので、ここに出す。 */}
@@ -90,38 +90,22 @@ export function ObservationModal({
             </div>
 
             <div className="observe__suspicion">
-              <span>怪しさ {student.suspicionLevel}</span>
+              <div className="observe__level"><span>怪しさレベル</span><strong>{student.suspicionLevel}<small> / 100</small></strong></div>
               <div className="gauge">
                 <div className="gauge__fill" style={{ width: `${student.suspicionLevel}%` }} />
               </div>
+              <span className="observe__level-note">俺の第一印象。証拠ではない。</span>
             </div>
 
             {student.dialogue?.[0] && <div className="observe__quote">「{student.dialogue[0]}」</div>}
           </div>
         </div>
 
-        <div className="hint-title">
-          ■ 観察メモ
-          {hidden > 0 && (
-            <span className="hint-title__locked">
-              （読み取れたのは {hints.length} 件／あと {hidden} 件ある）
-            </span>
-          )}
+        <div className="thought" aria-live="polite">
+          <span className="thought__speaker">俺の推理</span>
+          <p>{hints.join("")}</p>
         </div>
-        <ul className="hint-list">
-          {hints.map((h, i) => (
-            <li key={h}>
-              <span className="no">{i + 1}.</span>
-              <span>{h}</span>
-            </li>
-          ))}
-          {Array.from({ length: hidden }, (_, i) => (
-            <li key={`hidden-${i}`} className="is-hidden">
-              <span className="no">?</span>
-              <span>まだ読み取れない手がかりがある。遠すぎて見えない。</span>
-            </li>
-          ))}
-        </ul>
+        {hidden > 0 && <p className="observe__note">もう少し近くで見れば、何か分かるかもしれない……。</p>}
 
         {(hidden > 0 || binocularUses < 2) && (
           <BinocularButton
@@ -132,6 +116,8 @@ export function ObservationModal({
           />
         )}
 
+        <p className="observe__note">迷ったら保留。見送ると、この生徒の調査は終了する。</p>
+        <button type="button" className="btn btn--ghost observe__hold" onClick={onClose}>保留して戻る</button>
         <div className="observe__actions">
           <button type="button" className="btn btn--ghost" onClick={() => onPass(student.id)}>
             見送る

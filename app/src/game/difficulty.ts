@@ -14,19 +14,8 @@ export function visibleHints(student: Student, loop: LoopId, revealed = 0): stri
   return student.hints.slice(0, Math.max(1, hintCount) + Math.max(0, revealed));
 }
 
-/** まだ隠されているヒント数（UIで「？」として出す）。 */
+/** まだ隠されているヒント数（双眼鏡で続きを読める）。 */
 export function hiddenHintCount(student: Student, loop: LoopId, revealed = 0): number {
   return Math.max(0, student.hints.length - visibleHints(student, loop, revealed).length);
-}
-
-/**
- * ステージ上に「!」マーカーを出すか。
- * suspicionVisibility が下がるほど、より怪しい生徒しか光らない。
- */
-export function isSuspicionVisible(student: Student, loop: LoopId): boolean {
-  const { suspicionVisibility } = LOOP_CONFIG[loop];
-  if (suspicionVisibility >= 1) return student.suspicionLevel >= 50;
-  const threshold = 100 - suspicionVisibility * 100 + 40;
-  return student.suspicionLevel >= threshold;
 }
 

@@ -40,6 +40,5 @@ export function judgeDeskSearch(desk: DeskSpot, comboBefore: number): DeskOutcom
     headline: HEADLINE[desk.content],
     detail: desk.resultText || DEFAULT_DETAIL[desk.content],
   };
-  if (desk.clue) outcome.clue = desk.clue;
   return outcome;
 }

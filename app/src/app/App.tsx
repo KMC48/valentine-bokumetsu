@@ -20,6 +20,7 @@ import type { LoopId } from "../types/game";
 
 export function App() {
   const screen = useGameStore((s) => s.screen);
+  const endingId = useGameStore((s) => s.ending?.id);
   const stage = useGameStore((s) => s.stage);
   const setDebug = useGameStore((s) => s.setDebug);
   const bgmVolume = useSaveStore((s) => s.settings.bgmVolume);
@@ -87,7 +88,7 @@ export function App() {
         {screen === "stage" && <StageScreen />}
         {screen === "stageResult" && <StageResultScreen />}
         {screen === "finalResult" && <FinalResultScreen />}
-        {screen === "ending" && <EndingScreen />}
+        {screen === "ending" && <EndingScreen key={endingId} />}
       </div>
     </div>
   );

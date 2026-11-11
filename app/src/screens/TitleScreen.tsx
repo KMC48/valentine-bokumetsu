@@ -1,4 +1,6 @@
 import { ASSETS } from "../data/assets";
+import { useState } from "react";
+import { HowToPlay } from "../components/HowToPlay";
 import { useGameStore } from "../store/gameStore";
 import { useSaveStore } from "../store/saveStore";
 
@@ -8,6 +10,7 @@ export function TitleScreen() {
   const startRun = useGameStore((s) => s.startRun);
   const unlockedLoop = useSaveStore((s) => s.unlockedLoop);
   const endings = useSaveStore((s) => s.endings);
+  const [guide, setGuide] = useState<"start" | "help" | null>(null);
 
   const bg = ASSETS.titleBackground.status === "ready" ? ASSETS.titleBackground.src : null;
 
@@ -34,19 +37,28 @@ export function TitleScreen() {
       </div>
 
       <div className="title-screen__menu">
-        <button type="button" className="btn btn--primary" onClick={() => startRun(1)}>
+        <button type="button" className="btn btn--primary" onClick={() => setGuide("start")}>
           はじめから（1周目）
         </button>
         <button type="button" className="btn" onClick={goLoopSelect}>
           学校をえらぶ（解放 {unlockedLoop}/3）
         </button>
-        <button type="button" className="btn btn--ghost" onClick={goSettings}>
-          設定
-        </button>
+        <div className="title-screen__utilities">
+          <button type="button" className="btn btn--ghost" onClick={() => setGuide("help")}>
+            遊び方
+          </button>
+          <button type="button" className="btn btn--ghost" onClick={goSettings}>
+            設定
+          </button>
+        </div>
         <p className="title-screen__footer">
           到達エンディング {endings.length} 種 ／ 校則第12条：菓子類の持ち込みを禁ずる
         </p>
       </div>
+      {guide && <HowToPlay startAfter={guide === "start"} onClose={() => {
+        if (guide === "start") startRun(1);
+        setGuide(null);
+      }} />}
     </div>
   );
 }
