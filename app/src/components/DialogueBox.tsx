@@ -18,7 +18,7 @@ export function DialogueBox({ name = "俺", notice, ...ctx }: Props) {
       </div>
       <div className="speech__body">
         <span className="speech__name">{name}</span>
-        <div className="speech__text" aria-live="polite">{notice ?? playerLine(ctx)}</div>
+        <div className="speech__text" aria-live="polite" tabIndex={0} aria-label="主人公のセリフ">{notice ?? playerLine(ctx)}</div>
       </div>
     </div>
   );

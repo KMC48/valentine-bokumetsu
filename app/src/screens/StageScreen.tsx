@@ -166,7 +166,7 @@ export function StageScreen() {
         ))}
 
         <div className="stage-instruction">
-          <span>気になる生徒を</span><span>タップして観察</span>
+          <span>生徒をタップして観察</span>
         </div>
 
         {/* ミッション達成後は待たずに次へ進める。 */}
