@@ -1,0 +1,1204 @@
+{
+  "sourceCommit": "427e09e68256cb72330ae7b8f7eb654993fdf502",
+  "sourceTrackedChanges": "",
+  "capturedAt": "2026-10-28T10:11:21.899Z",
+  "captureKind": "browser-reproduction",
+  "physicalDevice": false,
+  "iosSimulator": false,
+  "nativeWKWebViewVerified": false,
+  "os": "linux 6.18.55 x64",
+  "node": "v24.22.1",
+  "playwright": "1.56.1",
+  "browser": "141.0.7390.37",
+  "viewport": {
+    "width": 430,
+    "height": 932
+  },
+  "deviceScaleFactor": 3,
+  "locale": "ja-JP",
+  "textSize": "standard",
+  "colorSpace": "srgb",
+  "clock": "Frozen between UI actions; advance 4 seconds after entering stage (3 seconds for observation).",
+  "fixture": "Fresh localStorage per image. Only loop 2/3 images seed unlockedLoop=3. No debug hooks or DOM/CSS overrides.",
+  "screenshot": "Viewport only, animations disabled, no resizing/cropping/compositing. Remove unused alpha; encode RGB PNG.",
+  "buildFiles": {
+    "index.html": "35b849d49a3cde2d2a566dcfd38d3af8ddb87a012b0283da97984ab4a46dc144",
+    "assets/index-BN0CPo9Q.css": "06ec5106402128b90a03e433ea0829e60b299cfea061af7a1f1e60ab463bd466",
+    "assets/index-DUIGh0ac.js": "96073e42138b40de1cd1fb2b08e3874af738a34bfe40d8a413a38c228f186281"
+  },
+  "images": [
+    {
+      "file": "1_タイトル.png",
+      "sha256": "f19474c7855e5fdef0ffe59891eab392b2865d86f093dabb98733605f6a8e845",
+      "width": 1290,
+      "height": 2796,
+      "channels": 3,
+      "hasAlpha": false,
+      "loop": 1,
+      "layout": {
+        ".app-frame": {
+          "rect": {
+            "x": 0,
+            "y": 83.78125,
+            "width": 430,
+            "height": 764.4375,
+            "top": 83.78125,
+            "right": 430,
+            "bottom": 848.21875,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".gamearea": null,
+        ".speech": null,
+        ".speech__name": null,
+        ".speech__text": null,
+        ".modal": null,
+        ".story-screen__box": null,
+        ".story-screen__speaker": null,
+        ".story-screen__text": null,
+        ".story-screen__progress": null,
+        ".story-screen__next": null
+      },
+      "fonts": [
+        {
+          "familyName": "Noto Sans CJK JP",
+          "postScriptName": "NotoSansCJKjp-Regular",
+          "isCustomFont": false,
+          "glyphCount": 9
+        }
+      ],
+      "iconFonts": [],
+      "errors": []
+    },
+    {
+      "file": "2_校門で生徒を観察.png",
+      "sha256": "7be77a12df676e3d6456aba4b70f1fbaa40f05f099b14cdac1d17299981e4d6b",
+      "width": 1290,
+      "height": 2796,
+      "channels": 3,
+      "hasAlpha": false,
+      "loop": 1,
+      "layout": {
+        ".app-frame": {
+          "rect": {
+            "x": 0,
+            "y": 83.78125,
+            "width": 430,
+            "height": 764.4375,
+            "top": 83.78125,
+            "right": 430,
+            "bottom": 848.21875,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".gamearea": {
+          "rect": {
+            "x": 0,
+            "y": 250.25,
+            "width": 430,
+            "height": 452.25,
+            "top": 250.25,
+            "right": 430,
+            "bottom": 702.5,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech": {
+          "rect": {
+            "x": 0,
+            "y": 702.5,
+            "width": 430,
+            "height": 106.3125,
+            "top": 702.5,
+            "right": 430,
+            "bottom": 808.8125,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech__name": {
+          "rect": {
+            "x": 65.765625,
+            "y": 710.796875,
+            "width": 28.375,
+            "height": 20.1875,
+            "top": 710.796875,
+            "right": 94.140625,
+            "bottom": 730.984375,
+            "left": 65.765625
+          },
+          "fontSize": "11.9884px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech__text": {
+          "rect": {
+            "x": 65.765625,
+            "y": 734.8125,
+            "width": 355.46875,
+            "height": 66.703125,
+            "top": 734.8125,
+            "right": 421.234375,
+            "bottom": 801.515625,
+            "left": 65.765625
+          },
+          "fontSize": "15.351px",
+          "lineHeight": "22.2589px",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif",
+          "text": "バレンタインなど存在しない…。この学園から、甘い浮かれた空気を一掃するんだ！（今回のテーマ：探す）"
+        },
+        ".modal": null,
+        ".story-screen__box": null,
+        ".story-screen__speaker": null,
+        ".story-screen__text": null,
+        ".story-screen__progress": null,
+        ".story-screen__next": null
+      },
+      "fonts": [
+        {
+          "familyName": "Noto Sans CJK JP",
+          "postScriptName": "NotoSansCJKjp-Regular",
+          "isCustomFont": false,
+          "glyphCount": 48
+        },
+        {
+          "familyName": "DejaVu Sans",
+          "postScriptName": "DejaVuSans",
+          "isCustomFont": false,
+          "glyphCount": 1
+        }
+      ],
+      "iconFonts": [
+        {
+          "text": "🏠",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "📖",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "👥",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "📋",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "🛒",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "file": "3_観察して見抜く.png",
+      "sha256": "41766cb4293e2fb5d5d45c7cf03b5d1695cecd6254343262e2a88ebc0c4f46bf",
+      "width": 1290,
+      "height": 2796,
+      "channels": 3,
+      "hasAlpha": false,
+      "loop": 1,
+      "layout": {
+        ".app-frame": {
+          "rect": {
+            "x": 0,
+            "y": 83.78125,
+            "width": 430,
+            "height": 764.4375,
+            "top": 83.78125,
+            "right": 430,
+            "bottom": 848.21875,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".gamearea": {
+          "rect": {
+            "x": 0,
+            "y": 250.25,
+            "width": 430,
+            "height": 474.484375,
+            "top": 250.25,
+            "right": 430,
+            "bottom": 724.734375,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech": {
+          "rect": {
+            "x": 0,
+            "y": 724.734375,
+            "width": 430,
+            "height": 84.078125,
+            "top": 724.734375,
+            "right": 430,
+            "bottom": 808.8125,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech__name": {
+          "rect": {
+            "x": 65.765625,
+            "y": 733.03125,
+            "width": 28.375,
+            "height": 20.1875,
+            "top": 733.03125,
+            "right": 94.140625,
+            "bottom": 753.21875,
+            "left": 65.765625
+          },
+          "fontSize": "11.9884px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech__text": {
+          "rect": {
+            "x": 65.765625,
+            "y": 757.046875,
+            "width": 355.46875,
+            "height": 44.46875,
+            "top": 757.046875,
+            "right": 421.234375,
+            "bottom": 801.515625,
+            "left": 65.765625
+          },
+          "fontSize": "15.351px",
+          "lineHeight": "22.2589px",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif",
+          "text": "水嶋 ひなた……。所持品と行動を照合する。判断を誤れば、こちらが罰せられる。"
+        },
+        ".modal": {
+          "rect": {
+            "x": 11.6875,
+            "y": 462.5,
+            "width": 406.625,
+            "height": 374.03125,
+            "top": 462.5,
+            "right": 418.3125,
+            "bottom": 836.53125,
+            "left": 11.6875
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".story-screen__box": null,
+        ".story-screen__speaker": null,
+        ".story-screen__text": null,
+        ".story-screen__progress": null,
+        ".story-screen__next": null
+      },
+      "fonts": [
+        {
+          "familyName": "Noto Sans CJK JP",
+          "postScriptName": "NotoSansCJKjp-Regular",
+          "isCustomFont": false,
+          "glyphCount": 35
+        },
+        {
+          "familyName": "DejaVu Sans",
+          "postScriptName": "DejaVuSans",
+          "isCustomFont": false,
+          "glyphCount": 3
+        }
+      ],
+      "iconFonts": [
+        {
+          "text": "🏠",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "📖",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "👥",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "📋",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "🛒",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "file": "4_教室と机の中.png",
+      "sha256": "0385f51c50c43b2e7990d6e7ebef65f342670e2c3dc12d8ea2ec8b9eb98d3d84",
+      "width": 1290,
+      "height": 2796,
+      "channels": 3,
+      "hasAlpha": false,
+      "loop": 1,
+      "layout": {
+        ".app-frame": {
+          "rect": {
+            "x": 0,
+            "y": 83.78125,
+            "width": 430,
+            "height": 764.4375,
+            "top": 83.78125,
+            "right": 430,
+            "bottom": 848.21875,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".gamearea": {
+          "rect": {
+            "x": 0,
+            "y": 250.25,
+            "width": 430,
+            "height": 452.25,
+            "top": 250.25,
+            "right": 430,
+            "bottom": 702.5,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech": {
+          "rect": {
+            "x": 0,
+            "y": 702.5,
+            "width": 430,
+            "height": 106.3125,
+            "top": 702.5,
+            "right": 430,
+            "bottom": 808.8125,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech__name": {
+          "rect": {
+            "x": 65.765625,
+            "y": 710.796875,
+            "width": 28.375,
+            "height": 20.1875,
+            "top": 710.796875,
+            "right": 94.140625,
+            "bottom": 730.984375,
+            "left": 65.765625
+          },
+          "fontSize": "11.9884px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech__text": {
+          "rect": {
+            "x": 65.765625,
+            "y": 734.8125,
+            "width": 355.46875,
+            "height": 66.703125,
+            "top": 734.8125,
+            "right": 421.234375,
+            "bottom": 801.515625,
+            "left": 65.765625
+          },
+          "fontSize": "15.351px",
+          "lineHeight": "22.2589px",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif",
+          "text": "バレンタインなど存在しない…。この学園から、甘い浮かれた空気を一掃するんだ！（今回のテーマ：探す）"
+        },
+        ".modal": null,
+        ".story-screen__box": null,
+        ".story-screen__speaker": null,
+        ".story-screen__text": null,
+        ".story-screen__progress": null,
+        ".story-screen__next": null
+      },
+      "fonts": [
+        {
+          "familyName": "Noto Sans CJK JP",
+          "postScriptName": "NotoSansCJKjp-Regular",
+          "isCustomFont": false,
+          "glyphCount": 48
+        },
+        {
+          "familyName": "DejaVu Sans",
+          "postScriptName": "DejaVuSans",
+          "isCustomFont": false,
+          "glyphCount": 1
+        }
+      ],
+      "iconFonts": [
+        {
+          "text": "🏠",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "📖",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "👥",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "📋",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "🛒",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "file": "5_2周目_私立聖蘭学院.png",
+      "sha256": "469b607d6f128e84fa72768881cde0b7d38208ceec943b1cb1894dcba644c4e5",
+      "width": 1290,
+      "height": 2796,
+      "channels": 3,
+      "hasAlpha": false,
+      "loop": 2,
+      "layout": {
+        ".app-frame": {
+          "rect": {
+            "x": 0,
+            "y": 83.78125,
+            "width": 430,
+            "height": 764.4375,
+            "top": 83.78125,
+            "right": 430,
+            "bottom": 848.21875,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".gamearea": {
+          "rect": {
+            "x": 0,
+            "y": 250.25,
+            "width": 430,
+            "height": 452.25,
+            "top": 250.25,
+            "right": 430,
+            "bottom": 702.5,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech": {
+          "rect": {
+            "x": 0,
+            "y": 702.5,
+            "width": 430,
+            "height": 106.3125,
+            "top": 702.5,
+            "right": 430,
+            "bottom": 808.8125,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech__name": {
+          "rect": {
+            "x": 65.765625,
+            "y": 710.796875,
+            "width": 28.375,
+            "height": 20.1875,
+            "top": 710.796875,
+            "right": 94.140625,
+            "bottom": 730.984375,
+            "left": 65.765625
+          },
+          "fontSize": "11.9884px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech__text": {
+          "rect": {
+            "x": 65.765625,
+            "y": 734.8125,
+            "width": 355.46875,
+            "height": 66.703125,
+            "top": 734.8125,
+            "right": 421.234375,
+            "bottom": 801.515625,
+            "left": 65.765625
+          },
+          "fontSize": "15.351px",
+          "lineHeight": "22.2589px",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif",
+          "text": "バレンタインなど存在しない…。この学園から、甘い浮かれた空気を一掃するんだ！（今回のテーマ：見破る）"
+        },
+        ".modal": null,
+        ".story-screen__box": null,
+        ".story-screen__speaker": null,
+        ".story-screen__text": null,
+        ".story-screen__progress": null,
+        ".story-screen__next": null
+      },
+      "fonts": [
+        {
+          "familyName": "Noto Sans CJK JP",
+          "postScriptName": "NotoSansCJKjp-Regular",
+          "isCustomFont": false,
+          "glyphCount": 49
+        },
+        {
+          "familyName": "DejaVu Sans",
+          "postScriptName": "DejaVuSans",
+          "isCustomFont": false,
+          "glyphCount": 1
+        }
+      ],
+      "iconFonts": [
+        {
+          "text": "🏠",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "📖",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "👥",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "📋",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "🛒",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "file": "6_3周目_白鷺台学園.png",
+      "sha256": "3325d432aada6088d3e6ae2fc20974f956feb71b9158370c7c9bd1b1654af104",
+      "width": 1290,
+      "height": 2796,
+      "channels": 3,
+      "hasAlpha": false,
+      "loop": 3,
+      "layout": {
+        ".app-frame": {
+          "rect": {
+            "x": 0,
+            "y": 83.78125,
+            "width": 430,
+            "height": 764.4375,
+            "top": 83.78125,
+            "right": 430,
+            "bottom": 848.21875,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".gamearea": {
+          "rect": {
+            "x": 0,
+            "y": 250.25,
+            "width": 430,
+            "height": 452.25,
+            "top": 250.25,
+            "right": 430,
+            "bottom": 702.5,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech": {
+          "rect": {
+            "x": 0,
+            "y": 702.5,
+            "width": 430,
+            "height": 106.3125,
+            "top": 702.5,
+            "right": 430,
+            "bottom": 808.8125,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech__name": {
+          "rect": {
+            "x": 65.765625,
+            "y": 710.796875,
+            "width": 28.375,
+            "height": 20.1875,
+            "top": 710.796875,
+            "right": 94.140625,
+            "bottom": 730.984375,
+            "left": 65.765625
+          },
+          "fontSize": "11.9884px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech__text": {
+          "rect": {
+            "x": 65.765625,
+            "y": 734.8125,
+            "width": 355.46875,
+            "height": 66.703125,
+            "top": 734.8125,
+            "right": 421.234375,
+            "bottom": 801.515625,
+            "left": 65.765625
+          },
+          "fontSize": "15.351px",
+          "lineHeight": "22.2589px",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif",
+          "text": "バレンタインなど存在しない…。この学園から、甘い浮かれた空気を一掃するんだ！（今回のテーマ：推理する）"
+        },
+        ".modal": null,
+        ".story-screen__box": null,
+        ".story-screen__speaker": null,
+        ".story-screen__text": null,
+        ".story-screen__progress": null,
+        ".story-screen__next": null
+      },
+      "fonts": [
+        {
+          "familyName": "Noto Sans CJK JP",
+          "postScriptName": "NotoSansCJKjp-Regular",
+          "isCustomFont": false,
+          "glyphCount": 50
+        },
+        {
+          "familyName": "DejaVu Sans",
+          "postScriptName": "DejaVuSans",
+          "isCustomFont": false,
+          "glyphCount": 1
+        }
+      ],
+      "iconFonts": [
+        {
+          "text": "🏠",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "📖",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "👥",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "📋",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "🛒",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "file": "7_放課後.png",
+      "sha256": "af861ff568d47d282e3b9eee28471bf091f165f65eb10cae13de9bdb512e7b17",
+      "width": 1290,
+      "height": 2796,
+      "channels": 3,
+      "hasAlpha": false,
+      "loop": 1,
+      "layout": {
+        ".app-frame": {
+          "rect": {
+            "x": 0,
+            "y": 83.78125,
+            "width": 430,
+            "height": 764.4375,
+            "top": 83.78125,
+            "right": 430,
+            "bottom": 848.21875,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".gamearea": {
+          "rect": {
+            "x": 0,
+            "y": 250.25,
+            "width": 430,
+            "height": 452.25,
+            "top": 250.25,
+            "right": 430,
+            "bottom": 702.5,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech": {
+          "rect": {
+            "x": 0,
+            "y": 702.5,
+            "width": 430,
+            "height": 106.3125,
+            "top": 702.5,
+            "right": 430,
+            "bottom": 808.8125,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech__name": {
+          "rect": {
+            "x": 65.765625,
+            "y": 710.796875,
+            "width": 28.375,
+            "height": 20.1875,
+            "top": 710.796875,
+            "right": 94.140625,
+            "bottom": 730.984375,
+            "left": 65.765625
+          },
+          "fontSize": "11.9884px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".speech__text": {
+          "rect": {
+            "x": 65.765625,
+            "y": 734.8125,
+            "width": 355.46875,
+            "height": 66.703125,
+            "top": 734.8125,
+            "right": 421.234375,
+            "bottom": 801.515625,
+            "left": 65.765625
+          },
+          "fontSize": "15.351px",
+          "lineHeight": "22.2589px",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif",
+          "text": "バレンタインなど存在しない…。この学園から、甘い浮かれた空気を一掃するんだ！（今回のテーマ：探す）"
+        },
+        ".modal": null,
+        ".story-screen__box": null,
+        ".story-screen__speaker": null,
+        ".story-screen__text": null,
+        ".story-screen__progress": null,
+        ".story-screen__next": null
+      },
+      "fonts": [
+        {
+          "familyName": "Noto Sans CJK JP",
+          "postScriptName": "NotoSansCJKjp-Regular",
+          "isCustomFont": false,
+          "glyphCount": 48
+        },
+        {
+          "familyName": "DejaVu Sans",
+          "postScriptName": "DejaVuSans",
+          "isCustomFont": false,
+          "glyphCount": 1
+        }
+      ],
+      "iconFonts": [
+        {
+          "text": "🏠",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "📖",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "👥",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "📋",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "text": "🛒",
+          "fonts": [
+            {
+              "familyName": "Noto Color Emoji",
+              "postScriptName": "NotoColorEmoji",
+              "isCustomFont": false,
+              "glyphCount": 1
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "file": "8_ストーリー.png",
+      "sha256": "af7ee1f53fe8ef5dbfb9774a587d235c8acc4f1d82068cc54031dcc429579093",
+      "width": 1290,
+      "height": 2796,
+      "channels": 3,
+      "hasAlpha": false,
+      "loop": 1,
+      "layout": {
+        ".app-frame": {
+          "rect": {
+            "x": 0,
+            "y": 83.78125,
+            "width": 430,
+            "height": 764.4375,
+            "top": 83.78125,
+            "right": 430,
+            "bottom": 848.21875,
+            "left": 0
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".gamearea": null,
+        ".speech": null,
+        ".speech__name": null,
+        ".speech__text": null,
+        ".modal": null,
+        ".story-screen__box": {
+          "rect": {
+            "x": 10.21875,
+            "y": 691.296875,
+            "width": 409.5625,
+            "height": 143.765625,
+            "top": 691.296875,
+            "right": 419.78125,
+            "bottom": 835.0625,
+            "left": 10.21875
+          },
+          "fontSize": "14.62px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".story-screen__speaker": {
+          "rect": {
+            "x": 22.328125,
+            "y": 679.796875,
+            "width": 38.21875,
+            "height": 26.15625,
+            "top": 679.796875,
+            "right": 60.546875,
+            "bottom": 705.953125,
+            "left": 22.328125
+          },
+          "fontSize": "13.889px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".story-screen__text": {
+          "rect": {
+            "x": 24.375,
+            "y": 726.640625,
+            "width": 381.25,
+            "height": 58.46875,
+            "top": 726.640625,
+            "right": 405.625,
+            "bottom": 785.109375,
+            "left": 24.375
+          },
+          "fontSize": "18.275px",
+          "lineHeight": "29.24px",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif",
+          "text": "だが毎年、2月14日だけはこの条文が死ぬ。"
+        },
+        ".story-screen__progress": {
+          "rect": {
+            "x": 21.734375,
+            "y": 814.21875,
+            "width": 33.6875,
+            "height": 14,
+            "top": 814.21875,
+            "right": 55.421875,
+            "bottom": 828.21875,
+            "left": 21.734375
+          },
+          "fontSize": "11.696px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        },
+        ".story-screen__next": {
+          "rect": {
+            "x": 354.515625,
+            "y": 812.484375,
+            "width": 53.75,
+            "height": 15,
+            "top": 812.484375,
+            "right": 408.265625,
+            "bottom": 827.484375,
+            "left": 354.515625
+          },
+          "fontSize": "13.158px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", \"Noto Sans JP\", Meiryo, system-ui, sans-serif"
+        }
+      },
+      "fonts": [
+        {
+          "familyName": "Noto Sans CJK JP",
+          "postScriptName": "NotoSansCJKjp-Regular",
+          "isCustomFont": false,
+          "glyphCount": 18
+        },
+        {
+          "familyName": "DejaVu Sans",
+          "postScriptName": "DejaVuSans",
+          "isCustomFont": false,
+          "glyphCount": 3
+        }
+      ],
+      "iconFonts": [],
+      "errors": []
+    }
+  ]
+}
