@@ -13,11 +13,13 @@
  * nearY/farY の外側も線形に延長するので、消失点付近（y < farY）の
  * モブも自然に小さくなる。
  */
-const DEPTH = { nearY: 88, farY: 50, nearH: 68, farH: 33 } as const;
+// 足元は動かさず、建具やカウンターに対して小さかった人物を約25%拡大。
+// ターゲットと背景の通行人に同じ基準を適用する。
+const DEPTH = { nearY: 88, farY: 50, nearH: 85, farH: 41.25 } as const;
 
 /** 極端に小さく／大きくなりすぎないための下限・上限。 */
-const MIN_HEIGHT = 7;
-const MAX_HEIGHT = 80;
+const MIN_HEIGHT = 9;
+const MAX_HEIGHT = 88;
 
 export function depthHeight(y: number): number {
   const t = (y - DEPTH.farY) / (DEPTH.nearY - DEPTH.farY);

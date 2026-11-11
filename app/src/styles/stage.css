@@ -849,12 +849,18 @@
 
 .stage-instruction {
   position: absolute;
-  left: 10%; right: 10%; bottom: 2%; z-index: 120;
+  /* 主人公は左端から40%まで。枠ごと右へ逃がし、小画面では折り返す。 */
+  left: 45%; right: 3%; bottom: 2%; z-index: 120;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 0.25em;
   padding: 0.45em;
   border-radius: 8px;
   background: rgba(5, 10, 22, 0.9);
   text-align: center;
   font-size: 14px;
+  line-height: 1.5;
   color: var(--text);
   pointer-events: none;
 }
