@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { BottomNav } from "../components/BottomNav";
+import { HowToPlay } from "../components/HowToPlay";
 import { DebugPanel } from "../components/DebugPanel";
 import { DeskConfirmModal, DeskResultModal } from "../components/DeskModals";
 import { DeskTarget } from "../components/DeskTarget";
@@ -47,6 +48,25 @@ export function StageScreen() {
   } = store;
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [helpOpen, setHelpOpen] = useState(false);
+  const setPaused = store.setPaused;
+
+  useEffect(() => {
+    setPaused("menu", menuOpen);
+    setPaused("help", helpOpen);
+  }, [menuOpen, helpOpen, setPaused]);
+
+  useEffect(() => {
+    const onVisibility = () => setPaused("hidden", document.visibilityState === "hidden");
+    onVisibility();
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => {
+      document.removeEventListener("visibilitychange", onVisibility);
+      setPaused("menu", false);
+      setPaused("help", false);
+      setPaused("hidden", false);
+    };
+  }, [setPaused]);
 
   // タイマー。観察中・結果表示中は store 側で加算が止まる。
   useEffect(() => {
@@ -145,18 +165,7 @@ export function StageScreen() {
           />
         ))}
 
-        <button
-          type="button"
-          className="report-btn"
-          disabled={!selected}
-          onClick={() => selected && store.reportStudent(selected.id)}
-        >
-          {ASSETS.iconMegaphone.status === "ready" && (
-            <img className="report-btn__icon" src={ASSETS.iconMegaphone.src} alt="" />
-          )}
-          <span className="report-btn__jp">通報</span>
-          <span className="report-btn__en">REPORT</span>
-        </button>
+        <div className="stage-instruction">気になる生徒をタップして観察</div>
 
         {/* ミッション達成後は待たずに次へ進める。 */}
         {total > 0 && caught >= total && (
@@ -174,13 +183,14 @@ export function StageScreen() {
       </div>
 
       <DialogueBox
+        notice={store.notice}
         remaining={timeRemaining}
         combo={combo}
         selectedName={selected?.name ?? null}
         theme={cfg.theme}
       />
 
-      <BottomNav onHome={() => setMenuOpen(true)} />
+      <BottomNav onMenu={() => setMenuOpen(true)} onHelp={() => setHelpOpen(true)} />
 
       {/* 覗いている間は観察モーダルを隠す。
           双眼鏡は「生徒を覗く」演出なので、レンズの中にモーダルが見えると不自然になる。 */}
@@ -221,8 +231,9 @@ export function StageScreen() {
 
       {menuOpen && (
         <div className="modal-overlay modal-overlay--center" onClick={() => setMenuOpen(false)}>
-          <div className="modal menu-modal" onClick={(e) => e.stopPropagation()}>
+          <div className="modal menu-modal" role="dialog" aria-modal="true" aria-label="メニュー" onClick={(e) => e.stopPropagation()}>
             <h3>メニュー</h3>
+            <p className="observe__note">時間は止まっています。</p>
             <button type="button" className="btn" onClick={() => setMenuOpen(false)}>
               ゲームに戻る
             </button>
@@ -242,6 +253,7 @@ export function StageScreen() {
           </div>
         </div>
       )}
+      {helpOpen && <HowToPlay onClose={() => setHelpOpen(false)} />}
     </div>
   );
 }

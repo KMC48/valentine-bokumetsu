@@ -8,7 +8,7 @@ import { STUDENTS, countChocolateHolders, getStudents } from "../data/students";
 import { judgeDeskSearch } from "../game/desk";
 import { DESK_SEARCH_SECONDS } from "../data/score";
 import { visibleHints } from "../game/difficulty";
-import { meetsSpecialEnding, selectEnding } from "../game/ending";
+import { meetsSpecialEnding, selectEnding, specialEpilogue } from "../game/ending";
 import { annihilationRate, judgeReport } from "../game/report";
 import { stageTargetTotal, useGameStore } from "../store/gameStore";
 import { useSaveStore } from "../store/saveStore";
@@ -19,6 +19,8 @@ const baseStats: RunStats = {
   maxCombo: 0,
   correctReports: 0,
   falseReports: 0,
+  correctPasses: 0,
+  missedPasses: 0,
   friendCount: 0,
   honmeiCount: 0,
   specialCount: 0,
@@ -109,10 +111,11 @@ describe("エンディング分岐", () => {
     expect(selectEnding({ ...baseStats, score: 0, honmeiCount: 1 }).rank).toBe("D");
   });
 
-  it("本命3件以上かつ誤認0なら特殊ED", () => {
+  it("本命3件以上かつ誤認0なら通常EDのあとに特殊後日談", () => {
     const stats = { ...baseStats, score: 1000, honmeiCount: 2, specialCount: 1, falseReports: 0 };
     expect(meetsSpecialEnding(stats)).toBe(true);
-    expect(selectEnding(stats).id).toBe("ending-special");
+    expect(selectEnding(stats).id).toBe("ending-d");
+    expect(specialEpilogue(stats)?.id).toBe("ending-special");
   });
 
   it("誤認があれば特殊EDにならない", () => {

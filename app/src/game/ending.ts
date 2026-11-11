@@ -14,14 +14,45 @@ export function meetsSpecialEnding(stats: RunStats): boolean {
   );
 }
 
-/** 集計からエンディングを1件決める。特殊条件が最優先。 */
+/** ランクに応じた結末。行動と矛盾する固定の誤認回数・全滅表現は使わない。 */
 export function selectEnding(stats: RunStats): EndingDef {
-  if (meetsSpecialEnding(stats)) {
-    const special = ENDINGS.find((e) => e.rank === "special");
-    if (special) return special;
-  }
   const rank = rankFor(stats.score);
-  const byRank = ENDINGS.find((e) => e.rank === rank);
-  // データ不備でも落とさない。
-  return byRank ?? ENDINGS[ENDINGS.length - 1]!;
+  const ending = ENDINGS.find((e) => e.rank === rank)!;
+  if (rank === "D" && stats.falseReports < 3) {
+    return {
+      ...ending,
+      title: "委員会、出直し",
+      lines: [
+        { speaker: "生徒指導・鬼頭", text: stats.falseReports === 0
+          ? "誤認通報はなかった。だが、取り締まりの成果はまだ足りないな。"
+          : `誤認通報は${stats.falseReports}件。証拠を確かめるところからやり直そう。` },
+        { speaker: "俺", text: stats.correctPasses > 0
+          ? `無実の${stats.correctPasses}人は見送れました。次は、隠されたチョコも見抜いてみせます。`
+          : "……次は、持ち物と行動をもっとよく見ます。" },
+        { speaker: "生徒指導・鬼頭", text: "怪しいという印象と、確かな証拠は違う。そこを忘れるな。" },
+        { speaker: "", text: "腕章をしまい、今日の判断を思い返す。" },
+        { speaker: "俺", text: "このままでは終われない。委員会の活動は、まだ続く。" },
+      ],
+    };
+  }
+  if (rank === "C") {
+    return { ...ending, lines: ending.lines.map((line, i) => i === 3
+      ? { speaker: "俺", text: stats.falseReports > 0
+        ? `……誤認通報は${stats.falseReports}件。見えている物の意味を、考え直さないとな。`
+        : "……誤認は避けられた。だが、見抜けなかった仕掛けがまだあった。" }
+      : line) };
+  }
+  if (rank === "S" && stats.annihilationRate < 1) {
+    return { ...ending, title: "静まり返る校舎", lines: [
+      { speaker: "", text: "その日、委員会の取り締まりは校内を震え上がらせた。" },
+      { speaker: "", text: "すべてを見つけたわけではない。それでも、紙袋を堂々と掲げる者はいなくなった。" },
+      ...ending.lines.slice(2),
+    ] };
+  }
+  return ending;
+}
+
+/** 特殊条件は通常の結末を上書きせず、その後に読める後日談にする。 */
+export function specialEpilogue(stats: RunStats): EndingDef | null {
+  return meetsSpecialEnding(stats) ? ENDINGS.find((e) => e.rank === "special") ?? null : null;
 }

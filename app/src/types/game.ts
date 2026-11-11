@@ -51,7 +51,7 @@ export type Student = {
   /** 背景上の配置。% 指定（px にしない）。 */
   position: { x: number; y: number };
 
-  /** 0〜100。ミニマップ／「!」マーカーの表示判定に使う。 */
+  /** 0〜100。主人公の第一印象。同じ値に所持者・無実が混在し、証拠にはならない。 */
   suspicionLevel: number;
 
   /** 観察モーダルに出る推理材料。前にあるものほど有力。 */
@@ -91,6 +91,8 @@ export type ReportOutcome = {
   multiplier: number;
   headline: string;
   detail: string;
+  /** 通報までに実際に読めた推理だけを振り返る。未開示情報は含めない。 */
+  observedThought?: string;
 };
 
 /** 机の中身。人物と違い「誤認通報」が無い代わりに、調べるのに時間がかかる。 */
@@ -115,8 +117,8 @@ export type DeskSpot = {
   content: DeskContent;
   /** 調べた結果のテキスト。 */
   resultText: string;
-  /** 人物ターゲットにつながる推理材料（あれば）。 */
-  clue?: string;
+  /** 捜索前に読める主人公の推理。中身の判定結果は先に明かさない。 */
+  searchThought: string;
   /** 机の画像。null ならCSS/SVGの仮マーカーで描画する。 */
   image: string | null;
 };
@@ -134,7 +136,6 @@ export type DeskOutcome = {
   timeCost: number;
   headline: string;
   detail: string;
-  clue?: string;
 };
 
 /** ストーリー（ADV）1行分。 */
@@ -174,10 +175,6 @@ export type LoopConfig = {
   schoolName: string;
   theme: string;
   difficultyLabel: string;
-  /** 1.0 = 怪しい生徒が全員マーカー表示。下げるほど見えなくなる。 */
-  suspicionVisibility: number;
-  /** ダミー／フェイクの混入率（演出・図鑑表記用）。 */
-  fakeRate: number;
   /** 観察モーダルで開示するヒント数。 */
   hintCount: number;
 };
@@ -188,6 +185,10 @@ export type RunStats = {
   maxCombo: number;
   correctReports: number;
   falseReports: number;
+  /** 無実の生徒を正しく見送った回数。得点とは別に評価する。 */
+  correctPasses: number;
+  /** チョコ所持者を見送った回数。 */
+  missedPasses: number;
   friendCount: number;
   honmeiCount: number;
   specialCount: number;

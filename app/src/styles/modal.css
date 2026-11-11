@@ -24,7 +24,9 @@
 
 .modal {
   width: 100%;
-  max-height: 86%;
+  max-height: 94%;
+  overscroll-behavior: contain;
+  overflow-wrap: anywhere;
   overflow-y: auto;
   padding: 0.9em;
   border-radius: 14px;
@@ -137,9 +139,9 @@
 .observe__suspicion {
   display: grid;
   gap: 0.2em;
-  font-size: 0.62em;
+  font-size: 16px;
   font-weight: 800;
-  color: var(--muted);
+  color: var(--gold);
 }
 
 .observe__quote {
@@ -149,45 +151,6 @@
   border-left: 3px solid var(--pink);
   background: rgba(255, 45, 106, 0.08);
   border-radius: 0 8px 8px 0;
-}
-
-.hint-title {
-  font-size: 0.65em;
-  font-weight: 900;
-  letter-spacing: 0.14em;
-  color: var(--cyan);
-  margin: 0.5em 0 0.35em;
-}
-
-.hint-list {
-  display: grid;
-  gap: 0.35em;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.hint-list li {
-  display: grid;
-  grid-template-columns: 1.4em 1fr;
-  gap: 0.3em;
-  font-size: 0.74em;
-  line-height: 1.45;
-  padding: 0.45em 0.55em;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(126, 182, 255, 0.18);
-}
-
-.hint-list li .no {
-  color: var(--gold);
-  font-weight: 900;
-}
-
-.hint-list li.is-hidden {
-  color: var(--muted);
-  font-style: italic;
-  opacity: 0.75;
 }
 
 .observe__actions {
@@ -354,16 +317,6 @@
   color: var(--danger);
 }
 
-.desk-modal__clue {
-  margin: 0.6em 0 0;
-  padding: 0.5em 0.6em;
-  font-size: 0.72em;
-  line-height: 1.5;
-  text-align: left;
-  border-left: 3px solid var(--cyan);
-  background: rgba(111, 211, 255, 0.1);
-  border-radius: 0 8px 8px 0;
-}
 
 .desk-modal__time {
   margin: 0.6em 0 0;
@@ -371,14 +324,6 @@
   color: var(--muted);
 }
 
-/* 周回難易度で読み取れない手がかりがある、という注記 */
-.hint-title__locked {
-  margin-left: 0.4em;
-  font-size: 0.85em;
-  font-weight: 700;
-  color: var(--muted);
-  letter-spacing: 0;
-}
 
 /* 机の中を覗いた絵。空の物入れの上にチョコを重ねる合成。 */
 .desk-inside {
@@ -548,3 +493,80 @@
     transform: translateY(8px);
   }
 }
+
+/* 読む文章は端末幅にかかわらず17px以上。設定の「大」「特大」も共通で適用する。 */
+.thought, .observe__quote, .result-modal__detail, .result-modal__teacher,
+.desk-modal__lead, .binocular-view__hint, .help-modal {
+  font-size: calc(17px * var(--text-scale, 1));
+  line-height: 1.7;
+}
+.thought {
+  margin: 0.65em 0;
+  padding: 0.75em;
+  text-align: left;
+  background: rgba(111, 211, 255, 0.07);
+  border: 1px solid rgba(111, 211, 255, 0.28);
+  border-left: 3px solid var(--cyan);
+  border-radius: 10px;
+}
+.thought p { margin: 0.3em 0 0; }
+.thought__speaker {
+  display: block;
+  color: var(--cyan);
+  font-size: calc(14px * var(--text-scale, 1));
+  font-weight: 800;
+}
+.observe__level {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 0.5em;
+  font-size: calc(16px * var(--text-scale, 1));
+  font-weight: 800;
+  color: var(--gold);
+}
+.observe__level strong { font-size: calc(28px * var(--text-scale, 1)); line-height: 1.25; }
+.observe__level small { font-size: 13px; color: var(--muted); }
+.observe__level-note, .observe__note, .desk-modal__time, .binocular__note {
+  font-size: calc(13px * var(--text-scale, 1));
+  line-height: 1.6;
+  color: var(--muted);
+}
+.observe__level-note { font-weight: 400; }
+.observe__note { margin: 0.65em 0; }
+.observe__meta { min-width: 0; }
+.chip { font-size: 12px; }
+.observe__hold { width: 100%; }
+.modal button { min-height: 44px; }
+.modal__close { min-width: 44px; font-size: 22px; }
+.result-modal__teacher { color: var(--text); font-weight: 700; margin: 0.25em 0; }
+.result-modal__teacher-row { align-items: flex-start; }
+.result-modal__teacher-face { width: 52px; height: 64px; }
+.result-modal__mult, .desk-modal__warn { font-size: calc(14px * var(--text-scale, 1)); }
+.desk-modal { max-width: 100%; }
+.desk-inside { max-height: 150px; }
+.deduction-review {
+  padding: 0.7em;
+  margin-top: 0.8em;
+  border: 1px solid var(--panel-edge);
+  border-radius: 10px;
+  text-align: left;
+  font-size: calc(15px * var(--text-scale, 1));
+  line-height: 1.7;
+}
+.deduction-review summary { cursor: pointer; min-height: 32px; color: var(--cyan); font-weight: 700; }
+.deduction-review p { margin: 0.5em 0 0; }
+.deduction-review__student { padding-top: 0.7em; margin-top: 0.7em; border-top: 1px solid var(--panel-edge); }
+.binocular-view__hint { max-height: 65%; overflow-y: auto; bottom: 16%; }
+.binocular-view__close { position: absolute; bottom: 5%; left: 10%; width: 80%; min-height: 48px; }
+.help-modal { padding: 1em; }
+.help-modal h2 { font-size: 1.2em; margin: 0; }
+.help-modal .thought { font-size: inherit; }
+.help-modal > p { margin: 0.7em 0; }
+.help-rules { padding-left: 1.4em; margin: 0.7em 0; }
+.help-rules li + li { margin-top: 0.5em; }
+.help-feedback { padding: 0.7em; border: 1px solid var(--gold); border-radius: 10px; }
+.help-modal > .btn { width: 100%; margin-top: 0.8em; }
+.help-modal .btn { font-size: 15px; }
+.help-practice { margin: 0.9em 0; }

@@ -1,6 +1,7 @@
 /** 設定。音量はMVPでは値の保存のみ（BGM/SE は優先度B）。 */
 
 import { useEffect, useRef } from "react";
+import packageInfo from "../../package.json";
 import { TEXT_SIZES } from "../game/textSize";
 import { usePrivacyPolicy } from "../privacy/usePrivacyPolicy";
 import { PrivacyPolicyScreen } from "./PrivacyPolicyScreen";
@@ -31,6 +32,7 @@ export function SettingsScreen() {
   return (
     <div className="screen settings-screen stack">
       <h2 className="screen-heading">設定</h2>
+      <p className="settings-note">ゲームバージョン {packageInfo.version}</p>
 
       <div className="panel settings-row">
         <label htmlFor="bgm">
@@ -48,7 +50,7 @@ export function SettingsScreen() {
       </div>
 
       <div className="panel settings-row">
-        <label id="text-size-label">セリフの文字の大きさ</label>
+        <label id="text-size-label">文章の大きさ（セリフ・推理・結果）</label>
         <div className="settings-choices" role="group" aria-labelledby="text-size-label">
           {TEXT_SIZES.map((t) => (
             <button

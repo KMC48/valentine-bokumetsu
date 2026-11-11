@@ -28,9 +28,9 @@ describe("掲示物の配置", () => {
     }
   });
 
-  it("3校すべての校門に横断幕が出る", () => {
-    for (const id of ["gate", "gateAfter", "l2Gate", "l3Gate"]) {
-      expect(SIGNAGE_AREA_IDS).toContain(id);
+  it("3校の校門と昇降口に横断幕を表示しない", () => {
+    for (const id of ["gate", "gateAfter", "l2Gate", "l3Gate", "entrance"]) {
+      expect(SIGNAGE_AREA_IDS).not.toContain(id);
     }
   });
 });

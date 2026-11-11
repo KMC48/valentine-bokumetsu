@@ -42,6 +42,8 @@ export function FinalResultScreen() {
       </div>
 
       <div className="stat-list">
+        <div className="stat-row"><span>無実を正しく見送った</span><b>{stats.correctPasses}人</b></div>
+        <div className="stat-row"><span>チョコ所持者を見送った</span><b>{stats.missedPasses}人</b></div>
         <div className="stat-row">
           <span>通報成功数</span>
           <b>{stats.correctReports}</b>

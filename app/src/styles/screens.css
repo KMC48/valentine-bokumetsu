@@ -585,3 +585,5 @@
   color: var(--danger);
   font-weight: 800;
 }
+
+.title-screen__utilities { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6em; }

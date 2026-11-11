@@ -9,11 +9,7 @@
  * scripts/build_binocular_assets.py でアルファを補正して本番用にしている。
  */
 
-import { useEffect } from "react";
 import { ASSETS } from "../data/assets";
-
-/** 演出を出しておく時間（ミリ秒）。 */
-const VIEW_DURATION_MS = 1400;
 
 type Props = {
   /** 開示された手がかりの文面。覗いた先に見えたもの。 */
@@ -22,13 +18,8 @@ type Props = {
 };
 
 export function BinocularView({ revealedHint, onFinish }: Props) {
-  useEffect(() => {
-    const id = window.setTimeout(onFinish, VIEW_DURATION_MS);
-    return () => window.clearTimeout(id);
-  }, [onFinish]);
-
   return (
-    <div className="binocular-view" onClick={onFinish}>
+    <div className="binocular-view" role="dialog" aria-modal="true" aria-label="双眼鏡で見えたこと">
       {ASSETS.binocularViewFrame.status === "ready" && (
         <img className="binocular-view__frame" src={ASSETS.binocularViewFrame.src} alt="" />
       )}
@@ -38,6 +29,7 @@ export function BinocularView({ revealedHint, onFinish }: Props) {
           {revealedHint}
         </p>
       )}
+      <button type="button" className="btn btn--gold binocular-view__close" onClick={onFinish} autoFocus>観察に戻る</button>
     </div>
   );
 }

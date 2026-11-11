@@ -8,6 +8,8 @@ import type { LoopId } from "../types/game";
 
 export function EndingScreen() {
   const ending = useGameStore((s) => s.ending);
+  const epilogue = useGameStore((s) => s.epilogue);
+  const showEpilogue = useGameStore((s) => s.showEpilogue);
   const loop = useGameStore((s) => s.loop);
   const startRun = useGameStore((s) => s.startRun);
   const goTitle = useGameStore((s) => s.goTitle);
@@ -67,7 +69,8 @@ export function EndingScreen() {
           )}
 
           <div className="result-screen__actions" style={{ marginTop: 0 }}>
-            {unlockedNext && (
+            {epilogue && <button type="button" className="btn btn--gold" onClick={showEpilogue}>続いて後日談「{epilogue.title}」へ</button>}
+            {unlockedNext && !epilogue && (
               <button type="button" className="btn btn--primary" onClick={() => startRun(nextLoop)}>
                 {nextLoop}周目へ進む
               </button>
@@ -87,7 +90,7 @@ export function EndingScreen() {
   return (
     <div className="screen ending-screen story-screen" onClick={() => setIndex((i) => i + 1)}>
       {background}
-      <div className="ending-screen__kicker">ENDING</div>
+      <div className="ending-screen__kicker">{ending.rank === "special" ? "EPILOGUE" : `${ending.rank} RANK — ENDING`}</div>
       <div className="ending-screen__title">{ending.title}</div>
 
       <div className="story-screen__box" style={{ position: "relative", zIndex: 2 }}>

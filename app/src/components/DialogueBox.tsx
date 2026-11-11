@@ -4,9 +4,10 @@ import { playerFaceSrc, playerLine, playerMood, type VoiceContext } from "../gam
 
 type Props = VoiceContext & {
   name?: string;
+  notice?: string | null;
 };
 
-export function DialogueBox({ name = "俺", ...ctx }: Props) {
+export function DialogueBox({ name = "俺", notice, ...ctx }: Props) {
   const mood = playerMood(ctx);
 
   return (
@@ -17,7 +18,7 @@ export function DialogueBox({ name = "俺", ...ctx }: Props) {
       </div>
       <div className="speech__body">
         <span className="speech__name">{name}</span>
-        <div className="speech__text">{playerLine(ctx)}</div>
+        <div className="speech__text" aria-live="polite">{notice ?? playerLine(ctx)}</div>
       </div>
     </div>
   );
