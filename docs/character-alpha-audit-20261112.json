@@ -1,0 +1,2363 @@
+{
+  "date_jst": "2026-11-12",
+  "version": "0.2.2",
+  "base_commit": "2fc6e601e03afceae6e355e42cd22f2e393c4940",
+  "summary": {
+    "reviewed": 107,
+    "repaired": 79,
+    "visually_checked_unchanged": 19,
+    "pending_source": 9
+  },
+  "assets": [
+    {
+      "file": "boy_001.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "eca3fd823f7e6f6a5712bfc3cb9d49deafd7486ed1acfa2d953a02bf9c5aabd6",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "bust_boy_001.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "8ae36ab35de3e16841e60a56ce339e6820386e24c3b01bc477383dcb87967ac3",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "bust_girl_001.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "5590d346bb881636f9bbe7045a10d6cfc9889d2b3b31c6887b5a3d7fb5f70cff",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "bust_girl_002.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "d444f2185a9f82b36f7ac43750fbb2081af6aeaad76dfebdcce91ff9a53586ed",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "bust_girl_003.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "a0426dcd14e76f2438c360de963b12276bbd4dfac5b16490f565d9661bc90453",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "bust_girl_004.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "26a4f622ba41e4dfd65256c3253b1ef787114b8557f078857725f16e1b3e05e1",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "bust_girl_005.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "881bd92c1be5ce86904a6f76e7306b6082b13ab1ff6ea2591bf665c774286cde",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "bust_ichinose.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "d4a7d0e05c2d6b7b333f54b3e6ac0ece0c5c19c1a3aae3b6e6bf60c0ea6cc76c",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "bust_player.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "4f8b4a2fbca87dffb1492c26ec3dd2904b6c09a4cc2336779a5d3ac0035cb43a",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "bust_teacher.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "100accc759087929775b5609ef55255ed9d13bf552f2fe62c3518b9dc7659496",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "girl_001.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "124446ef1e5431ee3c09a8251b8c195ac080f281d7a93bae710ad6a8f4104e87",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "girl_001_turn.webp",
+      "source": "valentine_additional_assets/画像素材/girl_001_turn.png",
+      "source_sha256": "a0f41de2439241d46c0aea525705e7da585c23b6a09058c4ef2e1c6a55ad8eda",
+      "box": [
+        344,
+        15,
+        718,
+        1525
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.829,
+      "size": [
+        374,
+        1510
+      ],
+      "removed_opaque_pixels": 5634,
+      "before_sha256": "f84b301c1a3a38c46e68fdd44f396f70cd34cd267df7aebfb452b9f0c88660ac",
+      "status": "repaired",
+      "changed_alpha_pixels": 9321,
+      "after_sha256": "a36a16146668d26ed68be7c12c64ad5e36c5e562f114c3683aaef12491defee7",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "girl_002.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "b09a1fbe8c1d690c0ffa2bccfd92d5ed2b2491ff73861231a3ecc99381e4558c",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "girl_002_turn.webp",
+      "source": "valentine_additional_assets/画像素材/girl_002_turn.png",
+      "source_sha256": "948e7fa3c9a4a565a8bf106dc7417271394184d1c4ed7b0ee11b072c62c12181",
+      "box": [
+        307,
+        14,
+        821,
+        1520
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.833,
+      "size": [
+        514,
+        1506
+      ],
+      "removed_opaque_pixels": 8920,
+      "before_sha256": "0d4aaac6cb9a2b4810b600b666a0236fd59e4501320a13a3ac71245b0c8567ba",
+      "status": "repaired",
+      "changed_alpha_pixels": 14108,
+      "after_sha256": "a8533cded4ecc285f5a1e6738065abf118f16af49eb53edc07bc87bedc176668",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "girl_003.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "8201103345b61b9e9913eba83fbcf17c1a7a959045729699ea517057936cbac7",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "girl_003_turn.webp",
+      "source": "valentine_additional_assets/画像素材/girl_003_turn.png",
+      "source_sha256": "5cc314f49c6c0156a4490a910d0270c19dc55b4fc4abae9d835ec237dcde7f36",
+      "box": [
+        367,
+        12,
+        715,
+        1507
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.681,
+      "size": [
+        348,
+        1495
+      ],
+      "removed_opaque_pixels": 35,
+      "before_sha256": "4db458777e44174f526dede24fe257fd7dd3b68086a59507cda3048afadb9ff8",
+      "status": "repaired",
+      "changed_alpha_pixels": 132,
+      "after_sha256": "6b9086d4dff8cc8e96613e71ebbc669e2f15264dd3de33227e80fedc2a15519e",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "girl_004.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "55fc5c4012f0e03cd83e4633028eff9d5f74d95e720de6aba39140eace2d05b2",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "girl_004_turn.webp",
+      "source": "valentine_additional_assets/画像素材/girl_004_turn.png",
+      "source_sha256": "276e42978cf0b04f5bb9017129e4ce12b5e37e8ea953f5aeaf977b11eccf63ba",
+      "box": [
+        309,
+        6,
+        697,
+        1531
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.74,
+      "size": [
+        388,
+        1525
+      ],
+      "removed_opaque_pixels": 275,
+      "before_sha256": "0f72ccbfa366cbe85a5c596908b6957ca38266e483c513bfa1e0de50727fc8c5",
+      "status": "repaired",
+      "changed_alpha_pixels": 914,
+      "after_sha256": "2826eb179f2ad1785382e9615eab1e4a0b79e04c18e64394b0abf95c66a3b9d4",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "girl_005.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "d9effdad86a6a8ade2d10e61c29f243332519328c19420c0ec63119469b4d96b",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "girl_005_turn.webp",
+      "source": "valentine_additional_assets/画像素材/girl_005_turn.png",
+      "source_sha256": "cde9205155613284df43b558bbaf0a14f4dd67547c822a2fb107737c398b2a9c",
+      "box": [
+        258,
+        14,
+        724,
+        1532
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.718,
+      "size": [
+        466,
+        1518
+      ],
+      "removed_opaque_pixels": 12499,
+      "before_sha256": "affa38727ddc545c4907f8067be33d992ec6b683c86ecae65ae0cb4ef12b5c1e",
+      "status": "repaired",
+      "changed_alpha_pixels": 18374,
+      "after_sha256": "dd46eae4d09719be89d5fbae98e2086060b7f118c850ea5098f353731789441f",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "girl_006.webp",
+      "source": "valentine_girl_variations/画像素材/girl_006.png",
+      "source_sha256": "e0049cf3cc552c7d9e82db271042bdb34bb03eca95e2e456cc61c704e97f601d",
+      "box": [
+        321,
+        9,
+        721,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.942,
+      "size": [
+        400,
+        1527
+      ],
+      "removed_opaque_pixels": 5854,
+      "before_sha256": "54a72b2d8c8b43d23502ee5221ae4141b6ff8d4bf27cb768841df4d634c8b715",
+      "status": "repaired",
+      "changed_alpha_pixels": 8202,
+      "after_sha256": "8f302f8a0a9e660f5de2a3a241ac5453c250e6ebb8199bbc4ddca57783ca012c",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "girl_006_turn.webp",
+      "source": "valentine_girl_variations/画像素材/girl_006_turn.png",
+      "source_sha256": "bc0caa0da7162a2a45a57bc465caf768048542a3d1ee9465ee77b4d2947f3f97",
+      "box": [
+        280,
+        11,
+        684,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.952,
+      "size": [
+        405,
+        1527
+      ],
+      "removed_opaque_pixels": 76,
+      "before_sha256": "6c600d705eee6c37065b8a5c79efcf1801e2100259252e3f1a4fadfe249c260e",
+      "status": "repaired",
+      "changed_alpha_pixels": 274,
+      "after_sha256": "66821501efdc10747cc39441836009845b1ed308bec367430dce86f68b989f89",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "girl_007.webp",
+      "source": "valentine_girl_variations/画像素材/girl_007.png",
+      "source_sha256": "594715442a33f47a3aa03ee8fac2f90b9203574176cbeb0b58538c17423ed6fe",
+      "box": [
+        191,
+        5,
+        742,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 2.021,
+      "size": [
+        551,
+        1531
+      ],
+      "removed_opaque_pixels": 19145,
+      "before_sha256": "c6c437403e2bfc123abbd4cc1f73299e0a4feee8bfae05c8dfdb836c96e530aa",
+      "status": "repaired",
+      "changed_alpha_pixels": 25643,
+      "after_sha256": "0aa5bb94777f850012279abdd2396c514813e0705afb30f62a83acd7c57ea157",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "girl_007_turn.webp",
+      "source": "valentine_girl_variations/画像素材/girl_007_turn.png",
+      "source_sha256": "810a829649cc91a364356a20f4a1ef2973d35f145488a8fda7c523fd41171bfa",
+      "box": [
+        251,
+        5,
+        766,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 2.105,
+      "size": [
+        515,
+        1531
+      ],
+      "removed_opaque_pixels": 22183,
+      "before_sha256": "6c17a2337605e7ab728ec4b2e567bdde47dd94df97f8f4996501eb31a0273f43",
+      "status": "repaired",
+      "changed_alpha_pixels": 29016,
+      "after_sha256": "7701b2ff76fd01974d66242a9de28445ba2493aca8e430b408256d2a1c39654a",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "girl_008.webp",
+      "source": "valentine_girl_variations/画像素材/girl_008.png",
+      "source_sha256": "e1ca2ced9a99a6733348cf5b0c57442fc436fcbe1c17eaf7dad35879f3099395",
+      "box": [
+        311,
+        9,
+        712,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.871,
+      "size": [
+        401,
+        1527
+      ],
+      "removed_opaque_pixels": 8862,
+      "before_sha256": "c5534b43c1f4c710bc1aae4c73721f21e7ba2703ae2f704d0adbb7ae53e41d8e",
+      "status": "repaired",
+      "changed_alpha_pixels": 12711,
+      "after_sha256": "b166865d6e77c45d4d3a93ab6c60d955b65d76803cb5961b5d6251f893d244ea",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "girl_008_turn.webp",
+      "source": "valentine_girl_variations/画像素材/girl_008_turn.png",
+      "source_sha256": "4070d34ceecbe3411a276bdd82a13a01cdafb9498e863be9d527839a5e6d898b",
+      "box": [
+        250,
+        10,
+        704,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.846,
+      "size": [
+        454,
+        1527
+      ],
+      "removed_opaque_pixels": 318,
+      "before_sha256": "be1bd419ae865a37c31bc818112d5d83ea53a66d47a36af525fd015800ab102d",
+      "status": "repaired",
+      "changed_alpha_pixels": 931,
+      "after_sha256": "83259fab3385455688253643067d58c28ccd7e32b56cd265798fd531535e2c65",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "girl_009.webp",
+      "source": "valentine_girl_variations/画像素材/girl_009.png",
+      "source_sha256": "45665b07f1f93400ece6a426e23066e41de469ca8429e8b3335c7496fd81cf07",
+      "box": [
+        252,
+        8,
+        833,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.883,
+      "size": [
+        581,
+        1528
+      ],
+      "removed_opaque_pixels": 18307,
+      "before_sha256": "41f22b5bc4353000b81d975e96ce1697bce99c138b5e4bf34ec806151a3edb9d",
+      "status": "repaired",
+      "changed_alpha_pixels": 26641,
+      "after_sha256": "8fe31376600d5e99d67a1b2897df48338273fa9b7a0c9813e74d408ca6c0950f",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "girl_009_turn.webp",
+      "source": "valentine_girl_variations/画像素材/girl_009_turn.png",
+      "source_sha256": "3857d9fad3d438239c608ab8910ac688e299260b9eb0a53ee6c5d9720c446cda",
+      "box": [
+        203,
+        8,
+        781,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.902,
+      "size": [
+        578,
+        1528
+      ],
+      "removed_opaque_pixels": 15358,
+      "before_sha256": "223bc28268ad97fc34423a7c6a750bbd433680009cd6a8c26ef969b2f65eb87d",
+      "status": "repaired",
+      "changed_alpha_pixels": 23754,
+      "after_sha256": "6b8ed5a72ee1c7b5b3b230d2c58d3815af31b49de167f87684e78b91ed51fa12",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "girl_010.webp",
+      "source": "valentine_girl_variations/画像素材/girl_010.png",
+      "source_sha256": "b9846fb0bd33a5ca763f5917da0a10d78a2f0c60212a2fcb1963bc9f3c80a6ec",
+      "box": [
+        310,
+        6,
+        714,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.978,
+      "size": [
+        404,
+        1530
+      ],
+      "removed_opaque_pixels": 5145,
+      "before_sha256": "9fddefc40e5373e625fef41fa236cb3c304c5de85352d833cb5b95106e4645ac",
+      "status": "repaired",
+      "changed_alpha_pixels": 7923,
+      "after_sha256": "4508645c2b50602caa89591561ad3e36ac4d83b48eddfdfe6833dcfc73fc620b",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "girl_010_turn.webp",
+      "source": "valentine_girl_variations/画像素材/girl_010_turn.png",
+      "source_sha256": "a6c74be3b6091a57dbe5fe931b6324eb09cd5df64fa69dec71ab214d7cbf5678",
+      "box": [
+        302,
+        10,
+        689,
+        1535
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.972,
+      "size": [
+        388,
+        1530
+      ],
+      "removed_opaque_pixels": 751,
+      "before_sha256": "5b1095acc03142f0d21417d723726c3215a6caf031c402da377a8d4a82e89a72",
+      "status": "repaired",
+      "changed_alpha_pixels": 1440,
+      "after_sha256": "32630e56f85e514dc16b72734ca4c101a0cafb8bcd46c635351a0905ed1d6020",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "ichinose.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "81f2714e67bf3bd3742d358f62aa78047b92e23640da744f9a146158fa798d59",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "ichinose_turn.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "f1444f2164f801c432dd045a256450bfce3853c08d556de4fe2b783cef100f08",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "loop2_bust_player.webp",
+      "source": "valentine_player_uniforms_0915/loop2_bust_player.png",
+      "source_sha256": "fcf44e0f6dcd2bb1f0e0f156efc0d97778ae7b667b11c857dcf59f92678beee5",
+      "box": [
+        20,
+        12,
+        955,
+        1536
+      ],
+      "mode": "crop",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.658,
+      "size": [
+        935,
+        1235
+      ],
+      "removed_opaque_pixels": 21815,
+      "before_sha256": "4dc685312de1cc366b47c895d6d494c16ba60f08911f58601529ac20cf118cf8",
+      "status": "repaired",
+      "changed_alpha_pixels": 25736,
+      "after_sha256": "7723f49ba0432e0c0827d66ca4f5ef1542ed5d9e26bf6432b9e8a96b9727da09",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_girl_01.webp",
+      "source": "valentine_girl_variations/画像素材/loop2_girl_01.png",
+      "source_sha256": "909c0f7af9c002e3f28fe88c280b09ec1c6bf3712a9eb683a4e1e104856e8095",
+      "box": [
+        342,
+        15,
+        726,
+        1529
+      ],
+      "mode": "resize",
+      "alpha_mae": 1.305179,
+      "rgb_mae": 7.746,
+      "size": [
+        384,
+        1514
+      ],
+      "removed_opaque_pixels": 9011,
+      "before_sha256": "a8cda30383622dfd774cbc5e430b04425454c719817f75f19b393a3556bf7a13",
+      "status": "pending_source",
+      "reason": "Source silhouette differs from current asset"
+    },
+    {
+      "file": "loop2_girl_01_turn.webp",
+      "source": "girls_turn_variants_10/loop2_girl_01_turn.png",
+      "source_sha256": "13c51d4860976c533bb5a8a19ee3a823cd7c2765d9f618402817f791bc86cac2",
+      "box": [
+        343,
+        15,
+        722,
+        1525
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.981,
+      "size": [
+        380,
+        1514
+      ],
+      "removed_opaque_pixels": 5434,
+      "before_sha256": "3eff7f4d3ccf7735137198ff63629e6d2fbd2f37077d52279581bd8ec695fcd0",
+      "status": "repaired",
+      "changed_alpha_pixels": 9177,
+      "after_sha256": "31b0fee47f015cb0120f0e897cb4d640edce861daecfa8b60eea794c65ab8835",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_girl_02.webp",
+      "source": "valentine_girl_variations/画像素材/loop2_girl_02.png",
+      "source_sha256": "233ad435700e008fe4ec6771f8c5200146822b742b7859ce4bae9ebf9e29756a",
+      "box": [
+        259,
+        9,
+        822,
+        1533
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 2.294,
+      "size": [
+        563,
+        1524
+      ],
+      "removed_opaque_pixels": 14946,
+      "before_sha256": "0d2456785e338d045b81fa9e4e94881e810010f543c6f9f8156cd501b05b3039",
+      "status": "repaired",
+      "changed_alpha_pixels": 23024,
+      "after_sha256": "7e6c702b17cc7eb3d4ff9abc133ffc1b710bf63b107c8be58bc271ac803c1676",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_girl_02_turn.webp",
+      "source": "girls_turn_variants_10/loop2_girl_02_turn.png",
+      "source_sha256": "7438a4a73b8f7bf0f735461215acc66ca62e3a1e0eb6bbebcfd32b4f3358e58d",
+      "box": [
+        307,
+        14,
+        822,
+        1520
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.967,
+      "size": [
+        521,
+        1524
+      ],
+      "removed_opaque_pixels": 9956,
+      "before_sha256": "785f31d527a118ffafbb5dc9101facb9d3868c4412cc656beccc7c7de95c3b6f",
+      "status": "repaired",
+      "changed_alpha_pixels": 15936,
+      "after_sha256": "33b8726052cfa824d74e9de0609a11d4e5a47f25a5a99074cf2dd520a4e41f24",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_girl_03.webp",
+      "source": "valentine_girl_variations/画像素材/loop2_girl_03.png",
+      "source_sha256": "cbd035bb6e51cca441d40624fce3065107c0eb8ef8a1db4dda58fc35452b9772",
+      "box": [
+        363,
+        11,
+        715,
+        1514
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.384258,
+      "rgb_mae": 5.174,
+      "size": [
+        352,
+        1503
+      ],
+      "removed_opaque_pixels": 1340,
+      "before_sha256": "546c1bea633541fb952d6999899096f82cc6cf48b1a532003590c8ee3cb63b2a",
+      "status": "pending_source",
+      "reason": "Source silhouette differs from current asset"
+    },
+    {
+      "file": "loop2_girl_03_turn.webp",
+      "source": "girls_turn_variants_10/loop2_girl_03_turn.png",
+      "source_sha256": "b751d5c13d927aa2000c2cfc4bc84919a72b5a1817ec7a45d902b43c91f675cc",
+      "box": [
+        368,
+        12,
+        716,
+        1507
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 2.146,
+      "size": [
+        350,
+        1503
+      ],
+      "removed_opaque_pixels": 60,
+      "before_sha256": "64e6ef0b2ae2fbfbde14bc78be0051391920dd62cb65ee82cc03328490e1d63a",
+      "status": "repaired",
+      "changed_alpha_pixels": 183,
+      "after_sha256": "6b9aeb36cbc89a65edfaa1beff408b74d7f45c539bcaa5b293347ce307670595",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_girl_04.webp",
+      "source": "valentine_girl_variations/画像素材/loop2_girl_04.png",
+      "source_sha256": "88f5d715a9f35f60886eae772e064d42564fa34be402772ce6738c63903a754c",
+      "box": [
+        323,
+        4,
+        734,
+        1529
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.955,
+      "size": [
+        411,
+        1525
+      ],
+      "removed_opaque_pixels": 12517,
+      "before_sha256": "ac4f2a0786d6edfb9ebea0183576bd229cddf2010ed4846929c9e373d257b7a8",
+      "status": "repaired",
+      "changed_alpha_pixels": 18373,
+      "after_sha256": "4c9fa1b899e5b04d2ae4303e271a35688d519967b969636115310e4885d26345",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_girl_04_turn.webp",
+      "source": "girls_turn_variants_10/loop2_girl_04_turn.png",
+      "source_sha256": "929c4c122d40f38d815e67483c1f3de37ae1f582963a1023a808bb3a472b92f5",
+      "box": [
+        309,
+        5,
+        696,
+        1531
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 2.094,
+      "size": [
+        387,
+        1525
+      ],
+      "removed_opaque_pixels": 98,
+      "before_sha256": "0b2381b5615c0b9bc27ad4cf2b8349693da975db047b7d45c34b96a3a62b457f",
+      "status": "repaired",
+      "changed_alpha_pixels": 284,
+      "after_sha256": "aa70a1e6a9d6b24334c639b4ce5cfd0864473d65e9844e18fb8559af33ad4b5a",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_girl_05.webp",
+      "source": "valentine_girl_variations/画像素材/loop2_girl_05.png",
+      "source_sha256": "83c76ca189d96eebd420d683b63843ea325f443e9a87c85d6ceff1dee287fa3b",
+      "box": [
+        314,
+        9,
+        775,
+        1525
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 2.039,
+      "size": [
+        461,
+        1516
+      ],
+      "removed_opaque_pixels": 9066,
+      "before_sha256": "72501d9baa183fa279642c2d9c6d1c1040eff2ce313922c2d593319caa5b220f",
+      "status": "repaired",
+      "changed_alpha_pixels": 13517,
+      "after_sha256": "7e891d1ecbfb17659b44aae6d80aff9b97b1ce0167d742edafaded4e8cfe6952",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_girl_05_turn.webp",
+      "source": "girls_turn_variants_10/loop2_girl_05_turn.png",
+      "source_sha256": "ef6dd6a9e94633ed24e80618c77f2fb5158a52f1df20d8b1d485866ec7d4c844",
+      "box": [
+        258,
+        14,
+        724,
+        1532
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.991,
+      "size": [
+        465,
+        1516
+      ],
+      "removed_opaque_pixels": 12919,
+      "before_sha256": "d461f8e24e372e031cb9b053b61b0fd0eb8859992e26fc471e0a2bc13ee5f844",
+      "status": "repaired",
+      "changed_alpha_pixels": 19166,
+      "after_sha256": "6050cd8fbafc976c7468c66ebc7ba6d3061d7dcd421b554989da6beb75afe117",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_girl_06.webp",
+      "source": "girls_items_6/loop2_girl_06.png",
+      "source_sha256": "23747c256aaa108232089f3a29d7932b84b081bae8525f0d975e2df1af0c32cd",
+      "box": [
+        320,
+        9,
+        722,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 2.289,
+      "size": [
+        402,
+        1527
+      ],
+      "removed_opaque_pixels": 5872,
+      "before_sha256": "8531cdd321aa40c2f130726cbdb6a7de755edcc38e91228ba32b66c58da476ea",
+      "status": "repaired",
+      "changed_alpha_pixels": 8189,
+      "after_sha256": "ae4f9cd1725617d5ba97f639844db275bfad05f42b0151676bcf689bbcc2ffee",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_girl_06_turn.webp",
+      "source": "girls_turn_06_10_recovered/loop2_girl_06_turn.png",
+      "source_sha256": "ad448229bef0e785e8f55656c135e44a217972ea65d07d3ebb122a6523ea55d6",
+      "box": [
+        309,
+        10,
+        694,
+        1525
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 2.338,
+      "size": [
+        388,
+        1527
+      ],
+      "removed_opaque_pixels": 152,
+      "before_sha256": "338c3b3a8200d58498f74af666ec468b99b3e910373cf7ac72dead7c84f715f2",
+      "status": "repaired",
+      "changed_alpha_pixels": 449,
+      "after_sha256": "1fa270dc2db2237d5b411500b37e5eb673f5bb55d007ef45b0216ac6c8f50aed",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_girl_07.webp",
+      "source": "girls_items_6/loop2_girl_07.png",
+      "source_sha256": "4bb1abe61abbf19bd28fc09a595bb96a94a24a69f07eaa6c0cbcd59812bdbe2d",
+      "box": [
+        191,
+        4,
+        742,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 2.303,
+      "size": [
+        551,
+        1532
+      ],
+      "removed_opaque_pixels": 15414,
+      "before_sha256": "788df4b3051ab4cdb931c1799d179e173578c4261d6908230861e2419f50cc8f",
+      "status": "repaired",
+      "changed_alpha_pixels": 20632,
+      "after_sha256": "100b1adb73eb604794989928c29a471411c6f47ac01105dff7b2d689e9749d7f",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_girl_07_turn.webp",
+      "source": "girls_turn_06_10_recovered/loop2_girl_07_turn.png",
+      "source_sha256": "6462d97884a3b98541002fdd1649047f8cae514c3859c09417ec28494ce85586",
+      "box": [
+        250,
+        5,
+        756,
+        1511
+      ],
+      "mode": "resize",
+      "alpha_mae": 9.105251,
+      "rgb_mae": 18.361,
+      "size": [
+        507,
+        1532
+      ],
+      "removed_opaque_pixels": 22326,
+      "before_sha256": "61f479b9cb9e592cd9b6fab4f46abd7a405d2832e9261646222e29ec113a75f7",
+      "status": "pending_source",
+      "reason": "Source silhouette differs from current asset"
+    },
+    {
+      "file": "loop2_girl_08.webp",
+      "source": "girls_empty_hands_4/loop2_girl_08.png",
+      "source_sha256": "282df661199c36ba9f78693ac26432cf6e97e4934ec51e0d8289686445e07e16",
+      "box": [
+        311,
+        9,
+        714,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 2.256,
+      "size": [
+        403,
+        1527
+      ],
+      "removed_opaque_pixels": 8917,
+      "before_sha256": "5ccae70c967388af0735069dcb426151c3adbf0b5806130a7131021294df47ee",
+      "status": "repaired",
+      "changed_alpha_pixels": 12738,
+      "after_sha256": "39588b583911eb3ab9bc9c690787cfc2b467d093c149863de6d04241c753a541",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_girl_08_turn.webp",
+      "source": "girls_turn_06_10_recovered/loop2_girl_08_turn.png",
+      "source_sha256": "a33958f1038d459b39ea937d3637a0e12577e5180d99a6b677f2a75c44ad871e",
+      "box": [
+        250,
+        10,
+        708,
+        1521
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 2.086,
+      "size": [
+        463,
+        1527
+      ],
+      "removed_opaque_pixels": 602,
+      "before_sha256": "12e7f7b95a83ec4195ef753becdfb0256a6ef9efd407a3c580c8804454836a75",
+      "status": "repaired",
+      "changed_alpha_pixels": 1587,
+      "after_sha256": "ed4276c061da117c6bcbdb84b4ec2e328bacf433aae7ee4c391ea2f673b2b5ae",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_girl_09.webp",
+      "source": "girls_empty_hands_4/loop2_girl_09.png",
+      "source_sha256": "abedd70d4629f5da2906c15a633075ab988159c9c032415e6826de8abba5a0ce",
+      "box": [
+        252,
+        8,
+        833,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 2.183,
+      "size": [
+        581,
+        1528
+      ],
+      "removed_opaque_pixels": 17305,
+      "before_sha256": "56e51b14c503c5b23d999ebe26bf502ae704e21366f854df946db417a50e71be",
+      "status": "repaired",
+      "changed_alpha_pixels": 25017,
+      "after_sha256": "ed49899ecf8b7dac02fd568e9055dff1e100e3551a844a72bb3e00e7b7d13256",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_girl_09_turn.webp",
+      "source": "girls_turn_06_10_recovered/loop2_girl_09_turn.png",
+      "source_sha256": "dff325f4060c0bcc1867012c8d5c5889ea30bd2c65831e65ce5afa3f687f1ea0",
+      "box": [
+        203,
+        8,
+        781,
+        1531
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 2.063,
+      "size": [
+        580,
+        1528
+      ],
+      "removed_opaque_pixels": 13470,
+      "before_sha256": "adc9995a4f27faee338112d6d886fdce89495f1cbf3413505445778c6a2c5e57",
+      "status": "repaired",
+      "changed_alpha_pixels": 21541,
+      "after_sha256": "bbd5d83591f3697cc22c9c1574f7384ce9038ae3d34f869c07b8d595dfa9b5aa",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_girl_10.webp",
+      "source": "girls_items_6/loop2_girl_10.png",
+      "source_sha256": "d6ea3b3740e2dd2a0bf86640188de8bf1d0ea23fc454a3b3f58c55bdaa4c8a22",
+      "box": [
+        311,
+        6,
+        712,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 2.247,
+      "size": [
+        401,
+        1530
+      ],
+      "removed_opaque_pixels": 5546,
+      "before_sha256": "3e776ffc79bb4ade225feff10b73af9fb80dd862dad1807153a7d34cf71717f3",
+      "status": "repaired",
+      "changed_alpha_pixels": 8448,
+      "after_sha256": "4d74aff2a1fa4000f51e4719a7093e2dbdd9d47adb247aefa307d9ddacc2d78b",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_girl_10_turn.webp",
+      "source": "girls_turn_06_10_recovered/loop2_girl_10_turn.png",
+      "source_sha256": "c05882a298773e1e60b4d693d88fb29e5e3d552deb263d7b892fc19514c09412",
+      "box": [
+        307,
+        10,
+        701,
+        1529
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 2.288,
+      "size": [
+        397,
+        1530
+      ],
+      "removed_opaque_pixels": 757,
+      "before_sha256": "a4659aec29774e93a93293bc9de6c97f76d799b68986b04ce48cd48e0d6729ce",
+      "status": "repaired",
+      "changed_alpha_pixels": 1376,
+      "after_sha256": "45b9f7a9f7aa6f4294f481718106c36cf9c44b89ab2822cd34101c53378bda4c",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop2_player_back.webp",
+      "source": "valentine_player_uniforms_0915/loop2_player_back.png",
+      "source_sha256": "77b2db02416ba438c8e3a4590ee3919b3563b45de844a74909a99fca9c6bb494",
+      "box": [
+        6,
+        4,
+        1024,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.129,
+      "size": [
+        1018,
+        1532
+      ],
+      "removed_opaque_pixels": 5455,
+      "before_sha256": "0765e70d20af218a29d1834fbc94b02051b900264af03ec9aacd0f58b3854312",
+      "status": "repaired",
+      "changed_alpha_pixels": 7538,
+      "after_sha256": "aefe81b43899b7ec1fa5dba565354efea3a10fd186d6f8dbe6f8a2cb3da30cef",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop3_bust_player.webp",
+      "source": "valentine_player_uniforms_0915/loop3_bust_player.png",
+      "source_sha256": "27051aae57f2297d85159db0cabf4b6f9adec36e4816dfdc6bc44992fb8379b2",
+      "box": [
+        19,
+        12,
+        954,
+        1536
+      ],
+      "mode": "crop",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.522,
+      "size": [
+        935,
+        1235
+      ],
+      "removed_opaque_pixels": 22013,
+      "before_sha256": "49554a063fb01e11dde746970996b79946529fccad16a0d64a5c21761ed66390",
+      "status": "repaired",
+      "changed_alpha_pixels": 26147,
+      "after_sha256": "43180bc29f7a55ebf49a40f49e4f640f2ca2bf9791873d52844857cfe5dd52f3",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop3_girl_01.webp",
+      "source": "valentine_girl_variations/画像素材/loop3_girl_01.png",
+      "source_sha256": "d2cf238cc29e244d5cc6b237852b9393150cf709652cb1fbaed8910135a41c58",
+      "box": [
+        342,
+        15,
+        738,
+        1528
+      ],
+      "mode": "resize",
+      "alpha_mae": 3.619542,
+      "rgb_mae": 17.505,
+      "size": [
+        393,
+        1512
+      ],
+      "removed_opaque_pixels": 11729,
+      "before_sha256": "352152bad66770ce43418be2fbda5c6067e4bac3534ee7c5c71159f7d8f3e9ea",
+      "status": "pending_source",
+      "reason": "Source silhouette differs from current asset"
+    },
+    {
+      "file": "loop3_girl_01_turn.webp",
+      "source": "girls_turn_variants_10/loop3_girl_01_turn.png",
+      "source_sha256": "0ae281e76c060f3a1dd66fddeb40f8ee51f4fdc573572da8c4a8b23d8d8006ae",
+      "box": [
+        343,
+        15,
+        719,
+        1525
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.745,
+      "size": [
+        376,
+        1512
+      ],
+      "removed_opaque_pixels": 5947,
+      "before_sha256": "995f8c2aef60d76590b60c53849413ec5d56d3662e24c083644b38b67f429c63",
+      "status": "repaired",
+      "changed_alpha_pixels": 9730,
+      "after_sha256": "e8f2f310f2868d9415f178b6f793f7c4dd76ec5c6212e8833866db466d6e5363",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop3_girl_02.webp",
+      "source": "valentine_girl_variations/画像素材/loop3_girl_02.png",
+      "source_sha256": "9f7b2ba60ee200e51afb0a85566535a76b2dc2823a65f889a224489fc934d2a6",
+      "box": [
+        260,
+        9,
+        822,
+        1530
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.882,
+      "size": [
+        562,
+        1521
+      ],
+      "removed_opaque_pixels": 14971,
+      "before_sha256": "15c12a39c856b1928536ff11df9c4718059312739c8d330de48dc6dc5333bcd7",
+      "status": "repaired",
+      "changed_alpha_pixels": 22824,
+      "after_sha256": "0e60b15d11b4d8e3c1e40c145f58fd99425dc2cd14db8ad12eae386ffe07ecbb",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop3_girl_02_turn.webp",
+      "source": "girls_turn_variants_10/loop3_girl_02_turn.png",
+      "source_sha256": "0b4529e0e3154d6e598e37b4155a13b06c011fba3d044cd51aeadff22f655157",
+      "box": [
+        306,
+        13,
+        822,
+        1520
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.762,
+      "size": [
+        521,
+        1521
+      ],
+      "removed_opaque_pixels": 9931,
+      "before_sha256": "f0641e6e29190e8fe6ea7e890964a78f27c87ba4e0ec0f3040d73c4578c68ba8",
+      "status": "repaired",
+      "changed_alpha_pixels": 16064,
+      "after_sha256": "2c0498c95a531d63c07f7d57c1f64720a5e98a562032e174bd294e63b026391c",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop3_girl_03.webp",
+      "source": "valentine_girl_variations/画像素材/loop3_girl_03.png",
+      "source_sha256": "bc02a2808cd997635c357cbefebac7aae1ed7596c00ca9ee5d390c2a3d852bc3",
+      "box": [
+        368,
+        11,
+        719,
+        1515
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.394168,
+      "rgb_mae": 4.75,
+      "size": [
+        351,
+        1504
+      ],
+      "removed_opaque_pixels": 1446,
+      "before_sha256": "851b7c6281a394c655baf7b0b6230803c6339749616ce412620884bc1a40d493",
+      "status": "pending_source",
+      "reason": "Source silhouette differs from current asset"
+    },
+    {
+      "file": "loop3_girl_03_turn.webp",
+      "source": "girls_turn_variants_10/loop3_girl_03_turn.png",
+      "source_sha256": "2b87c3803789042b0e2c553aa2ac6cc1c35a0a1c9b18dac2cbae59c93ab1dadc",
+      "box": [
+        367,
+        12,
+        717,
+        1507
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.577,
+      "size": [
+        352,
+        1504
+      ],
+      "removed_opaque_pixels": 179,
+      "before_sha256": "e074bbfd5640cbd643b45bfae1cc4a93ce9b2f972906c03d556a0465e11d12bf",
+      "status": "repaired",
+      "changed_alpha_pixels": 555,
+      "after_sha256": "bdc2863a14a10eb5ac3a758cdd9a5058ead64b81932e97d61a84dc9622427426",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop3_girl_04.webp",
+      "source": "valentine_girl_variations/画像素材/loop3_girl_04.png",
+      "source_sha256": "adb88c50c4c42fffce3411af06bd8795ad406dab1ab6fb174da4035a8afd1924",
+      "box": [
+        323,
+        4,
+        730,
+        1531
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.615,
+      "size": [
+        407,
+        1527
+      ],
+      "removed_opaque_pixels": 11666,
+      "before_sha256": "224c140e9b638f9a4b3850d93b371545299d28707ef5f9b3b70297b0d2b55968",
+      "status": "repaired",
+      "changed_alpha_pixels": 16035,
+      "after_sha256": "275c1f1d12ef77b264f08ec572c13e162ea57fc3b7cd6d586b1dfb165fda52ed",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop3_girl_04_turn.webp",
+      "source": "girls_turn_variants_10/loop3_girl_04_turn.png",
+      "source_sha256": "7414059ad82c1b2b759d91ba30b77849154141d69717a90976f7c3d88a8e909a",
+      "box": [
+        309,
+        5,
+        697,
+        1531
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.519,
+      "size": [
+        388,
+        1527
+      ],
+      "removed_opaque_pixels": 100,
+      "before_sha256": "d8f0f2d425768cad8c2930e476fab2dd9eb1bd7026bafb608e639f363026e374",
+      "status": "repaired",
+      "changed_alpha_pixels": 232,
+      "after_sha256": "465ec6f41f20dd84bbc62e4d22e256558e36abcffd6b145d83c0bb46feadb3aa",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop3_girl_05.webp",
+      "source": "valentine_girl_variations/画像素材/loop3_girl_05.png",
+      "source_sha256": "3e77d88792ec977f7cb701f47c9e61de8425b213a26308941d179b1b24f4fb6a",
+      "box": [
+        314,
+        9,
+        776,
+        1529
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.726,
+      "size": [
+        462,
+        1520
+      ],
+      "removed_opaque_pixels": 9756,
+      "before_sha256": "c4d051e522935169f9484441069b1c015d51be0f06d9eda0bb835edc37d76171",
+      "status": "repaired",
+      "changed_alpha_pixels": 14848,
+      "after_sha256": "7ddbc69ba9f561bbdbaa1ce952f31d37640c8e65b8252d1c54303e9c8f8809e9",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop3_girl_05_turn.webp",
+      "source": "girls_turn_variants_10/loop3_girl_05_turn.png",
+      "source_sha256": "c600520431622c4adfae5673344d885673a9e4675159677688fdf47422cf3251",
+      "box": [
+        258,
+        13,
+        725,
+        1532
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.595,
+      "size": [
+        467,
+        1520
+      ],
+      "removed_opaque_pixels": 12793,
+      "before_sha256": "1432f5f999222e970e6fa2e1c00ecd2d49594b0ac15f5f1f2849fd4b9edd965b",
+      "status": "repaired",
+      "changed_alpha_pixels": 18831,
+      "after_sha256": "36f9f4badc6ea43c71aa44c58a6ec53a1c99e421738d390acc8fe0853f4ffbd8",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop3_girl_06.webp",
+      "source": "girls_items_6/loop3_girl_06.png",
+      "source_sha256": "e8327b7aadcdb9fec1f4fdfb7c06f790aa1aea61e93cfb0ad2e5909b94de4efb",
+      "box": [
+        321,
+        9,
+        721,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.833,
+      "size": [
+        400,
+        1527
+      ],
+      "removed_opaque_pixels": 6131,
+      "before_sha256": "d9ac0b857983eff1fd9911788ba861c92f32657954fdd2db18b041daf2a151fd",
+      "status": "repaired",
+      "changed_alpha_pixels": 8768,
+      "after_sha256": "f22e2e8dc3015f32462adfbf97359917eeb0fdd83144ced70f47005bcc8fffad",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop3_girl_06_turn.webp",
+      "source": "girls_turn_06_10_recovered/loop3_girl_06_turn.png",
+      "source_sha256": "e42758887a4dc99cb2cabb96e2f5b7b853cdc7c23586fac201470bdec95f1f74",
+      "box": [
+        300,
+        10,
+        689,
+        1531
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.659,
+      "size": [
+        391,
+        1527
+      ],
+      "removed_opaque_pixels": 150,
+      "before_sha256": "5fc9a4b615b1014f5bcc45a1440fda968ef55abb977c2ee328889ca2ef75f135",
+      "status": "repaired",
+      "changed_alpha_pixels": 454,
+      "after_sha256": "12f37d50aea7ea91275cd2e1f867c0c6d4235e646089beb6018a5718be71f073",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop3_girl_07.webp",
+      "source": "girls_items_6/loop3_girl_07.png",
+      "source_sha256": "e74af38f8002bfc8d2fc90823881f789e0dd4bc8f87a6d3577f7ef53bd982e24",
+      "box": [
+        191,
+        4,
+        740,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.958,
+      "size": [
+        549,
+        1532
+      ],
+      "removed_opaque_pixels": 18755,
+      "before_sha256": "6362c6d2ffabdacefef9409df07080da99f04b205b3eeb157803d111009c1e46",
+      "status": "repaired",
+      "changed_alpha_pixels": 24694,
+      "after_sha256": "77544acc8785fd618cc1f70a3f15b4e9a66d971500dbb798dc987fa92f6a0415",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop3_girl_07_turn.webp",
+      "source": "girls_turn_06_10_recovered/loop3_girl_07_turn.png",
+      "source_sha256": "61c1d6a7d46fc00536ebc6c873bd5f9fc1aefb14203065a3e15711695db891bb",
+      "box": [
+        250,
+        5,
+        771,
+        1518
+      ],
+      "mode": "resize",
+      "alpha_mae": 1.048148,
+      "rgb_mae": 5.854,
+      "size": [
+        527,
+        1532
+      ],
+      "removed_opaque_pixels": 12915,
+      "before_sha256": "df3a544e0883c6707ea711290807c11130eb9158ec60427f5696cbb618f82e9e",
+      "status": "pending_source",
+      "reason": "Source silhouette differs from current asset"
+    },
+    {
+      "file": "loop3_girl_08.webp",
+      "source": "girls_empty_hands_4/loop3_girl_08.png",
+      "source_sha256": "4b75880c2c63471880a4dbce0e76c547c6a6c93915380c7e9e52b54fc1fd66ba",
+      "box": [
+        312,
+        9,
+        710,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.699,
+      "size": [
+        398,
+        1527
+      ],
+      "removed_opaque_pixels": 9219,
+      "before_sha256": "5da1b37ab490047e0dc822833337fc7eaa6eb0c8cbce72b3195494a9acd9e7cc",
+      "status": "repaired",
+      "changed_alpha_pixels": 13241,
+      "after_sha256": "234e77822db4b1a76a133aa11f0a119de849c0c04e3a509a61c29ffc22f38e64",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop3_girl_08_turn.webp",
+      "source": "girls_turn_06_10_recovered/loop3_girl_08_turn.png",
+      "source_sha256": "d6335bd52647313a53a5815a83017d82a97b1d7635ed6e29f53eed9d1497acbb",
+      "box": [
+        249,
+        9,
+        704,
+        1527
+      ],
+      "mode": "resize",
+      "alpha_mae": 1.54916,
+      "rgb_mae": 5.802,
+      "size": [
+        457,
+        1527
+      ],
+      "removed_opaque_pixels": 1533,
+      "before_sha256": "33cab94835b6ff22a411f5de10c57aad2be9589d4f86516f65a3c9edc39afb78",
+      "status": "pending_source",
+      "reason": "Source silhouette differs from current asset"
+    },
+    {
+      "file": "loop3_girl_09.webp",
+      "source": "girls_empty_hands_4/loop3_girl_09.png",
+      "source_sha256": "c8a0e6f39fb66edbd1be6c781f65d351498490432c04ce06beeb2e10db34d2f0",
+      "box": [
+        252,
+        8,
+        833,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.754,
+      "size": [
+        581,
+        1528
+      ],
+      "removed_opaque_pixels": 17401,
+      "before_sha256": "e84f235bd74614988abd06acfc8d365d76a244e077dd14bdb9a68d19397fa29b",
+      "status": "repaired",
+      "changed_alpha_pixels": 25085,
+      "after_sha256": "dd2289b6a49ef602a2cb708e71705accb30b1f1fdce15141e88dbaa84665254a",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop3_girl_09_turn.webp",
+      "status": "pending_source",
+      "before_sha256": "62cada8a4ee921186b29d3f91f5177812775964b61609305554ff5e61d58fc92",
+      "reason": "Source ZIP truncated"
+    },
+    {
+      "file": "loop3_girl_10.webp",
+      "source": "girls_items_6/loop3_girl_10.png",
+      "source_sha256": "7ba10a4ef557fc29e7ec00cafeff3628e80db6991f00b1ba9c62882841b0a83c",
+      "box": [
+        312,
+        6,
+        719,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.795,
+      "size": [
+        407,
+        1530
+      ],
+      "removed_opaque_pixels": 5676,
+      "before_sha256": "002c335f9b9653576d4128bf7ac4bb94027560a99c8c1a03c492d764f137e2fd",
+      "status": "repaired",
+      "changed_alpha_pixels": 8471,
+      "after_sha256": "11152a6cbcc77c35dca27dc3848702bdd47564bcf3e2c254090344e519bdded3",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "loop3_girl_10_turn.webp",
+      "status": "pending_source",
+      "before_sha256": "87e34108417c24fe00d71d15647ecf77dccf573fe5cc92e0e3925968eee60f5c",
+      "reason": "Source ZIP truncated"
+    },
+    {
+      "file": "loop3_player_back.webp",
+      "source": "valentine_player_uniforms_0915/loop3_player_back.png",
+      "source_sha256": "7398d2e41d9ed99ffd8338418dd34ba3e583a44e62214260ade4c39e77180595",
+      "box": [
+        7,
+        4,
+        1024,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.124,
+      "size": [
+        1017,
+        1532
+      ],
+      "removed_opaque_pixels": 5989,
+      "before_sha256": "37ad24116d9a8c1925ecd2451e7608ece26572d170a195bc83ae42290c925c86",
+      "status": "repaired",
+      "changed_alpha_pixels": 8691,
+      "after_sha256": "df128c18de4993c05c0fb47d03fcf89b9f2deffe3e7389723b7df943e6cb0270",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/loop2_mob_boy_1.webp",
+      "source": "mobs_school_uniforms_12/loop2_mob_boy_1.png",
+      "source_sha256": "0b7af3b9fc3b11fee4d07b61fe22158d2f8b57af178b659e670d8e68724af21e",
+      "box": [
+        305,
+        34,
+        687,
+        1393
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.528,
+      "size": [
+        382,
+        1359
+      ],
+      "removed_opaque_pixels": 4717,
+      "before_sha256": "3441ca0eb50c9bd4919f24c527a8d111dee6677fbfd03a21582b6cca10d3ed35",
+      "status": "repaired",
+      "changed_alpha_pixels": 7684,
+      "after_sha256": "eb8831232933893d38349c371d05d93e2d55e74b3bed9bdc9299bcb62b078908",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/loop2_mob_boy_2.webp",
+      "source": "mobs_school_uniforms_12/loop2_mob_boy_2.png",
+      "source_sha256": "ff1d75df9cac1ef13ea7b4b70334a6cc0f1005d406a09b211aac7dcf18db49a0",
+      "box": [
+        293,
+        18,
+        688,
+        1447
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.454,
+      "size": [
+        395,
+        1429
+      ],
+      "removed_opaque_pixels": 9082,
+      "before_sha256": "9540930f95d7c2ebae9188779f8574fe9437b9b0b31e3d43d4b3e82233dca17b",
+      "status": "repaired",
+      "changed_alpha_pixels": 12377,
+      "after_sha256": "1fbd7b650127783a6a5b16a605971a342a7a52a83ef8f420878c5bd541dc6108",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/loop2_mob_boy_3.webp",
+      "source": "mobs_school_uniforms_12/loop2_mob_boy_3.png",
+      "source_sha256": "087cfafa68dce310fc7a67021b85bcbb1eea9c7d6b93b4af69c2abea19f72b23",
+      "box": [
+        305,
+        35,
+        705,
+        1497
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.46,
+      "size": [
+        400,
+        1462
+      ],
+      "removed_opaque_pixels": 4711,
+      "before_sha256": "d69647c51a1bbe624223229de70b827bad64667465333e4accceb1f9b574dc89",
+      "status": "repaired",
+      "changed_alpha_pixels": 7373,
+      "after_sha256": "2b8ced21453432ab4344d3d9e19af2b49be3b87ee3d96d5c272fe5675c2aa6d1",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/loop2_mob_girl_1.webp",
+      "source": "mobs_school_uniforms_12/loop2_mob_girl_1.png",
+      "source_sha256": "f26fb48dcdbac6886e8d332a3e6f2d2991bafe32c423d28ac1c97aa03f497db5",
+      "box": [
+        286,
+        61,
+        735,
+        1470
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.741,
+      "size": [
+        449,
+        1409
+      ],
+      "removed_opaque_pixels": 5808,
+      "before_sha256": "f9df3c582becfdef0faab62a99454f3e9dae3acd7ff6fd43eb618608f26f54f4",
+      "status": "repaired",
+      "changed_alpha_pixels": 9694,
+      "after_sha256": "5e34828cef9c4437f03149a1764ecf7f9d348c8d5a584a8bb46e7f8145bd7852",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/loop2_mob_girl_2.webp",
+      "source": "mobs_school_uniforms_12/loop2_mob_girl_2.png",
+      "source_sha256": "bb13ed25665dee351f7a14789c6421da996a19bef4cba4b092c9b58a5569667e",
+      "box": [
+        305,
+        64,
+        703,
+        1471
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.699,
+      "size": [
+        398,
+        1407
+      ],
+      "removed_opaque_pixels": 1205,
+      "before_sha256": "9aec7aa89f6cb66a23f43fbdbd483a141054ec02e0b454d5524e722d6a79beea",
+      "status": "repaired",
+      "changed_alpha_pixels": 2830,
+      "after_sha256": "02fc1512a5494e612a460790330f25fc2b64b9e660b4838fce78bb7f5b69d2ef",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/loop2_mob_girl_3.webp",
+      "source": "mobs_school_uniforms_12/loop2_mob_girl_3.png",
+      "source_sha256": "0896ae4b08ddb844d285194c591756c7124456c2534cec0a3aba84d683b1b5f4",
+      "box": [
+        316,
+        28,
+        743,
+        1493
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.78,
+      "size": [
+        427,
+        1465
+      ],
+      "removed_opaque_pixels": 1566,
+      "before_sha256": "43b2e6364f8e59a8d3921cf24969e3afa6f41a7fddf4ae6eeebea52ad0ad010b",
+      "status": "repaired",
+      "changed_alpha_pixels": 3105,
+      "after_sha256": "dfbafef1f1c1462c2f91f3fa94a638868be44e5dfdf30bd036bdc8606b599331",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/loop3_mob_boy_1.webp",
+      "source": "mobs_school_uniforms_12/loop3_mob_boy_1.png",
+      "source_sha256": "d56d1d50399445fd6f8dad929bc02815cd0ff595f5e0899bf1daeebed078b642",
+      "box": [
+        292,
+        27,
+        681,
+        1455
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.433,
+      "size": [
+        389,
+        1428
+      ],
+      "removed_opaque_pixels": 5617,
+      "before_sha256": "ba8b1f496e3990b15c559151c7b410b6454df21b2afa7dc1ae85b37893f9924a",
+      "status": "repaired",
+      "changed_alpha_pixels": 8580,
+      "after_sha256": "de0fb6fa34c350a9c843bdefe3533f30e9ba0ecfe008fdd307dc54191cc3112e",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/loop3_mob_boy_2.webp",
+      "source": "mobs_school_uniforms_12/loop3_mob_boy_2.png",
+      "source_sha256": "a2aab360f8d22cc425e776d8d2f8b42ef69374db235558626ac1e175ca5887c3",
+      "box": [
+        294,
+        23,
+        698,
+        1452
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.388,
+      "size": [
+        404,
+        1429
+      ],
+      "removed_opaque_pixels": 9756,
+      "before_sha256": "6a95301aaa1347c7d14e276abe1e0ca09b11285f429e689933008c37b115be1b",
+      "status": "repaired",
+      "changed_alpha_pixels": 13180,
+      "after_sha256": "e61323aab6af7d074ada40725129d5835243fe21ff8f0b52588ecfa700a9f0cb",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/loop3_mob_boy_3.webp",
+      "source": "mobs_school_uniforms_12/loop3_mob_boy_3.png",
+      "source_sha256": "6a4307c39e9ab014feef843a5d951d8fa03c5037b44d5d05df26fe82fdd4e8f4",
+      "box": [
+        310,
+        35,
+        700,
+        1464
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.477,
+      "size": [
+        390,
+        1429
+      ],
+      "removed_opaque_pixels": 5042,
+      "before_sha256": "a28dbe6878591b6e839724020058b6ae6cfdea0bbe6f078db4b21c25f35293a7",
+      "status": "repaired",
+      "changed_alpha_pixels": 8198,
+      "after_sha256": "bf5264f236a2640889ef9153edb9c0e5c748313e0def019e66dd86c37d3f50c8",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/loop3_mob_girl_1.webp",
+      "source": "mobs_school_uniforms_12/loop3_mob_girl_1.png",
+      "source_sha256": "72534362ee0d454149667decaabf772ab47566099310a78dd99b78923c7d6762",
+      "box": [
+        280,
+        28,
+        735,
+        1465
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.513,
+      "size": [
+        455,
+        1437
+      ],
+      "removed_opaque_pixels": 6463,
+      "before_sha256": "8206fe47af1d2e9055b95deab17c022191bf95119834802ea12979a7a3946351",
+      "status": "repaired",
+      "changed_alpha_pixels": 10815,
+      "after_sha256": "9342b768e74f1d35256edfe8947313f52b94702a3236bc6ae2a375570749de71",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/loop3_mob_girl_2.webp",
+      "source": "mobs_school_uniforms_12/loop3_mob_girl_2.png",
+      "source_sha256": "d13f1ac4086660747ff1c3e4eeb94062c41ff56df37289077f386ee5242e68df",
+      "box": [
+        313,
+        62,
+        716,
+        1450
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.375,
+      "size": [
+        403,
+        1388
+      ],
+      "removed_opaque_pixels": 1631,
+      "before_sha256": "4b7d9fd8192e8f2faae7943c3b8df7c7e81fe0f5b1fdf69304b1b7ba5890be5e",
+      "status": "repaired",
+      "changed_alpha_pixels": 3784,
+      "after_sha256": "c51d58f7ccf1d5a4ec5f834560b526fe39eb6003fbb0b83642a12056fec02f8c",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/loop3_mob_girl_3.webp",
+      "source": "mobs_school_uniforms_12/loop3_mob_girl_3.png",
+      "source_sha256": "4fd2e309607180da7432fc19d1269dfeb4ba6a82c3e6ef397fd6acb3483f15e6",
+      "box": [
+        313,
+        18,
+        732,
+        1500
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.496,
+      "size": [
+        419,
+        1482
+      ],
+      "removed_opaque_pixels": 1843,
+      "before_sha256": "3c9afcb4294b77d1922829b43c9ae1e4ce51f0abe1ecc7ad1006bee11c55a06b",
+      "status": "repaired",
+      "changed_alpha_pixels": 3793,
+      "after_sha256": "cd2ccb1ae9c9ede9d0fd352e27fff58f5165d7c4628e8b83b3e8ea45ad9fe9d0",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/mob_blackboard.webp",
+      "source": "mob_additional_0915/mob_blackboard.png",
+      "source_sha256": "e95c3f330644167f0036f79ee15fc0ff5bb05940d19728c2853be124cf75a41a",
+      "box": [
+        286,
+        36,
+        802,
+        1504
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.481,
+      "size": [
+        516,
+        1468
+      ],
+      "removed_opaque_pixels": 497,
+      "before_sha256": "d599f219ff20c7c11ec96a2ce01d4d5e05da9b2bef351e438541287b13ecc1ed",
+      "status": "repaired",
+      "changed_alpha_pixels": 1105,
+      "after_sha256": "a7f7585b9e071fff7c2f994cdf17364b7686a8041d46458ecb28cd03643b5e76",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/mob_boy_1.webp",
+      "source": "valentine_additional_assets/画像素材/mob_students_sheet.png",
+      "source_sha256": "a9099f193af64d866356c771214c67106f6330ff3f94a4ecb6bff935b4f2c682",
+      "box": [
+        6,
+        49,
+        260,
+        961
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.581,
+      "size": [
+        254,
+        912
+      ],
+      "removed_opaque_pixels": 2318,
+      "before_sha256": "0954b5f972023e7323cc481de8798b6ebae934006ba81dd026ccb7407dc7ce91",
+      "status": "repaired",
+      "changed_alpha_pixels": 4410,
+      "after_sha256": "ee111ca5785bd1e7b2b196c352054732269a5a19d9cb84686bbe51b7fc919c06",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/mob_boy_2.webp",
+      "source": "valentine_additional_assets/画像素材/mob_students_sheet.png",
+      "source_sha256": "a9099f193af64d866356c771214c67106f6330ff3f94a4ecb6bff935b4f2c682",
+      "box": [
+        267,
+        24,
+        523,
+        949
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.491,
+      "size": [
+        256,
+        925
+      ],
+      "removed_opaque_pixels": 4194,
+      "before_sha256": "4d465b39f442c54e6000ad6308109daf848b459296d614df61bc6453521b165e",
+      "status": "repaired",
+      "changed_alpha_pixels": 6277,
+      "after_sha256": "a3179e84b96a0d96c3dc12c25fd10670f259badfc285320d06372ae4c3b4f1c3",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/mob_boy_3.webp",
+      "source": "valentine_additional_assets/画像素材/mob_students_sheet.png",
+      "source_sha256": "a9099f193af64d866356c771214c67106f6330ff3f94a4ecb6bff935b4f2c682",
+      "box": [
+        528,
+        70,
+        775,
+        951
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.584,
+      "size": [
+        247,
+        881
+      ],
+      "removed_opaque_pixels": 1884,
+      "before_sha256": "a3dc2f1bbfdfc8afe41977415922680305bec2734013fabafb861fb8ae27d048",
+      "status": "repaired",
+      "changed_alpha_pixels": 3484,
+      "after_sha256": "0e26c9b0f2027d424fa3a111bf25cb37ca2438b1ede97a22b360ddfe1c9e5aab",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/mob_girl_1.webp",
+      "source": "valentine_additional_assets/画像素材/mob_students_sheet.png",
+      "source_sha256": "a9099f193af64d866356c771214c67106f6330ff3f94a4ecb6bff935b4f2c682",
+      "box": [
+        777,
+        117,
+        1034,
+        954
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.827,
+      "size": [
+        257,
+        837
+      ],
+      "removed_opaque_pixels": 1274,
+      "before_sha256": "5f56137ac8be87897ab3109d8f187acfbc5bda1b12bc4147778f8785c350cf34",
+      "status": "repaired",
+      "changed_alpha_pixels": 3157,
+      "after_sha256": "50c7aba1f8590a8e1e05152ac711cfc963e37a7a3f8f985908c87f88188892a1",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/mob_girl_2.webp",
+      "source": "valentine_additional_assets/画像素材/mob_students_sheet.png",
+      "source_sha256": "a9099f193af64d866356c771214c67106f6330ff3f94a4ecb6bff935b4f2c682",
+      "box": [
+        1046,
+        156,
+        1277,
+        952
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.704,
+      "size": [
+        231,
+        796
+      ],
+      "removed_opaque_pixels": 560,
+      "before_sha256": "7b13d1d4090d7232be8843d1f83c5518b24d02193a53d22738e436d2a12b5f2d",
+      "status": "repaired",
+      "changed_alpha_pixels": 1553,
+      "after_sha256": "ccd0a8c0060d62d64460879b091de0ad19d1697b7b799fc7749151bbc83b2333",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/mob_girl_3.webp",
+      "source": "valentine_additional_assets/画像素材/mob_students_sheet.png",
+      "source_sha256": "a9099f193af64d866356c771214c67106f6330ff3f94a4ecb6bff935b4f2c682",
+      "box": [
+        1282,
+        86,
+        1528,
+        954
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.764,
+      "size": [
+        246,
+        868
+      ],
+      "removed_opaque_pixels": 490,
+      "before_sha256": "37bafc0d4ce005cbece65a6663c4fb4c9519256cf33bdd1d70ddc065028f8b16",
+      "status": "repaired",
+      "changed_alpha_pixels": 1385,
+      "after_sha256": "e45bee4917d8148072b366aaba30d0a1f03a9e58ac30c78fb391b71efd3853af",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/mob_sit_1.webp",
+      "source": "mob_additional_0915/mob_sit_1.png",
+      "source_sha256": "fe0c5c439266584ded96eef7e2c47fe40f3925f3586ed7995b092ca304b5c6aa",
+      "box": [
+        90,
+        53,
+        988,
+        1493
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.778,
+      "size": [
+        898,
+        1440
+      ],
+      "removed_opaque_pixels": 142144,
+      "before_sha256": "4e574abe9373da959071a331fe93a5f4b4c75f7b70d4cbbc23522e376f883b3f",
+      "status": "repaired",
+      "changed_alpha_pixels": 160418,
+      "after_sha256": "c76430db83113de06490f22ddd0fba0d17e8b5b0d43cd1fa0d743d50a993fe4a",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/mob_sit_2.webp",
+      "source": "mob_additional_0915/mob_sit_2.png",
+      "source_sha256": "4a8d984315ed5904c3885509d6431dba4db9fca66cd7e3964253120ca8eb85e4",
+      "box": [
+        90,
+        64,
+        965,
+        1478
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.586,
+      "size": [
+        875,
+        1414
+      ],
+      "removed_opaque_pixels": 141108,
+      "before_sha256": "4882e5f7c605f9996d37ceb473bc69d2598031fad5445524de4cf683645b4e4e",
+      "status": "repaired",
+      "changed_alpha_pixels": 156343,
+      "after_sha256": "a0f0d831a1ad5fd7622afddc295c016d260184ef7ffdf01ec6c97905152762da",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/mob_sit_3.webp",
+      "source": "mob_additional_0915/mob_sit_3.png",
+      "source_sha256": "2328a377d2f4ce371dce40c8bd5de2b47ecf680f1bb1bac06285dfccd91484da",
+      "box": [
+        51,
+        102,
+        975,
+        1464
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.804,
+      "size": [
+        924,
+        1362
+      ],
+      "removed_opaque_pixels": 27473,
+      "before_sha256": "06b13258da41c6d75cddfd32a528603db49bb6e72edd83e73b7be1ed98452115",
+      "status": "repaired",
+      "changed_alpha_pixels": 34701,
+      "after_sha256": "19800870c5b80fbb22ccf695151e4d8108e4a08a4504446a80822ad1f8a44fce",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/mob_stand_1.webp",
+      "source": "mob_additional_0915/mob_stand_1.png",
+      "source_sha256": "b474dbfc77e3ba587a047d1d1910cc6ac4bd4b4d6dbfc3962663da13a9ae94f7",
+      "box": [
+        264,
+        29,
+        698,
+        1459
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.63,
+      "size": [
+        434,
+        1430
+      ],
+      "removed_opaque_pixels": 3940,
+      "before_sha256": "cd8104bb128ca3c14a11fa2d56bfa92c22faa481317d1438838cc25d907d30a7",
+      "status": "repaired",
+      "changed_alpha_pixels": 7625,
+      "after_sha256": "48b94e345e505ee7b0f954dddc699e99492b5042c4308494b848cb76995c067a",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/mob_stand_2.webp",
+      "source": "mob_additional_0915/mob_stand_2.png",
+      "source_sha256": "84398067d5a0a864348f574d0c22a03df95aadc84fc1e3b07af5d2ba38c70be0",
+      "box": [
+        317,
+        13,
+        721,
+        1502
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.56,
+      "size": [
+        404,
+        1489
+      ],
+      "removed_opaque_pixels": 5,
+      "before_sha256": "1e760809dc4824c88b53ae0bbedfe6e56b15155514ee0e42d0e07dfb17f750eb",
+      "status": "repaired",
+      "changed_alpha_pixels": 171,
+      "after_sha256": "4e440f7965fa63cd38aeea1353d9be91d9f5553cfd1c006ea18c0219b3eeaed6",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/mob_talk_a1.webp",
+      "source": "mob_additional_0915/mob_talk_a1.png",
+      "source_sha256": "9da221539ea3d2ee4a035515d141fbb5f45edcf247cfe5c45fe60b035d728083",
+      "box": [
+        270,
+        33,
+        821,
+        1508
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.664,
+      "size": [
+        551,
+        1475
+      ],
+      "removed_opaque_pixels": 1452,
+      "before_sha256": "c4b7148c211ae3f4fa6cc305c243a3c1322c18f0b15328a8de3c206c7fbdcaa5",
+      "status": "repaired",
+      "changed_alpha_pixels": 2768,
+      "after_sha256": "d3d170085164c51574e7f2e6582658f6ac41e288de0cfbc1fca2bb97e2f71b5c",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/mob_talk_a2.webp",
+      "source": "mob_additional_0915/mob_talk_a2.png",
+      "source_sha256": "53f644a6b041154b5dd0675bb6b68fb1164462de047349183ba9064998f2ae48",
+      "box": [
+        347,
+        24,
+        656,
+        1509
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.725,
+      "size": [
+        309,
+        1485
+      ],
+      "removed_opaque_pixels": 7907,
+      "before_sha256": "147eece2d1470a55c2ceb60f1d36836251c9a26d057a17286d3e94a442e27709",
+      "status": "repaired",
+      "changed_alpha_pixels": 10973,
+      "after_sha256": "1f3f2a5da2370277f59af641273bd5f1cb52b44c45fc14c81aef18491a0fd000",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/mob_talk_b1.webp",
+      "source": "mob_additional_0915/mob_talk_b1.png",
+      "source_sha256": "dc9639a401a8be025cf24439cbf9480e6f25b2b9e5895da30a0a7278c57505bb",
+      "box": [
+        345,
+        24,
+        688,
+        1497
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.484,
+      "size": [
+        343,
+        1473
+      ],
+      "removed_opaque_pixels": 4455,
+      "before_sha256": "0429d3271cbbacd9e9bbde6565fe3d6a8edd7625f28e6e1abae64f7499746faf",
+      "status": "repaired",
+      "changed_alpha_pixels": 7408,
+      "after_sha256": "98d4706d7832c365166abc61acce8c52ec3bc044951e6340aebfd0d42c5bbc14",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "mob/mob_talk_b2.webp",
+      "source": "mob_additional_0915/mob_talk_b2.png",
+      "source_sha256": "a4ac291f0410d97f50608d372fdd73da8c4e46a2b6a70fe887e2119e8487094f",
+      "box": [
+        200,
+        21,
+        753,
+        1515
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.822,
+      "size": [
+        553,
+        1494
+      ],
+      "removed_opaque_pixels": 11554,
+      "before_sha256": "335e3559ec395c9729f79a8484b493bcc1e3fb8f1d299563a6f8d673d2e592e0",
+      "status": "repaired",
+      "changed_alpha_pixels": 16921,
+      "after_sha256": "fabaf3e01a63f3dc94a667022982b43097a2b299ee9f97f013556ee570a77216",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "player.webp",
+      "source": "armband_corrected/player_left_arm.png",
+      "source_sha256": "9666cb356511cafde9385d74160bd65a3a0339271ab46ac9c34e4a4cd02bcf00",
+      "box": [
+        244,
+        8,
+        761,
+        1528
+      ],
+      "mode": "resize",
+      "alpha_mae": 9.043666,
+      "rgb_mae": 15.315,
+      "size": [
+        501,
+        1519
+      ],
+      "removed_opaque_pixels": 18639,
+      "before_sha256": "e41e0301f7d11e759876ed41bdd40f3c2a3b972787c77f1bbec3d44d3866d3ad",
+      "status": "visually_checked_unchanged",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    },
+    {
+      "file": "player_back.webp",
+      "source": "valentine_additional_assets/画像素材/player_back_over_shoulder.png",
+      "source_sha256": "9639df2ef6a8e997b86fada27b8a6d819efc9580f4e0e9d8e3d6b1a57ca7f5c7",
+      "box": [
+        6,
+        4,
+        1024,
+        1536
+      ],
+      "mode": "resize",
+      "alpha_mae": 0.0,
+      "rgb_mae": 1.033,
+      "size": [
+        1018,
+        1532
+      ],
+      "removed_opaque_pixels": 5445,
+      "before_sha256": "92fb06b6daf15306a53780c2fedfdb863927192b3fc7d9c9d98c9d9186d6a8f7",
+      "status": "repaired",
+      "changed_alpha_pixels": 7651,
+      "after_sha256": "4794a86b3bb549cf9b4e4cf9e24cf49c32a9952ce8c98623344c0ac75c3535b1",
+      "rgb_unchanged": true,
+      "dimensions_unchanged": true,
+      "compressed_color_stream_unchanged": true
+    },
+    {
+      "file": "teacher.webp",
+      "status": "visually_checked_unchanged",
+      "before_sha256": "b6f639cc9418e2c6a1b1c988714f090fc61c92e6969321d53c9f897a8eab75cb",
+      "reason": "No clear instance of the reported opaque background patch in visual inspection; original retained"
+    }
+  ]
+}
