@@ -24,7 +24,9 @@ const MAX_HEIGHT = 88;
 export function depthHeight(y: number): number {
   const t = (y - DEPTH.farY) / (DEPTH.nearY - DEPTH.farY);
   const h = DEPTH.farH + (DEPTH.nearH - DEPTH.farH) * t;
-  return Math.min(MAX_HEIGHT, Math.max(MIN_HEIGHT, h));
+  // 頭上に名前ラベル用の余白を残す。足元・床の位置を動かして縮めない。
+  const headroomLimit = Math.max(0, y - 8);
+  return Math.min(headroomLimit, MAX_HEIGHT, Math.max(MIN_HEIGHT, h));
 }
 
 /** 奥にいるほど空気遠近で霞ませる量（0〜1）。モブを背景になじませるのに使う。 */

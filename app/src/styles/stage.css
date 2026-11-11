@@ -4,7 +4,7 @@
   position: absolute;
   inset: 0;
   /* 子要素の数（エリアバーの有無）に左右されないよう、grid ではなく flex にする。
-     ゲームエリアだけが伸び縮みし、他は中身なりの高さになる。 */
+     観察エリアの広さを守るため、周囲のUIは固定枠に収める。 */
   display: flex;
   flex-direction: column;
   /* .app-frame の内側で、その枠の幅を文字サイズの基準にする。 */
@@ -85,7 +85,7 @@
   flex: 0 0 11.5cqh;
   min-height: 0;
   display: grid;
-  grid-template-columns: minmax(4.4em, 0.95fr) minmax(0, 3.1fr) minmax(4.5em, 0.9fr);
+  grid-template-columns: 6.6em minmax(0, 1fr) 4.8em;
   gap: 0.4em;
   padding: 0.45em 0.6em;
   background: linear-gradient(180deg, rgba(9, 15, 28, 0.95), rgba(6, 10, 20, 0.95));
@@ -107,6 +107,11 @@
   font-weight: 700;
 }
 
+.hud__box:first-child,
+.hud__box:last-child {
+  padding-inline: 0.35em;
+}
+
 .hud__score {
   font-size: 1.5em;
   font-weight: 900;
@@ -119,6 +124,8 @@
   font-size: 0.5em;
   margin-left: 0.15em;
 }
+
+.hud__score--compact { font-size: 1.3em; }
 
 .hud__combo {
   display: flex;
@@ -545,6 +552,11 @@
   /* 読みやすさ優先で約1.5倍にした。ステージの表示域を削りすぎない上限がこのあたり。 */
   font-size: calc(1.05em * var(--text-scale, 1));
   line-height: 1.45;
+}
+
+.speech__text:focus-visible {
+  outline: 1px solid var(--cyan);
+  outline-offset: -1px;
 }
 
 /* ---------- 下部ナビ ---------- */

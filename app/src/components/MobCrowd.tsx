@@ -53,6 +53,12 @@ const TALKING: MobSlot[] = [
   { x: 36, y: 58, src: ASSETS.mobTalkB1.src },
   { x: 52, y: 57, src: ASSETS.mobTalkB2.src },
 ];
+// 中庭では左右の観察対象の間に立ち話の2人を置く。
+// 主人公から退避させた左の生徒と、モブの顔が重ならないようにする。
+const COURTYARD_TALKING: MobSlot[] = [
+  { x: 58, y: 58, src: ASSETS.mobTalkB1.src },
+  { x: 68, y: 57, src: ASSETS.mobTalkB2.src },
+];
 const STANDING2: MobSlot[] = [
   { x: 30, y: 57, src: ASSETS.mobStand1.src },
   { x: 62, y: 55, src: ASSETS.mobStand2.src },
@@ -82,7 +88,7 @@ const SLOTS_BY_AREA: Record<string, MobSlot[]> = {
   classroom: CLASSROOM,
 
   l2Gate: OUTDOOR3,
-  l2Courtyard: TALKING,
+  l2Courtyard: COURTYARD_TALKING,
   l2Shop: SHOP_QUEUE,
   l2Stairs: INDOOR1,
   l2GymBack: STANDING2,
@@ -90,7 +96,7 @@ const SLOTS_BY_AREA: Record<string, MobSlot[]> = {
   l2Classroom: CLASSROOM,
 
   l3Gate: OUTDOOR3,
-  l3Courtyard: TALKING,
+  l3Courtyard: COURTYARD_TALKING,
   l3Shop: SHOP_QUEUE,
   l3Stairs: INDOOR1,
   l3GymBack: STANDING2,

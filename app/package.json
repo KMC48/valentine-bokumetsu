@@ -1,7 +1,7 @@
 {
   "name": "valentine-annihilation-committee",
   "private": true,
-  "version": "0.2.3",
+  "version": "0.2.4",
   "type": "module",
   "description": "バレンタイン撲滅委員会 - MVP",
   "scripts": {
