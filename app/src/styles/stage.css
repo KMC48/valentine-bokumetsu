@@ -4,15 +4,19 @@
   position: absolute;
   inset: 0;
   /* 子要素の数（エリアバーの有無）に左右されないよう、grid ではなく flex にする。
-     ゲームエリアだけが伸び縮みし、他は中身なりの高さになる。 */
+     観察エリアの広さを守るため、周囲のUIは固定枠に収める。 */
   display: flex;
   flex-direction: column;
+  /* .app-frame の内側で、その枠の幅を文字サイズの基準にする。 */
+  font-size: clamp(12px, 3.4cqw, 16px);
   background: var(--navy-900);
 }
 
 /* ---------- タイトルバー ---------- */
 
 .titlebar {
+  flex: 0 0 7cqh;
+  min-height: 0;
   display: flex;
   align-items: center;
   gap: 0.5em;
@@ -78,8 +82,10 @@
 /* ---------- HUD ---------- */
 
 .hud {
+  flex: 0 0 11.5cqh;
+  min-height: 0;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 6.6em minmax(0, 1fr) 4.8em;
   gap: 0.4em;
   padding: 0.45em 0.6em;
   background: linear-gradient(180deg, rgba(9, 15, 28, 0.95), rgba(6, 10, 20, 0.95));
@@ -87,6 +93,7 @@
 }
 
 .hud__box {
+  min-width: 0;
   padding: 0.35em 0.6em;
   border-radius: 8px;
   background: linear-gradient(180deg, rgba(23, 37, 60, 0.9), rgba(10, 17, 30, 0.9));
@@ -98,6 +105,11 @@
   letter-spacing: 0.14em;
   color: var(--muted);
   font-weight: 700;
+}
+
+.hud__box:first-child,
+.hud__box:last-child {
+  padding-inline: 0.35em;
 }
 
 .hud__score {
@@ -112,6 +124,8 @@
   font-size: 0.5em;
   margin-left: 0.15em;
 }
+
+.hud__score--compact { font-size: 1.3em; }
 
 .hud__combo {
   display: flex;
@@ -361,7 +375,7 @@
 
 .target__name {
   padding: 0.1em 0.45em;
-  font-size: 0.55em;
+  font-size: clamp(10px, 2.8cqw, 12px);
   font-weight: 700;
   border-radius: 999px;
   background: rgba(6, 10, 20, 0.78);
@@ -478,6 +492,10 @@
 /* ---------- 主人公セリフ ---------- */
 
 .speech {
+  /* 文字設定・長文によって観察エリアが縮まない固定枠。本文だけスクロールする。 */
+  flex: 0 0 14cqh;
+  min-height: 0;
+  overflow: hidden;
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 0.5em;
@@ -506,9 +524,15 @@
 
 .speech__body {
   min-width: 0;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .speech__name {
+  flex: 0 0 auto;
   display: inline-block;
   padding: 0.05em 0.6em;
   font-size: calc(0.82em * var(--text-scale, 1));
@@ -519,15 +543,27 @@
 }
 
 .speech__text {
+  min-height: 0;
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  overscroll-behavior: contain;
   margin-top: 0.25em;
   /* 読みやすさ優先で約1.5倍にした。ステージの表示域を削りすぎない上限がこのあたり。 */
   font-size: calc(1.05em * var(--text-scale, 1));
   line-height: 1.45;
 }
 
+.speech__text:focus-visible {
+  outline: 1px solid var(--cyan);
+  outline-offset: -1px;
+}
+
 /* ---------- 下部ナビ ---------- */
 
 .bottomnav {
+  flex: 0 0 44px;
+  min-height: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   background: linear-gradient(180deg, #0b1220, #060a14);
@@ -542,11 +578,13 @@
   font: inherit;
   font-size: 14px;
   font-weight: 700;
-  min-height: 48px;
-  padding: 0.45em 0;
+  min-height: 44px;
+  padding: 0;
   display: grid;
-  justify-items: center;
-  gap: 0.25em;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
   cursor: pointer;
 }
 
@@ -723,6 +761,8 @@
 /* ---------- 場所切り替えバー ---------- */
 
 .areabar {
+  flex: 0 0 5cqh;
+  min-height: 0;
   display: flex;
   align-items: center;
   gap: 0.5em;
@@ -825,7 +865,7 @@
   z-index: 150;
   left: -7%;
   bottom: -9%;
-  width: 47%;
+  width: 33%;
   pointer-events: none;
   filter: drop-shadow(0 -4px 18px rgba(0, 0, 0, 0.5));
 }
@@ -850,8 +890,8 @@
 
 .stage-instruction {
   position: absolute;
-  /* 主人公は左端から40%まで。枠ごと右へ逃がし、小画面では折り返す。 */
-  left: 45%; right: 3%; bottom: 2%; z-index: 120;
+  /* 観察対象を隠さないよう、元の短い案内を右下の一行に収める。 */
+  left: 40%; right: 3%; bottom: 2%; z-index: 120;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -860,7 +900,7 @@
   border-radius: 8px;
   background: rgba(5, 10, 22, 0.9);
   text-align: center;
-  font-size: 14px;
+  font-size: clamp(10px, 2.6cqw, 12px);
   line-height: 1.5;
   color: var(--text);
   pointer-events: none;

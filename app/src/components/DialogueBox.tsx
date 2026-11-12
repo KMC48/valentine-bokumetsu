@@ -1,6 +1,7 @@
 /** ステージ下部の主人公セリフ欄。表情とセリフは同じ状況判定から導く。 */
 
 import { playerFaceSrc, playerLine, playerMood, type VoiceContext } from "../game/playerVoice";
+import { useEffect, useRef } from "react";
 
 type Props = VoiceContext & {
   name?: string;
@@ -9,6 +10,11 @@ type Props = VoiceContext & {
 
 export function DialogueBox({ name = "俺", notice, ...ctx }: Props) {
   const mood = playerMood(ctx);
+  const line = notice ?? playerLine(ctx);
+  const textRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (textRef.current) textRef.current.scrollTop = 0;
+  }, [line]);
 
   return (
     <div className="speech">
@@ -18,7 +24,7 @@ export function DialogueBox({ name = "俺", notice, ...ctx }: Props) {
       </div>
       <div className="speech__body">
         <span className="speech__name">{name}</span>
-        <div className="speech__text" aria-live="polite">{notice ?? playerLine(ctx)}</div>
+        <div ref={textRef} className="speech__text" role="region" aria-live="polite" tabIndex={0} aria-label="主人公のセリフ">{line}</div>
       </div>
     </div>
   );

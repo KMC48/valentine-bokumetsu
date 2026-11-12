@@ -1,6 +1,9 @@
 /**
  * 女子生徒（通報ターゲット）データ。
  *
+ * position.x は床上の相対位置。画面左下の主人公・隣の生徒と重ならないよう、
+ * 描画後の位置・画像幅も sceneGeometry.test.ts で確認する。
+ *
  * ここに 1 件足すだけでターゲットが増える。image に "assets/characters/xxx.webp" を
  * 入れれば立ち絵に差し替わる。null の間は SVG プレースホルダーで描画される。
  *
@@ -40,7 +43,7 @@ const LOOP1: Student[] = [
     loop: 1,
     stage: "morning",
     area: "gate",
-    position: { x: 32, y: 66 },
+    position: { x: 36, y: 66 },
     suspicionLevel: 55,
     visibleItem: "pouch",
     hints: [
@@ -61,7 +64,7 @@ const LOOP1: Student[] = [
     loop: 1,
     stage: "morning",
     area: "entrance",
-    position: { x: 50, y: 50 },
+    position: { x: 90, y: 50 },
     suspicionLevel: 75,
     visibleItem: "sports_bag",
     isDecoy: true,
@@ -83,7 +86,7 @@ const LOOP1: Student[] = [
     loop: 1,
     stage: "morning",
     area: "entrance",
-    position: { x: 15, y: 80 },
+    position: { x: 40, y: 80 },
     suspicionLevel: 55,
     visibleItem: "book_case",
     hints: [
@@ -193,7 +196,7 @@ const LOOP1: Student[] = [
     loop: 1,
     stage: "afterSchool",
     area: "gymBack",
-    position: { x: 28, y: 72 },
+    position: { x: 37, y: 72 },
     suspicionLevel: 55,
     visibleItem: "paper_bag",
     hints: [
@@ -278,7 +281,7 @@ const LOOP1: Student[] = [
     loop: 1,
     stage: "afterSchool",
     area: "gateAfter",
-    position: { x: 18, y: 85 },
+    position: { x: 41, y: 85 },
     suspicionLevel: 75,
     visibleItem: "pouch",
     targetBoyId: "boy-takeda",
@@ -304,7 +307,7 @@ const LOOP2: Student[] = [
     loop: 2,
     stage: "morning",
     area: "l2Gate",
-    position: { x: 26, y: 69 },
+    position: { x: 37, y: 69 },
     suspicionLevel: 55,
     visibleItem: "book_case",
     hints: [
@@ -325,7 +328,7 @@ const LOOP2: Student[] = [
     loop: 2,
     stage: "morning",
     area: "l2Gate",
-    position: { x: 50, y: 55 },
+    position: { x: 76, y: 55 },
     suspicionLevel: 75,
     visibleItem: "decoy_bag",
     isDecoy: true,
@@ -347,7 +350,7 @@ const LOOP2: Student[] = [
     loop: 2,
     stage: "morning",
     area: "l2Courtyard",
-    position: { x: 87, y: 77 },
+    position: { x: 82, y: 77 },
     suspicionLevel: 35,
     visibleItem: "lunch_box",
     hints: [
@@ -368,7 +371,7 @@ const LOOP2: Student[] = [
     loop: 2,
     stage: "morning",
     area: "l2Courtyard",
-    position: { x: 17, y: 83 },
+    position: { x: 44, y: 83 },
     suspicionLevel: 55,
     visibleItem: "none",
     hints: [
@@ -412,7 +415,7 @@ const LOOP2: Student[] = [
     loop: 2,
     stage: "lunch",
     area: "l2Classroom",
-    position: { x: 23, y: 65 },
+    position: { x: 15, y: 65 },
     suspicionLevel: 75,
     visibleItem: "book_case",
     hints: [
@@ -476,7 +479,7 @@ const LOOP2: Student[] = [
     loop: 2,
     stage: "lunch",
     area: "l2Shop",
-    position: { x: 50, y: 50 },
+    position: { x: 30, y: 50 },
     suspicionLevel: 55,
     visibleItem: "lunch_box",
     hints: [
@@ -497,7 +500,7 @@ const LOOP2: Student[] = [
     loop: 2,
     stage: "lunch",
     area: "l2Stairs",
-    position: { x: 15, y: 80 },
+    position: { x: 37, y: 80 },
     suspicionLevel: 35,
     visibleItem: "pouch",
     hints: [
@@ -520,7 +523,7 @@ const LOOP2: Student[] = [
     loop: 2,
     stage: "afterSchool",
     area: "l2GymBack",
-    position: { x: 29, y: 74 },
+    position: { x: 38, y: 74 },
     suspicionLevel: 75,
     visibleItem: "sports_bag",
     hints: [
@@ -541,7 +544,7 @@ const LOOP2: Student[] = [
     loop: 2,
     stage: "afterSchool",
     area: "l2GymBack",
-    position: { x: 85, y: 58 },
+    position: { x: 78, y: 58 },
     suspicionLevel: 55,
     visibleItem: "decoy_bag",
     hints: [
@@ -584,7 +587,7 @@ const LOOP2: Student[] = [
     loop: 2,
     stage: "afterSchool",
     area: "l2Courtyard",
-    position: { x: 83, y: 83 },
+    position: { x: 76, y: 83 },
     suspicionLevel: 35,
     visibleItem: "none",
     hints: [
@@ -605,7 +608,7 @@ const LOOP2: Student[] = [
     loop: 2,
     stage: "afterSchool",
     area: "l2GymBack",
-    position: { x: 20, y: 88 },
+    position: { x: 82, y: 88 },
     suspicionLevel: 75,
     visibleItem: "lunch_box",
     targetBoyId: "boy-kirishima",
@@ -631,7 +634,7 @@ const LOOP3: Student[] = [
     loop: 3,
     stage: "morning",
     area: "l3Gate",
-    position: { x: 30, y: 66 },
+    position: { x: 39, y: 66 },
     suspicionLevel: 35,
     visibleItem: "none",
     hints: [
@@ -652,7 +655,7 @@ const LOOP3: Student[] = [
     loop: 3,
     stage: "morning",
     area: "l3Gate",
-    position: { x: 60, y: 53 },
+    position: { x: 95, y: 53 },
     suspicionLevel: 75,
     visibleItem: "book_case",
     isDecoy: true,
@@ -674,7 +677,7 @@ const LOOP3: Student[] = [
     loop: 3,
     stage: "morning",
     area: "l3Courtyard",
-    position: { x: 95, y: 74 },
+    position: { x: 88, y: 74 },
     suspicionLevel: 55,
     visibleItem: "none",
     hints: [
@@ -695,7 +698,7 @@ const LOOP3: Student[] = [
     loop: 3,
     stage: "morning",
     area: "l3Courtyard",
-    position: { x: 21, y: 83 },
+    position: { x: 43, y: 83 },
     suspicionLevel: 75,
     visibleItem: "none",
     hints: [
@@ -739,7 +742,7 @@ const LOOP3: Student[] = [
     loop: 3,
     stage: "lunch",
     area: "l3Classroom",
-    position: { x: 33, y: 66 },
+    position: { x: 18, y: 66 },
     suspicionLevel: 55,
     visibleItem: "none",
     hints: [
@@ -760,7 +763,7 @@ const LOOP3: Student[] = [
     loop: 3,
     stage: "lunch",
     area: "l3Classroom",
-    position: { x: 70, y: 78 },
+    position: { x: 91, y: 78 },
     suspicionLevel: 55,
     visibleItem: "lunch_box",
     isDecoy: true,
@@ -803,7 +806,7 @@ const LOOP3: Student[] = [
     loop: 3,
     stage: "lunch",
     area: "l3Shop",
-    position: { x: 62, y: 50 },
+    position: { x: 30, y: 50 },
     suspicionLevel: 75,
     visibleItem: "book_case",
     hints: [
@@ -848,7 +851,7 @@ const LOOP3: Student[] = [
     loop: 3,
     stage: "afterSchool",
     area: "l3GymBack",
-    position: { x: 33, y: 72 },
+    position: { x: 37, y: 72 },
     suspicionLevel: 55,
     visibleItem: "none",
     hints: [
@@ -869,7 +872,7 @@ const LOOP3: Student[] = [
     loop: 3,
     stage: "afterSchool",
     area: "l3GymBack",
-    position: { x: 99, y: 55 },
+    position: { x: 82, y: 55 },
     suspicionLevel: 35,
     visibleItem: "none",
     hints: [
@@ -912,7 +915,7 @@ const LOOP3: Student[] = [
     loop: 3,
     stage: "afterSchool",
     area: "l3Courtyard",
-    position: { x: 89, y: 80 },
+    position: { x: 82, y: 80 },
     suspicionLevel: 75,
     visibleItem: "none",
     hints: [
@@ -933,7 +936,7 @@ const LOOP3: Student[] = [
     loop: 3,
     stage: "afterSchool",
     area: "l3GymBack",
-    position: { x: 24, y: 88 },
+    position: { x: 82, y: 88 },
     suspicionLevel: 55,
     visibleItem: "none",
     targetBoyId: "boy-saionji",

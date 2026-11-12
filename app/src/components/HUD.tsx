@@ -50,7 +50,7 @@ export function HUD({ score, combo, place, mission, caught, total, timeRemaining
       <div className="hud">
         <div className="hud__box">
           <div className="hud__label">SCORE</div>
-          <div className="hud__score">
+          <div className={`hud__score${Math.abs(score) >= 10000 ? " hud__score--compact" : ""}`}>
             {score.toLocaleString()}
             <small>pt</small>
           </div>
