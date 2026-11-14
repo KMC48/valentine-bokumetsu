@@ -27,6 +27,15 @@ let masterGain: GainNode | null = null;
 let playing: Playing | null = null;
 /** ユーザー操作待ちで保留になっている曲。 */
 let pendingId: BgmId | null = null;
+/**
+ * いちばん最後に要求された曲。
+ *
+ * 曲の読み込みには時間がかかる。その間に画面が変わると、
+ * 古い要求の読み込みがあとから終わって、今の画面と違う曲を鳴らしてしまう
+ * （ストーリーを読み込み前にスキップすると、探索中もストーリーの曲が鳴り続けた）。
+ * 読み込みが終わった時点でこれと照合し、古い要求は捨てる。
+ */
+let wantedId: BgmId | null = null;
 let unlocked = false;
 /** ユーザー設定の音量（0〜1）。 */
 let userVolume = 0.6;
@@ -88,6 +97,7 @@ function stopWithFade(target: Playing, at: number, fade: number): void {
 /** 指定の曲を再生する。同じ曲が既に鳴っていれば何もしない（頭出しを避ける）。 */
 export async function playBgm(id: BgmId | null): Promise<void> {
   if (id === null) return;
+  wantedId = id;
 
   // 同じ曲なら継続。場所移動やモーダル開閉で曲が頭出しされないように。
   if (playing?.id === id) return;
@@ -104,8 +114,8 @@ export async function playBgm(id: BgmId | null): Promise<void> {
   const buffer = await loadBuffer(id);
   if (!buffer) return;
 
-  // 読み込んでいる間に別の曲へ切り替わっていたら破棄する。
-  if (pendingId !== null && pendingId !== id) return;
+  // 読み込んでいる間に別の曲が要求されていたら破棄する。
+  if (wantedId !== id) return;
   if (playing?.id === id) return;
 
   const track = BGM[id];
@@ -136,6 +146,9 @@ export async function playBgm(id: BgmId | null): Promise<void> {
 
 /** BGMを止める。 */
 export function stopBgm(): void {
+  // 読み込み中の曲が、止めたあとで鳴り出さないようにする。
+  wantedId = null;
+  pendingId = null;
   if (!playing || !ctx) return;
   stopWithFade(playing, ctx.currentTime, 0.3);
   playing = null;
