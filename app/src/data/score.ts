@@ -25,9 +25,17 @@ export const COMBO_TIERS: ReadonlyArray<{ threshold: number; multiplier: number 
   { threshold: 1, multiplier: 1.0 },
 ];
 
-/** ランク基準（以上）。降順に評価される。 */
+/**
+ * ランク基準（以上）。降順に評価される。
+ *
+ * Sは「チョコを全部押さえ、誤認通報がゼロなら、通報の順番に関係なく必ず届く」点にしてある。
+ * 1校あたりのチョコは10件（友チョコ6・本命3・告白直前1）で、
+ * 全部押さえて誤認ゼロのときの得点は、順番しだいで 4,220〜4,870 になる。
+ * 以前の 5,000 は最高点の 4,870 より高く、どう遊んでもSに届かなかった。
+ * 生徒や点数を変えたら、この値も見直すこと（score.test.ts が届くかどうかを確かめている）。
+ */
 export const RANK_THRESHOLDS: ReadonlyArray<{ rank: Rank; min: number }> = [
-  { rank: "S", min: 5000 },
+  { rank: "S", min: 4200 },
   { rank: "A", min: 3500 },
   { rank: "B", min: 2500 },
   { rank: "C", min: 1500 },

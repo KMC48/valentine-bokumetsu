@@ -35,6 +35,21 @@ export function selectEnding(stats: RunStats): EndingDef {
       ],
     };
   }
+  // チョコを全部押さえたのに B・C になるのは、誤認通報で点を失ったときだけ。
+  // 「チョコが残った」「女子生徒の勝ち」と語る通常の結末は、撲滅率100%の成績と食い違うので使わない。
+  const everythingSeized = stats.annihilationRate >= 1;
+  if (rank === "C" && everythingSeized && stats.falseReports >= 3) {
+    // 誤認の多さを叱られる結末（Dランクと同じ話）を、ランク表示は C のまま見せる。
+    return { ...ENDINGS.find((e) => e.rank === "D")!, rank: "C" };
+  }
+  if (rank === "B" && everythingSeized && stats.falseReports > 0) {
+    return { ...ending, lines: [
+      { speaker: "", text: "校内に持ち込まれたチョコは、すべて押収された。" },
+      { speaker: "", text: `だが報告書には、誤認通報が${stats.falseReports}件、消えずに残っていた。` },
+      { speaker: "俺", text: "……全部押さえても、これでは胸を張れないか。" },
+      ...ending.lines.slice(3),
+    ] };
+  }
   if (rank === "C") {
     return { ...ending, lines: ending.lines.map((line, i) => i === 3
       ? { speaker: "俺", text: stats.falseReports > 0

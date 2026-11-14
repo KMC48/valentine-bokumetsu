@@ -50,8 +50,8 @@ describe("コンボ", () => {
 
 describe("ランク", () => {
   it("しきい値ごとに判定される", () => {
-    expect(rankFor(5000)).toBe("S");
-    expect(rankFor(4999)).toBe("A");
+    expect(rankFor(4200)).toBe("S");
+    expect(rankFor(4199)).toBe("A");
     expect(rankFor(3500)).toBe("A");
     expect(rankFor(2500)).toBe("B");
     expect(rankFor(1500)).toBe("C");
