@@ -1,0 +1,98 @@
+{
+  "before": "802237167e0de81cbaadd583ad9b791c596b7542",
+  "after": "427e09e68256cb72330ae7b8f7eb654993fdf502",
+  "comparison": "Both commits rebuilt and captured with identical browser, fonts, viewport, fixture, and clock. Not raw pixel diff against original Windows captures.",
+  "images": [
+    {
+      "file": "1_タイトル.png",
+      "replaced": false,
+      "controlledComparisonChangedPixels": 0,
+      "controlledComparisonPercent": 0.0,
+      "differenceBounds": null
+    },
+    {
+      "file": "2_校門で生徒を観察.png",
+      "replaced": true,
+      "controlledComparisonChangedPixels": 2132766,
+      "controlledComparisonPercent": 59.1312,
+      "differenceBounds": [
+        0,
+        750,
+        1290,
+        2427
+      ]
+    },
+    {
+      "file": "3_観察して見抜く.png",
+      "replaced": true,
+      "controlledComparisonChangedPixels": 1217258,
+      "controlledComparisonPercent": 33.7486,
+      "differenceBounds": [
+        0,
+        735,
+        1290,
+        2434
+      ]
+    },
+    {
+      "file": "4_教室と机の中.png",
+      "replaced": true,
+      "controlledComparisonChangedPixels": 2115818,
+      "controlledComparisonPercent": 58.6613,
+      "differenceBounds": [
+        0,
+        750,
+        1290,
+        2427
+      ]
+    },
+    {
+      "file": "5_2周目_私立聖蘭学院.png",
+      "replaced": true,
+      "controlledComparisonChangedPixels": 2135686,
+      "controlledComparisonPercent": 59.2121,
+      "differenceBounds": [
+        0,
+        750,
+        1290,
+        2427
+      ]
+    },
+    {
+      "file": "6_3周目_白鷺台学園.png",
+      "replaced": true,
+      "controlledComparisonChangedPixels": 2132770,
+      "controlledComparisonPercent": 59.1313,
+      "differenceBounds": [
+        0,
+        750,
+        1290,
+        2427
+      ]
+    },
+    {
+      "file": "7_放課後.png",
+      "replaced": true,
+      "controlledComparisonChangedPixels": 2133768,
+      "controlledComparisonPercent": 59.1589,
+      "differenceBounds": [
+        0,
+        750,
+        1290,
+        2427
+      ]
+    },
+    {
+      "file": "8_ストーリー.png",
+      "replaced": true,
+      "controlledComparisonChangedPixels": 446734,
+      "controlledComparisonPercent": 12.3857,
+      "differenceBounds": [
+        30,
+        2040,
+        1260,
+        2499
+      ]
+    }
+  ]
+}

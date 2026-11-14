@@ -1,0 +1,127 @@
+{
+  "sourceCommit": "427e09e68256cb72330ae7b8f7eb654993fdf502",
+  "physicalDeviceOrSimulatorVerified": false,
+  "appStoreUploaded": false,
+  "images": [
+    {
+      "file": "1_タイトル.png",
+      "size": [
+        1290,
+        2796
+      ],
+      "mode": "RGB",
+      "pngBitDepth": 8,
+      "pngColorType": 2,
+      "hasAlpha": false,
+      "bytes": 2470721,
+      "sha256": "3f27db96e23ff70642bae438072ae18c9a5b9d1b0e445f2f54f8e8c8e440ff38",
+      "originalSha256": "3f27db96e23ff70642bae438072ae18c9a5b9d1b0e445f2f54f8e8c8e440ff38",
+      "disposition": "retained-original"
+    },
+    {
+      "file": "2_校門で生徒を観察.png",
+      "size": [
+        1290,
+        2796
+      ],
+      "mode": "RGB",
+      "pngBitDepth": 8,
+      "pngColorType": 2,
+      "hasAlpha": false,
+      "bytes": 3824638,
+      "sha256": "7be77a12df676e3d6456aba4b70f1fbaa40f05f099b14cdac1d17299981e4d6b",
+      "originalSha256": "6489103c541a8b7bc80b6e55374180443f839c18b8d4a401dc7e4d85e863a3c6",
+      "disposition": "updated-browser-reproduction"
+    },
+    {
+      "file": "3_観察して見抜く.png",
+      "size": [
+        1290,
+        2796
+      ],
+      "mode": "RGB",
+      "pngBitDepth": 8,
+      "pngColorType": 2,
+      "hasAlpha": false,
+      "bytes": 1076189,
+      "sha256": "41766cb4293e2fb5d5d45c7cf03b5d1695cecd6254343262e2a88ebc0c4f46bf",
+      "originalSha256": "07797848b04275730327a5de0f85612a341a59c07e89620109d92989250f8b60",
+      "disposition": "updated-browser-reproduction"
+    },
+    {
+      "file": "4_教室と机の中.png",
+      "size": [
+        1290,
+        2796
+      ],
+      "mode": "RGB",
+      "pngBitDepth": 8,
+      "pngColorType": 2,
+      "hasAlpha": false,
+      "bytes": 3058106,
+      "sha256": "0385f51c50c43b2e7990d6e7ebef65f342670e2c3dc12d8ea2ec8b9eb98d3d84",
+      "originalSha256": "0dd62d12863abcbf05bbe9fe472db7135604d5ac5d9531552f24da45bfc6fff1",
+      "disposition": "updated-browser-reproduction"
+    },
+    {
+      "file": "5_2周目_私立聖蘭学院.png",
+      "size": [
+        1290,
+        2796
+      ],
+      "mode": "RGB",
+      "pngBitDepth": 8,
+      "pngColorType": 2,
+      "hasAlpha": false,
+      "bytes": 3938733,
+      "sha256": "469b607d6f128e84fa72768881cde0b7d38208ceec943b1cb1894dcba644c4e5",
+      "originalSha256": "c198368c9d8036914e64802383855b22fc7b86162d5832cb4af48d6857e0d47f",
+      "disposition": "updated-browser-reproduction"
+    },
+    {
+      "file": "6_3周目_白鷺台学園.png",
+      "size": [
+        1290,
+        2796
+      ],
+      "mode": "RGB",
+      "pngBitDepth": 8,
+      "pngColorType": 2,
+      "hasAlpha": false,
+      "bytes": 3405697,
+      "sha256": "3325d432aada6088d3e6ae2fc20974f956feb71b9158370c7c9bd1b1654af104",
+      "originalSha256": "52a58dd819e2c3d454b6ea26614790b253eadf56a8136bc70e27e4105137e850",
+      "disposition": "updated-browser-reproduction"
+    },
+    {
+      "file": "7_放課後.png",
+      "size": [
+        1290,
+        2796
+      ],
+      "mode": "RGB",
+      "pngBitDepth": 8,
+      "pngColorType": 2,
+      "hasAlpha": false,
+      "bytes": 3757812,
+      "sha256": "af861ff568d47d282e3b9eee28471bf091f165f65eb10cae13de9bdb512e7b17",
+      "originalSha256": "88635d798eb7307eb971a12025b5bda6784c2270705e64f886866941b75e89d9",
+      "disposition": "updated-browser-reproduction"
+    },
+    {
+      "file": "8_ストーリー.png",
+      "size": [
+        1290,
+        2796
+      ],
+      "mode": "RGB",
+      "pngBitDepth": 8,
+      "pngColorType": 2,
+      "hasAlpha": false,
+      "bytes": 4447586,
+      "sha256": "af7ee1f53fe8ef5dbfb9774a587d235c8acc4f1d82068cc54031dcc429579093",
+      "originalSha256": "9d6ddb308da110c631a3b8bb14428bdac9b8a413fb56f74c1385c8df3aec47bf",
+      "disposition": "updated-browser-reproduction"
+    }
+  ]
+}
