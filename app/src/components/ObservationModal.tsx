@@ -51,7 +51,7 @@ export function ObservationModal({
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal" role="dialog" aria-modal="true" aria-label={`${student.name}を観察`} onClick={(e) => e.stopPropagation()}>
+      <div className="modal observe-modal" role="dialog" aria-modal="true" aria-label={`${student.name}を観察`} onClick={(e) => e.stopPropagation()}>
         <div className="modal__header">
           {/* 「いま見定めている」という主人公の表情。
               観察中はモーダルが画面下のセリフ欄を覆ってしまうので、ここに出す。 */}
@@ -65,6 +65,9 @@ export function ObservationModal({
           </button>
         </div>
 
+        {/* 読む部分だけをスクロールさせ、判断のボタンは常に画面内に置く。
+            （長い推理や大きい文字設定でも、スワイプせずに通報・見送りを押せるように） */}
+        <div className="observe__scroll">
         <div className="observe__body">
           <div className="observe__portrait">
             {student.image ? (
@@ -97,15 +100,17 @@ export function ObservationModal({
               <span className="observe__level-note">俺の第一印象。証拠ではない。</span>
             </div>
 
-            {student.dialogue?.[0] && <div className="observe__quote">「{student.dialogue[0]}」</div>}
           </div>
         </div>
+
+        {/* セリフは横幅いっぱいに出す（右の狭い列に入れると行数が増え、ボタンまで届かなくなる）。 */}
+        {student.dialogue?.[0] && <div className="observe__quote">「{student.dialogue[0]}」</div>}
 
         <div className="thought" aria-live="polite">
           <span className="thought__speaker">俺の推理</span>
           <p>{hints.join("")}</p>
         </div>
-        {hidden > 0 && <p className="observe__note">もう少し近くで見れば、何か分かるかもしれない……。</p>}
+        {hidden > 0 && <p className="observe__note observe__note--tight">もう少し近くで見れば、何か分かるかもしれない……。</p>}
 
         {(hidden > 0 || binocularUses < 2) && (
           <BinocularButton
@@ -116,15 +121,19 @@ export function ObservationModal({
           />
         )}
 
-        <p className="observe__note">迷ったら保留。見送ると、この生徒の調査は終了する。</p>
-        <button type="button" className="btn btn--ghost observe__hold" onClick={onClose}>保留して戻る</button>
-        <div className="observe__actions">
-          <button type="button" className="btn btn--ghost" onClick={() => onPass(student.id)}>
-            見送る
-          </button>
-          <button type="button" className="btn btn--primary" onClick={() => onReport(student.id)}>
-            通報する
-          </button>
+        </div>
+
+        <div className="observe__footer">
+          <p className="observe__note">迷ったら保留。見送ると、この生徒の調査は終了する。</p>
+          <div className="observe__actions">
+            <button type="button" className="btn btn--ghost observe__hold" onClick={onClose} aria-label="保留して戻る">保留</button>
+            <button type="button" className="btn btn--ghost" onClick={() => onPass(student.id)}>
+              見送る
+            </button>
+            <button type="button" className="btn btn--primary" onClick={() => onReport(student.id)}>
+              通報する
+            </button>
+          </div>
         </div>
       </div>
     </div>

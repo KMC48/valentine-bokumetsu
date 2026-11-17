@@ -114,9 +114,18 @@ function mobIndexFor(areaId: string, slot: number): number {
   return (hash + slot * 3) % 6;
 }
 
+/** その場所に出すモブの画像。描画と先読みで同じ選び方を使う。 */
+function mobSrc(slot: MobSlot, areaId: string, loop: LoopId, i: number): string {
+  return slot.src ?? WALKING[loop][mobIndexFor(areaId, i)]!;
+}
+
+/** その場所に出るモブの画像の一覧（先読み用）。 */
+export function mobSourcesFor(areaId: string, loop: LoopId): string[] {
+  return (SLOTS_BY_AREA[areaId] ?? []).map((slot, i) => mobSrc(slot, areaId, loop, i));
+}
+
 export function MobCrowd({ areaId, loop }: { areaId: string; loop: LoopId }) {
   const slots = SLOTS_BY_AREA[areaId] ?? [];
-  const walking = WALKING[loop];
   if (slots.length === 0) return null;
 
   return (
@@ -125,7 +134,7 @@ export function MobCrowd({ areaId, loop }: { areaId: string; loop: LoopId }) {
         <img
           key={i}
           className="mob"
-          src={slot.src ?? walking[mobIndexFor(areaId, i)]}
+          src={mobSrc(slot, areaId, loop, i)}
           alt=""
           style={{
             left: `${slot.x}%`,

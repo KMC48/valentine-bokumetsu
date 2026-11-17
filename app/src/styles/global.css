@@ -154,3 +154,22 @@ body {
 .center {
   text-align: center;
 }
+
+/*
+ * 文章の最後の行が「ぞ。」のように1文字だけ残らないよう、改行位置を整える。
+ * - auto-phrase：文節の切れ目で改行する（Chrome・Edge）。「よさそうだぞ。」がまとまって次の行へ送られる。
+ * - pretty：最後の数行を見直して、短すぎる最終行を避ける（Chrome・Edge・Safari 26 以降）。
+ * - pretty を知らない古い Safari では、手前の balance（行の長さを揃える）が効く。
+ */
+.modal p,
+.modal li,
+.modal summary,
+.help-feedback,
+.thought p,
+.speech__text,
+.story-screen__text,
+.observe__quote {
+  word-break: auto-phrase;
+  text-wrap: balance;
+  text-wrap: pretty;
+}

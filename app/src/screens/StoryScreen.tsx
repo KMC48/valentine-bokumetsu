@@ -7,6 +7,7 @@ import { getStory } from "../data/stories";
 import { useGameStore } from "../store/gameStore";
 import type { LoopId, StageId, StoryScene } from "../types/game";
 import { playerBustSrc } from "../game/playerVoice";
+import { preloadStage } from "../game/preload";
 
 /** ストーリーのスロット→対応ステージ（背景選択・gameStore.finishStory と揃える）。 */
 function stageForSlot(slot: StoryScene["slot"]): StageId {
@@ -46,6 +47,11 @@ export function StoryScreen() {
   useEffect(() => {
     setIndex(0);
   }, [scene?.id]);
+
+  // ストーリーを読んでいる間に、次のステージの画像を読み込んでおく（場所移動で絵が遅れないように）。
+  useEffect(() => {
+    preloadStage(loop, stageForSlot(storySlot));
+  }, [loop, storySlot]);
 
   if (!scene || scene.lines.length === 0) {
     // データが無くても進行を止めない。
