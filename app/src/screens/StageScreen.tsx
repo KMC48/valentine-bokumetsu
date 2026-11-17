@@ -7,6 +7,7 @@ import { DebugPanel } from "../components/DebugPanel";
 import { DeskConfirmModal, DeskResultModal } from "../components/DeskModals";
 import { DeskTarget } from "../components/DeskTarget";
 import { playerBackSrc } from "../game/playerVoice";
+import { preloadStage } from "../game/preload";
 import { DialogueBox } from "../components/DialogueBox";
 import { HUD } from "../components/HUD";
 import { ObservationModal } from "../components/ObservationModal";
@@ -67,6 +68,11 @@ export function StageScreen() {
       setPaused("hidden", false);
     };
   }, [setPaused]);
+
+  // ストーリーを飛ばして入った場合にも、このステージの全場所の画像を読み込んでおく。
+  useEffect(() => {
+    preloadStage(loop, stage);
+  }, [loop, stage]);
 
   // タイマー。観察中・結果表示中は store 側で加算が止まる。
   useEffect(() => {

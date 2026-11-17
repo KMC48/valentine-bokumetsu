@@ -537,7 +537,43 @@
 .observe__note { margin: 0.65em 0; }
 .observe__meta { min-width: 0; }
 .chip { font-size: 12px; }
-.observe__hold { width: 100%; }
+/* 観察モーダル：読む部分だけをスクロールし、判断のボタンは下に固定する。 */
+.observe-modal {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* 周りの余白（overlay の padding）の内側いっぱいまで使う。 */
+  max-height: 100%;
+  padding-bottom: 0.7em;
+}
+.observe__scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.observe__footer {
+  flex: none;
+  padding-top: 0.5em;
+  border-top: 1px solid rgba(126, 182, 255, 0.2);
+}
+.observe__footer .observe__note { margin: 0 0 0.45em; }
+.observe__footer .observe__actions {
+  grid-template-columns: 0.8fr 1fr 1.4fr;
+  margin-top: 0;
+}
+.observe-modal .thought { margin: 0.5em 0; }
+.observe-modal .observe__body { padding: 0.55em 0 0.45em; }
+.observe-modal .observe__quote { margin-top: 0.1em; }
+.observe-modal .observe__note--tight { margin: -0.2em 0 0; }
+.observe-modal .binocular { margin-top: 0.45em; padding: 0.35em 0.55em; }
+.observe-modal .binocular__btn { width: 3em; height: 3em; }
+/* 文字の大きさ（17px以上）は保ったまま、行間と上部の余白を詰める。 */
+.observe-modal .thought { line-height: 1.6; padding: 0.6em 0.7em; }
+.observe-modal .modal__header { padding-bottom: 0.35em; }
+.observe-modal .modal__face { width: 2.2em; height: 2.2em; }
+.observe-modal .observe__body { grid-template-columns: 4.8em 1fr; gap: 0.6em; }
+.observe-modal .observe__meta { gap: 0.3em; }
 .modal button { min-height: 44px; }
 .modal__close { min-width: 44px; font-size: 22px; }
 .result-modal__teacher { color: var(--text); font-weight: 700; margin: 0.25em 0; }
